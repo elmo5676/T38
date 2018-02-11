@@ -1,0 +1,159 @@
+﻿<html>
+<!--
+/******************************************************************************
+* NCI Information Systems, Inc.                                               *
+*******************************************************************************
+* Module: results.html                                                        *
+* Date:   2013-11-26                                                          *
+* Author: Jeff Peters                                                         *
+* For:    United States Air Force, 394th CTS                                  *
+*******************************************************************************
+* DESCRIPTION                                                                 *
+*******************************************************************************
+* This module presents output for the T38-TOLD calculator app.                *
+*******************************************************************************
+* HISTORY                                                                     *
+*******************************************************************************
+* 2013-11-26 - Initial version                                                *
+* 2014-05-12 - Added separate error div                                       *
+*                                                                             *
+*******************************************************************************
+*/
+-->
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <script type="text/javascript" src="jquery/jquery.js"></script>
+  <script type="text/javascript" src="jquery/jquery-ui.js"></script>
+  <script type="text/javascript" src="Data-DS125.js"></script>
+  <script type="text/javascript" src="Data-SECG.js"></script>
+  <script type="text/javascript" src="Data-SECGGU.js"></script>
+  <script type="text/javascript" src="Data-TOData.js"></script>
+  <script type="text/javascript" src="Data-TOData2.js"></script>
+  <script type="text/javascript" src="T38TOLDConversions.js"></script>
+  <script type="text/javascript" src="T38TOLDresults.js"></script>
+  <link type="text/css" rel="stylesheet" href="jquery-ui-1.8.10.custom.css">
+  <link type="text/css" rel="stylesheet" href="bootstrap/bootstrap.min.css">
+  <script type="text/javascript" src="bootstrap/bootstrap.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="ATIS.css">
+</head>
+<body style="text-align: center;">
+    <div class="container" style="margin: 0 auto;">
+        <div class="row">
+            <div class="col-12 text-center">
+                <table class="table table-responsive table-condensed" id="tblOutput22" name="tblOutput22">
+                    <tr>
+                        <th colspan="2">
+                            <h2>TAKEOFF DATA</h2>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td colspan="2" id="divErrors" name="divErrors"></td>
+                    </tr>
+                    <tr>
+                        <td>Headwind</td>
+                        <td><span id="spnHeadwind">0</span> KTS</td>
+                    </tr>
+                    <tr>
+                        <td>Crosswind</td>
+                        <td><span id="spnCrosswind">0</span> KTS</td>
+                    </tr>
+                    <tr>
+                        <td>MACS</td>
+                        <td><span id="spnMACS">0</span> KTS</td>
+                    </tr>
+                    <tr>
+                        <td>MACS Distance</td>
+                        <td><span id="spnMACSDistance">0</span> FT</td>
+                    </tr>
+                    <tr>
+                        <td>DS</td>
+                        <td><span id="spnDS">0</span> KTS</td>
+                    </tr>
+                    <tr>
+                        <td>RS-EF</td>
+                        <td><span id="spnRSEF">0</span> KTS</td>
+                    </tr>
+                    <tr>
+                        <td>SETOS</td>
+                        <td><span id="spnSETOS">0</span> KTS</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="text-center">
+                            <strong>Given Eng Failure at RS-EF</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Speed at end of rwy</td>
+                        <td><span id="spnSAEOR">0</span> KTS</td>
+                    </tr>
+                    <tr>
+                        <td>Gear DN SECG</td>
+                        <td><span id="spnGearDNSECG">0</span> FT/NM</td>
+                    </tr>
+                    <tr>
+                        <td>Gear UP SECG</td>
+                        <td><span id="spnGearUPSECG">0</span> FT/NM</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="blank-row"></td></tr>
+                    <tr>    
+                        <td>CFL</td>
+                        <td><span id="spnCFL">0</span> FT</td>
+                    </tr>
+                    <tr>
+                        <td>NACS</td>
+                        <td><span id="spnNACS">0</span> KTS</td>
+                    </tr>
+                    <tr>
+                        <td>RS-BEO</td>
+                        <td><span id="spnRSBEO">0</span> KTS</td>
+                    </tr>
+                    <tr>
+                        <td>Rotation Speed</td>
+                        <td><span id="spnRotationSpeed">0</span> KTS</td>
+                    </tr>
+                    <tr>
+                        <td>Takeoff Speed</td>
+                        <td><span id="spnTakeoffSpeed">0</span> KTS</td>
+                    </tr>
+                    <tr>    
+                        <td>Takeoff Distance</td>
+                        <td><span id="spnTakeoffDistance">0</span> FT</td>
+                    </tr>
+                    <tr>
+                        <td>CEFS</td>
+                        <td><span id="spnCEFS">0</span> KTS</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="blank-row"></td></tr>
+                    <tr>
+                        <td><strong>Given Eng Failure at:</strong></td>
+                        <td><span id="spnGivenEngFailAt" name="spnGivenEngFailAt"></span> KTS</td>
+                    </tr>
+                    <tr>
+                        <td>Speed at end of rwy</td>
+                        <td><span id="spnEFSAEOR">0</span> KTS</td>
+                    </tr>
+                    <tr>
+                        <td>Gear DN SECG</td>
+                        <td><span id="spnEFGearDNSECG">0</span> FT/NM</td>
+                    </tr>
+                    <tr>
+                        <td>Gear UP SECG</td>
+                        <td><span id="spnEFGearUPSECG">0</span> FT/NM</td>
+                    </tr>       
+                    <tr>
+                        <td colspan="2" class="blank-row"></td>
+                    </tr>
+                  <tr>
+                        <td colspan="2">
+                            <a href="index.html" class="btn btn-xs btn-info">New Calculation</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

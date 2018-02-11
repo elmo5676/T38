@@ -1,0 +1,54 @@
+﻿#divErrors {
+    color: #FF0000;
+    text-align: center;
+    font-size: 75%;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    border: 1px solid red;
+}
+
+#divErrors ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.table {
+    margin: 0 auto;
+    width: 500px;
+    display: block;
+    font-size: 100%;
+    text-align: center;
+}
+
+.blank-row {
+    height: 0px !important;
+    margin: -10px;
+}
+
+.table-condensed > thead > tr > th, .table-condensed > tbody > tr > th, .table-condensed > tfoot > tr > th, .table-condensed > thead > tr > td, .table-condensed > tbody > tr > td, .table-condensed > tfoot > tr > td {
+    padding: 10px;
+}
+
+.dataInput {
+    display: inline-block;
+}
+
+label.error {
+    color: red;
+    font-style: italic;
+    font-size: 60%;
+}
+
+input.error {
+    border: 1px dotted red;
+}
+
+.rightJust {
+    text-align: right;
+}
+
+.leftJust {
+    text-align: left;
+}
