@@ -29,6 +29,7 @@
 		6E97C2F2202AB111005F4971 /* Data-TOData2.js in Resources */ = {isa = PBXBuildFile; fileRef = 6E97C2E3202AB110005F4971 /* Data-TOData2.js */; };
 		6E97C2F3202AB111005F4971 /* jquery in Resources */ = {isa = PBXBuildFile; fileRef = 6E97C2E4202AB110005F4971 /* jquery */; };
 		6E97C2F4202AB111005F4971 /* Data-TOData.js in Resources */ = {isa = PBXBuildFile; fileRef = 6E97C2E5202AB111005F4971 /* Data-TOData.js */; };
+		6EBF8AE820322BA300CF67D8 /* notes_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBF8AE720322BA300CF67D8 /* notes_ViewController.swift */; };
 		6EC983C71E1D416100F74556 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EC983C61E1D416100F74556 /* CoreLocation.framework */; };
 		6ED0E5262027D73E0045D79D /* toldHTMLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED0E5252027D73E0045D79D /* toldHTMLViewController.swift */; };
 		6EE8B261202EA2AF0082E363 /* indexCompact.html in Resources */ = {isa = PBXBuildFile; fileRef = 6EE8B260202EA2AF0082E363 /* indexCompact.html */; };
@@ -59,6 +60,7 @@
 		6E97C2E3202AB110005F4971 /* Data-TOData2.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "Data-TOData2.js"; sourceTree = "<group>"; };
 		6E97C2E4202AB110005F4971 /* jquery */ = {isa = PBXFileReference; lastKnownFileType = folder; path = jquery; sourceTree = "<group>"; };
 		6E97C2E5202AB111005F4971 /* Data-TOData.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "Data-TOData.js"; sourceTree = "<group>"; };
+		6EBF8AE720322BA300CF67D8 /* notes_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notes_ViewController.swift; sourceTree = "<group>"; };
 		6EC983C61E1D416100F74556 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6ED0E5252027D73E0045D79D /* toldHTMLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toldHTMLViewController.swift; sourceTree = "<group>"; };
 		6EE8B25F202E98730082E363 /* T38.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = T38.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +96,7 @@
 				6E6A0AC61E19F02600E23114 /* DivertViewController.swift */,
 				6E6A0AC81E19F02600E23114 /* ClimbRangeViewController.swift */,
 				6E6A0ACA1E19F02600E23114 /* Main.storyboard */,
+				6EBF8AE720322BA300CF67D8 /* notes_ViewController.swift */,
 				6E938182200EB68A00DBF3FE /* ScratchPadViewController.swift */,
 				6E12C38F1E2C717000C43479 /* SpeedsViewController.swift */,
 				6ED0E5252027D73E0045D79D /* toldHTMLViewController.swift */,
@@ -221,6 +224,7 @@
 				6E12C3901E2C717000C43479 /* SpeedsViewController.swift in Sources */,
 				6E6A0AC91E19F02600E23114 /* ClimbRangeViewController.swift in Sources */,
 				6E6A0AC51E19F02600E23114 /* AppDelegate.swift in Sources */,
+				6EBF8AE820322BA300CF67D8 /* notes_ViewController.swift in Sources */,
 				6E6A0AC71E19F02600E23114 /* DivertViewController.swift in Sources */,
 				6ED0E5262027D73E0045D79D /* toldHTMLViewController.swift in Sources */,
 				6E938183200EB68A00DBF3FE /* ScratchPadViewController.swift in Sources */,
