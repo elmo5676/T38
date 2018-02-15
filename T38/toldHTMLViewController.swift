@@ -16,9 +16,7 @@ class toldHTMLViewController: UIViewController {
     
     @IBOutlet weak var webViewTOLD: WKWebView!
     @IBAction func noteButton(_ sender: UIButton) {
-        
-        
-        
+  
     }
     @IBOutlet weak var noteButtonOutlet: UIButton!
     override func viewDidLoad() {

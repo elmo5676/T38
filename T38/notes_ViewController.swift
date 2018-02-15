@@ -10,8 +10,8 @@ import UIKit
 
 class notes_ViewController: UIViewController {
     
-    @IBOutlet weak var closeButtonOutlet: UIButton!
-    @IBAction func closeButton(_ sender: UIButton) {
+    @IBOutlet weak var closeButtonOutlet: UIBarButtonItem!
+    @IBAction func closeButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -23,7 +23,7 @@ class notes_ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        closeButtonOutlet.layer.cornerRadius = 3
+        //closeButtonOutlet.layer.cornerRadius = 3
 
     }
 

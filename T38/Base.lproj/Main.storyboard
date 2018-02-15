@@ -1225,7 +1225,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FNv-N6-Xld">
-                                <rect key="frame" x="0.0" y="49" width="1024" height="1317"/>
+                                <rect key="frame" x="0.0" y="49" width="1024" height="1268"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -1245,7 +1245,7 @@
                                 </state>
                                 <connections>
                                     <action selector="noteButton:" destination="0Iw-Gw-1hW" eventType="touchUpInside" id="ioi-fM-mB1"/>
-                                    <segue destination="eGG-UT-9r4" kind="popoverPresentation" popoverAnchorView="8Iv-23-unH" id="yKb-80-58T">
+                                    <segue destination="X2T-zr-0VZ" kind="popoverPresentation" popoverAnchorView="8Iv-23-unH" id="Ia0-td-Jt3">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
@@ -1272,122 +1272,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kfy-ux-G6l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-980" y="148"/>
-        </scene>
-        <!--Notes View Controller-->
-        <scene sceneID="AE3-LQ-FXa">
-            <objects>
-                <viewController autoresizesArchivedViewToFullSize="NO" modalPresentationStyle="currentContext" id="eGG-UT-9r4" customClass="notes_ViewController" customModule="T38" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wci-A2-smW"/>
-                        <viewControllerLayoutGuide type="bottom" id="olB-Fb-P3g"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="oKd-yE-jLx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ca-FL-zWn">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jzm-TI-AEv">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
-                                        <color key="backgroundColor" red="0.29053461549999998" green="0.34492880110000002" blue="0.42745995520000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="800" id="QCL-Z6-WOw"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YvK-kn-2hh">
-                                        <rect key="frame" x="20" y="41" width="338" height="759"/>
-                                        <mutableString key="text">NOTES
-Rotation, Takeoff, and 50 FT Obstacle Speed
-- Aft stick applied at the rotation speed shown and 7.5° pitch attitude held after rotation through 50ft AGL
-
-Takeoff Distance
-- Data based on normal takeoff procedures:
-- Aft stick applied at the rotation speed shown and 7.5° pitch attitude held after rotation
-
-Critical Field Length (CFL)
-- CFL valid up to SETOS. '- Aero-brake if possible. These data assume no aero-braking.
-
-Refusal Speed/Both Engines Operating (RS-BEO)
-- These data assume non-engine failure.
-- For aero-braking:  Aft stick applied at the rotation speed and 7.5° pitch attitude held from rotation to 120 KIAS
-
-Refusal Speed/Engine Failure (RS-EF)
-- These data assume engine failure.
-- Refusal Speed valid up to SETOS
-- For aero-braking: Aft stick applied at the rotation speed and 7.5° pitch attitude held from rotation to 120 KIAS
-     
-Single Engine Takeoff Speed (SETOS)
-- SETOS is the greater of:
-   (a)  Two-engine takeoff speed (single engine rate of climb is then greater than 100 FPM)
-   (b)  Speed for 100 FPM single engine rate of climb out of ground effect 60% flaps, gear down.
-- Accelerate to SETOS in a 3-point attitude.  Rotate no earlier than SETOS
-- Delaying rotation to higher speeds improves performance.  Consider runway remaining and tire speed limits
-- Best rate-of-climb speed with gear and flaps extended is 208 KIAS at 12,700 LB GW, add or subtract 8 KTS for every 1000 LB heavier or lighter than 12,700 LB.
-
-Critical Engine Failure Speed (CEFS)
-- CEFS valid up to SETOS. Aero-brake if possible.
-- Data assumes no aero-braking.
-- Assumes rotation 1000 FT prior to the end of the runway
-
-Decision Speed (DS)
-- Following engine failure, select max afterburner on the operating engine
-- Accelerate in a 3-point attitude to SETOS
-- Rotate smoothly at SETOS until takeoff occurs
-- Assumes rotation 1000 FT prior to the end of the runway
-- All speeds at end of runway assume rotation 1000 FT prior to the end of the runway</mutableString>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
-                                        <color key="textColor" red="0.98039871450000005" green="0.98038035629999998" blue="0.98039287330000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D96-EE-4no">
-                                        <rect key="frame" x="315" y="8" width="50" height="30"/>
-                                        <color key="backgroundColor" red="0.92157477139999999" green="0.92155742650000005" blue="0.92156916860000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="gAR-kJ-hvG"/>
-                                        </constraints>
-                                        <state key="normal" title="Close"/>
-                                        <connections>
-                                            <action selector="closeButton:" destination="eGG-UT-9r4" eventType="touchUpInside" id="rUg-gs-Aij"/>
-                                            <segue destination="0Iw-Gw-1hW" kind="show" id="TNS-U1-OUv"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.29053461549999998" green="0.34492880110000002" blue="0.42745995520000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstItem="YvK-kn-2hh" firstAttribute="centerX" secondItem="Jzm-TI-AEv" secondAttribute="centerX" constant="1.5" id="4ca-LB-3Zy"/>
-                                    <constraint firstItem="Jzm-TI-AEv" firstAttribute="width" secondItem="2Ca-FL-zWn" secondAttribute="width" id="9Ha-Lg-V4a"/>
-                                    <constraint firstItem="Jzm-TI-AEv" firstAttribute="leading" secondItem="2Ca-FL-zWn" secondAttribute="leading" id="Cjb-v9-Dxe"/>
-                                    <constraint firstItem="YvK-kn-2hh" firstAttribute="width" relation="lessThanOrEqual" secondItem="Jzm-TI-AEv" secondAttribute="width" multiplier="0.9" id="JoC-8A-AFv"/>
-                                    <constraint firstItem="D96-EE-4no" firstAttribute="leading" secondItem="Jzm-TI-AEv" secondAttribute="trailing" constant="-60" id="R3y-qA-VcI"/>
-                                    <constraint firstItem="Jzm-TI-AEv" firstAttribute="top" secondItem="D96-EE-4no" secondAttribute="bottom" constant="-38" id="THJ-mP-S2U"/>
-                                    <constraint firstItem="YvK-kn-2hh" firstAttribute="top" secondItem="Jzm-TI-AEv" secondAttribute="bottom" constant="-759" id="gG2-NO-IUl"/>
-                                    <constraint firstAttribute="height" priority="250" constant="800" id="gYi-yo-Xl6"/>
-                                    <constraint firstItem="YvK-kn-2hh" firstAttribute="centerY" secondItem="Jzm-TI-AEv" secondAttribute="centerY" constant="20.5" id="jZJ-nQ-5CT"/>
-                                    <constraint firstItem="YvK-kn-2hh" firstAttribute="height" relation="lessThanOrEqual" secondItem="Jzm-TI-AEv" secondAttribute="height" id="ldG-K0-82Y"/>
-                                    <constraint firstAttribute="trailing" secondItem="Jzm-TI-AEv" secondAttribute="trailing" id="mWi-gZ-yH6"/>
-                                    <constraint firstItem="Jzm-TI-AEv" firstAttribute="top" secondItem="2Ca-FL-zWn" secondAttribute="top" id="ozd-4K-TJN"/>
-                                    <constraint firstAttribute="bottom" secondItem="Jzm-TI-AEv" secondAttribute="bottom" id="pMT-1b-q6v"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.29053461549999998" green="0.34492880110000002" blue="0.42745995520000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.5"/>
-                        <constraints>
-                            <constraint firstItem="2Ca-FL-zWn" firstAttribute="top" secondItem="wci-A2-smW" secondAttribute="bottom" id="243-VD-0w7"/>
-                            <constraint firstAttribute="trailing" secondItem="2Ca-FL-zWn" secondAttribute="trailing" id="5M7-UZ-rRR"/>
-                            <constraint firstAttribute="bottom" secondItem="2Ca-FL-zWn" secondAttribute="bottom" id="Ydv-kG-8S7"/>
-                            <constraint firstItem="2Ca-FL-zWn" firstAttribute="width" secondItem="oKd-yE-jLx" secondAttribute="width" id="bzr-il-vEw"/>
-                            <constraint firstItem="2Ca-FL-zWn" firstAttribute="leading" secondItem="oKd-yE-jLx" secondAttribute="leading" id="lfq-2g-Wbw"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="closeButtonOutlet" destination="D96-EE-4no" id="Jkb-2z-nOm"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VDm-gF-4LL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-371.484375" y="154.61200585651537"/>
         </scene>
         <!--Pattern-->
         <scene sceneID="UYf-fi-MjL">
@@ -1896,6 +1780,133 @@ Decision Speed (DS)
             </objects>
             <point key="canvasLocation" x="-2477" y="-177"/>
         </scene>
+        <!--NOTES-->
+        <scene sceneID="WdK-B9-VhL">
+            <objects>
+                <viewController autoresizesArchivedViewToFullSize="NO" modalPresentationStyle="currentContext" id="1w3-hX-AIc" customClass="notes_ViewController" customModule="T38" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kbf-sT-ZF5"/>
+                        <viewControllerLayoutGuide type="bottom" id="OwR-YA-sQY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7sm-Jy-S71">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0I-2c-rv9">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Orr-HX-a9e">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                                        <color key="backgroundColor" red="0.29053461549999998" green="0.34492880110000002" blue="0.42745995520000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="800" id="z5a-SU-pjT"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kp-ag-naw">
+                                        <rect key="frame" x="21.5" y="0.0" width="337.5" height="800"/>
+                                        <mutableString key="text">
+Rotation, Takeoff, and 50 FT Obstacle Speed
+- Aft stick applied at the rotation speed shown and 7.5° pitch attitude held after rotation through 50ft AGL
+
+Takeoff Distance
+- Data based on normal takeoff procedures:
+- Aft stick applied at the rotation speed shown and 7.5° pitch attitude held after rotation
+
+Critical Field Length (CFL)
+- CFL valid up to SETOS. '- Aero-brake if possible. These data assume no aero-braking.
+
+Refusal Speed/Both Engines Operating (RS-BEO)
+- These data assume non-engine failure.
+- For aero-braking:  Aft stick applied at the rotation speed and 7.5° pitch attitude held from rotation to 120 KIAS
+
+Refusal Speed/Engine Failure (RS-EF)
+- These data assume engine failure.
+- Refusal Speed valid up to SETOS
+- For aero-braking: Aft stick applied at the rotation speed and 7.5° pitch attitude held from rotation to 120 KIAS
+     
+Single Engine Takeoff Speed (SETOS)
+- SETOS is the greater of:
+   (a)  Two-engine takeoff speed (single engine rate of climb is then greater than 100 FPM)
+   (b)  Speed for 100 FPM single engine rate of climb out of ground effect 60% flaps, gear down.
+- Accelerate to SETOS in a 3-point attitude.  Rotate no earlier than SETOS
+- Delaying rotation to higher speeds improves performance.  Consider runway remaining and tire speed limits
+- Best rate-of-climb speed with gear and flaps extended is 208 KIAS at 12,700 LB GW, add or subtract 8 KTS for every 1000 LB heavier or lighter than 12,700 LB.
+
+Critical Engine Failure Speed (CEFS)
+- CEFS valid up to SETOS. Aero-brake if possible.
+- Data assumes no aero-braking.
+- Assumes rotation 1000 FT prior to the end of the runway
+
+Decision Speed (DS)
+- Following engine failure, select max afterburner on the operating engine
+- Accelerate in a 3-point attitude to SETOS
+- Rotate smoothly at SETOS until takeoff occurs
+- Assumes rotation 1000 FT prior to the end of the runway
+- All speeds at end of runway assume rotation 1000 FT prior to the end of the runway</mutableString>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                                        <color key="textColor" red="0.98039871450000005" green="0.98038035629999998" blue="0.98039287330000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.29053461549999998" green="0.34492880110000002" blue="0.42745995520000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="7kp-ag-naw" firstAttribute="centerX" secondItem="Orr-HX-a9e" secondAttribute="centerX" constant="2.5" id="Alr-Pr-Ys4"/>
+                                    <constraint firstAttribute="trailing" secondItem="Orr-HX-a9e" secondAttribute="trailing" id="Bi0-s7-Xhz"/>
+                                    <constraint firstAttribute="height" priority="250" constant="800" id="FAv-Al-5BT"/>
+                                    <constraint firstItem="Orr-HX-a9e" firstAttribute="width" secondItem="G0I-2c-rv9" secondAttribute="width" id="Fx0-EI-WUg"/>
+                                    <constraint firstItem="7kp-ag-naw" firstAttribute="width" relation="lessThanOrEqual" secondItem="Orr-HX-a9e" secondAttribute="width" multiplier="0.9" id="Mro-pT-bcE"/>
+                                    <constraint firstItem="Orr-HX-a9e" firstAttribute="top" secondItem="G0I-2c-rv9" secondAttribute="top" id="iMY-rE-3rj"/>
+                                    <constraint firstItem="7kp-ag-naw" firstAttribute="top" secondItem="Orr-HX-a9e" secondAttribute="bottom" constant="-800" id="meD-Zb-HgQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Orr-HX-a9e" secondAttribute="bottom" id="qo8-mJ-TRb"/>
+                                    <constraint firstItem="7kp-ag-naw" firstAttribute="centerY" secondItem="Orr-HX-a9e" secondAttribute="centerY" id="qoS-eF-E09"/>
+                                    <constraint firstItem="7kp-ag-naw" firstAttribute="height" relation="lessThanOrEqual" secondItem="Orr-HX-a9e" secondAttribute="height" id="vT8-jh-jPq"/>
+                                    <constraint firstItem="Orr-HX-a9e" firstAttribute="leading" secondItem="G0I-2c-rv9" secondAttribute="leading" id="xRl-oU-2E8"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.29053461549999998" green="0.34492880110000002" blue="0.42745995520000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.5"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="G0I-2c-rv9" secondAttribute="bottom" id="IRo-SZ-t3A"/>
+                            <constraint firstItem="G0I-2c-rv9" firstAttribute="leading" secondItem="7sm-Jy-S71" secondAttribute="leading" id="IeA-Od-qrm"/>
+                            <constraint firstItem="G0I-2c-rv9" firstAttribute="top" secondItem="kbf-sT-ZF5" secondAttribute="bottom" id="SfM-uO-Pss"/>
+                            <constraint firstAttribute="trailing" secondItem="G0I-2c-rv9" secondAttribute="trailing" id="kyh-8y-d9i"/>
+                            <constraint firstItem="G0I-2c-rv9" firstAttribute="width" secondItem="7sm-Jy-S71" secondAttribute="width" id="rcd-3J-vjT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="NOTES" id="bmh-rF-2tu">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="GD4-1v-nBd">
+                            <connections>
+                                <action selector="closeButton:" destination="1w3-hX-AIc" id="Tcf-TU-Lmj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="closeButtonOutlet" destination="GD4-1v-nBd" id="2K4-ds-o9q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ex6-FQ-Zxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="761.71875" y="-423.4260614934114"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wsw-yq-6Kb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X2T-zr-0VZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NVs-2e-kVu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1w3-hX-AIc" kind="relationship" relationship="rootViewController" id="j2F-YV-r5e"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cF3-tE-2th" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-62.109374999999993" y="-423.4260614934114"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Divert" width="25" height="28"/>
@@ -1906,7 +1917,4 @@ Decision Speed (DS)
         <image name="input" width="406" height="464"/>
         <image name="pattern" width="25" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="TNS-U1-OUv"/>
-    </inferredMetricsTieBreakers>
 </document>
