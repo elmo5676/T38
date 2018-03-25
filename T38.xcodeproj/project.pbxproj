@@ -13,7 +13,6 @@
 		6E6A0AC71E19F02600E23114 /* DivertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6A0AC61E19F02600E23114 /* DivertViewController.swift */; };
 		6E6A0AC91E19F02600E23114 /* ClimbRangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6A0AC81E19F02600E23114 /* ClimbRangeViewController.swift */; };
 		6E6A0ACC1E19F02600E23114 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6A0ACA1E19F02600E23114 /* Main.storyboard */; };
-		6E938183200EB68A00DBF3FE /* ScratchPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E938182200EB68A00DBF3FE /* ScratchPadViewController.swift */; };
 		6E97C2E6202AB111005F4971 /* ATIS.css in Resources */ = {isa = PBXBuildFile; fileRef = 6E97C2D7202AB10B005F4971 /* ATIS.css */; };
 		6E97C2E7202AB111005F4971 /* bootstrap in Resources */ = {isa = PBXBuildFile; fileRef = 6E97C2D8202AB10C005F4971 /* bootstrap */; };
 		6E97C2E8202AB111005F4971 /* Data-SEROC.js in Resources */ = {isa = PBXBuildFile; fileRef = 6E97C2D9202AB10C005F4971 /* Data-SEROC.js */; };
@@ -32,6 +31,9 @@
 		6EBF8AE820322BA300CF67D8 /* notes_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBF8AE720322BA300CF67D8 /* notes_ViewController.swift */; };
 		6EC983C71E1D416100F74556 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EC983C61E1D416100F74556 /* CoreLocation.framework */; };
 		6ED0E5262027D73E0045D79D /* toldHTMLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED0E5252027D73E0045D79D /* toldHTMLViewController.swift */; };
+		6ED5809A206737E500B1D2BA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED58097206737E400B1D2BA /* Extensions.swift */; };
+		6ED5809B206737E500B1D2BA /* CalcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED58098206737E400B1D2BA /* CalcViewController.swift */; };
+		6ED5809C206737E500B1D2BA /* CalcBrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED58099206737E500B1D2BA /* CalcBrains.swift */; };
 		6EE8B261202EA2AF0082E363 /* indexCompact.html in Resources */ = {isa = PBXBuildFile; fileRef = 6EE8B260202EA2AF0082E363 /* indexCompact.html */; };
 		6EEC9628202DFE4B00B92DED /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EEC9627202DFE4B00B92DED /* Media.xcassets */; };
 /* End PBXBuildFile section */
@@ -44,7 +46,6 @@
 		6E6A0AC81E19F02600E23114 /* ClimbRangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbRangeViewController.swift; sourceTree = "<group>"; };
 		6E6A0ACB1E19F02600E23114 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6E6A0AD21E19F02600E23114 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6E938182200EB68A00DBF3FE /* ScratchPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScratchPadViewController.swift; sourceTree = "<group>"; };
 		6E97C2D7202AB10B005F4971 /* ATIS.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = ATIS.css; sourceTree = "<group>"; };
 		6E97C2D8202AB10C005F4971 /* bootstrap */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bootstrap; sourceTree = "<group>"; };
 		6E97C2D9202AB10C005F4971 /* Data-SEROC.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "Data-SEROC.js"; sourceTree = "<group>"; };
@@ -63,6 +64,9 @@
 		6EBF8AE720322BA300CF67D8 /* notes_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notes_ViewController.swift; sourceTree = "<group>"; };
 		6EC983C61E1D416100F74556 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6ED0E5252027D73E0045D79D /* toldHTMLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toldHTMLViewController.swift; sourceTree = "<group>"; };
+		6ED58097206737E400B1D2BA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		6ED58098206737E400B1D2BA /* CalcViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcViewController.swift; sourceTree = "<group>"; };
+		6ED58099206737E500B1D2BA /* CalcBrains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcBrains.swift; sourceTree = "<group>"; };
 		6EE8B25F202E98730082E363 /* T38.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = T38.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EE8B260202EA2AF0082E363 /* indexCompact.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = indexCompact.html; sourceTree = "<group>"; };
 		6EEC9627202DFE4B00B92DED /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
@@ -93,32 +97,22 @@
 			isa = PBXGroup;
 			children = (
 				6E6A0AC41E19F02600E23114 /* AppDelegate.swift */,
+				6ED58099206737E500B1D2BA /* CalcBrains.swift */,
+				6ED58098206737E400B1D2BA /* CalcViewController.swift */,
+				6E6A0ACA1E19F02600E23114 /* Main.storyboard */,
+				6E6651752030E1C900F3E73F /* Launch Screen 38.storyboard */,
 				6E6A0AC61E19F02600E23114 /* DivertViewController.swift */,
 				6E6A0AC81E19F02600E23114 /* ClimbRangeViewController.swift */,
-				6E6A0ACA1E19F02600E23114 /* Main.storyboard */,
 				6EBF8AE720322BA300CF67D8 /* notes_ViewController.swift */,
-				6E938182200EB68A00DBF3FE /* ScratchPadViewController.swift */,
 				6E12C38F1E2C717000C43479 /* SpeedsViewController.swift */,
 				6ED0E5252027D73E0045D79D /* toldHTMLViewController.swift */,
-				6E6651752030E1C900F3E73F /* Launch Screen 38.storyboard */,
+				6ED58097206737E400B1D2BA /* Extensions.swift */,
 				6E6A0AD21E19F02600E23114 /* Info.plist */,
-				6E97C2D7202AB10B005F4971 /* ATIS.css */,
+				6ED580962067369E00B1D2BA /* HTML */,
+				6ED580952067368C00B1D2BA /* JavaScript */,
 				6E97C2D8202AB10C005F4971 /* bootstrap */,
-				6E97C2DC202AB10D005F4971 /* Data-DS125.js */,
-				6E97C2DF202AB10E005F4971 /* Data-SECG.js */,
-				6E97C2DB202AB10D005F4971 /* Data-SECGGU.js */,
-				6E97C2D9202AB10C005F4971 /* Data-SEROC.js */,
-				6E97C2E0202AB10F005F4971 /* Data-SEROCGU.js */,
-				6E97C2E5202AB111005F4971 /* Data-TOData.js */,
-				6E97C2E3202AB110005F4971 /* Data-TOData2.js */,
-				6EE8B260202EA2AF0082E363 /* indexCompact.html */,
-				6E97C2E2202AB10F005F4971 /* index.html */,
 				6EEC9627202DFE4B00B92DED /* Media.xcassets */,
 				6E97C2E4202AB110005F4971 /* jquery */,
-				6E97C2DD202AB10D005F4971 /* results.html */,
-				6E97C2E1202AB10F005F4971 /* T38TOLDConversions.js */,
-				6E97C2DE202AB10E005F4971 /* T38TOLDindex.js */,
-				6E97C2DA202AB10C005F4971 /* T38TOLDresults.js */,
 			);
 			path = T38;
 			sourceTree = "<group>";
@@ -129,6 +123,34 @@
 				6EC983C61E1D416100F74556 /* CoreLocation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6ED580952067368C00B1D2BA /* JavaScript */ = {
+			isa = PBXGroup;
+			children = (
+				6E97C2E1202AB10F005F4971 /* T38TOLDConversions.js */,
+				6E97C2DE202AB10E005F4971 /* T38TOLDindex.js */,
+				6E97C2DA202AB10C005F4971 /* T38TOLDresults.js */,
+				6E97C2DC202AB10D005F4971 /* Data-DS125.js */,
+				6E97C2DF202AB10E005F4971 /* Data-SECG.js */,
+				6E97C2DB202AB10D005F4971 /* Data-SECGGU.js */,
+				6E97C2D9202AB10C005F4971 /* Data-SEROC.js */,
+				6E97C2E0202AB10F005F4971 /* Data-SEROCGU.js */,
+				6E97C2E5202AB111005F4971 /* Data-TOData.js */,
+				6E97C2E3202AB110005F4971 /* Data-TOData2.js */,
+			);
+			path = JavaScript;
+			sourceTree = "<group>";
+		};
+		6ED580962067369E00B1D2BA /* HTML */ = {
+			isa = PBXGroup;
+			children = (
+				6E97C2D7202AB10B005F4971 /* ATIS.css */,
+				6EE8B260202EA2AF0082E363 /* indexCompact.html */,
+				6E97C2E2202AB10F005F4971 /* index.html */,
+				6E97C2DD202AB10D005F4971 /* results.html */,
+			);
+			path = HTML;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,12 +244,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E12C3901E2C717000C43479 /* SpeedsViewController.swift in Sources */,
+				6ED5809C206737E500B1D2BA /* CalcBrains.swift in Sources */,
 				6E6A0AC91E19F02600E23114 /* ClimbRangeViewController.swift in Sources */,
 				6E6A0AC51E19F02600E23114 /* AppDelegate.swift in Sources */,
+				6ED5809A206737E500B1D2BA /* Extensions.swift in Sources */,
+				6ED5809B206737E500B1D2BA /* CalcViewController.swift in Sources */,
 				6EBF8AE820322BA300CF67D8 /* notes_ViewController.swift in Sources */,
 				6E6A0AC71E19F02600E23114 /* DivertViewController.swift in Sources */,
 				6ED0E5262027D73E0045D79D /* toldHTMLViewController.swift in Sources */,
-				6E938183200EB68A00DBF3FE /* ScratchPadViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

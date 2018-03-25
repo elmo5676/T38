@@ -12,24 +12,12 @@ class notes_ViewController: UIViewController {
     
     @IBOutlet weak var closeButtonOutlet: UIBarButtonItem!
     @IBAction func closeButton(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+        presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        self.preferredContentSize.height = 30.0
-//        self.preferredContentSize.width = 10.0
-//    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        //closeButtonOutlet.layer.cornerRadius = 3
 
     }
-
-   
-    
-
-   
 
 }
