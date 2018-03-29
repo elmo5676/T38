@@ -8,13 +8,34 @@
 
 import Foundation
 
-
 class CalcBrains {
-    private var accumulator = 0.0
+    var accumulator = 0.0
+    var crossWindtracker = 0.0
     
     func setOperand(operand: Double) {
         accumulator = operand
     }
+    
+    func calcXWComp(_ runwayHDG: Double, _ windHDG: Double) -> Double {
+        let xw = abs(sin(abs((runwayHDG-windHDG).degreesToRadians)))
+        crossWindtracker += 1
+        accumulator = xw
+        return xw
+    }
+    
+    func calcXW(_ xwComp: @escaping ((Double, Double) -> Double), _ windVelocity: Double) -> Double {
+        _ = xwComp
+        let crossWind = windVelocity*accumulator
+        crossWindtracker = 0
+        return crossWind
+    }
+    
+    func clearState(){
+        accumulator = 0.0
+        pending = nil
+        crossWindtracker = 0.0
+    }
+   
     
     private var operations: Dictionary<String,Operation> = [
         "𝝅"      : Operation.Constant(Double.pi),
@@ -22,16 +43,23 @@ class CalcBrains {
         "±"      : Operation.UnaryOperation({-$0}),
         "√"      : Operation.UnaryOperation(sqrt),
         "cos"    : Operation.UnaryOperation(cos),
-        "c"      : Operation.Constant(0.0),
+        "C"      : Operation.Constant(0.0),
         
         "×"      : Operation.BinaryOperation({$0 * $1}),
         "÷"      : Operation.BinaryOperation({$0 / $1}),
         "+"      : Operation.BinaryOperation({$0 + $1}),
         "−"      : Operation.BinaryOperation({$0 - $1}),
-        "g"      : Operation.BinaryOperation({($0/60) * $1}),
+        "G"      : Operation.BinaryOperation({($0/60) * $1}),
         "."      : Operation.BinaryOperation({$0 + $1}),
         
-        "="      : Operation.Equals
+        // TODO: Wind Function
+        // Display XW and HW/TW components
+        //$0 = wind dir, $1 = runway HDG, $3 = wind Speed
+        //"W"    : Operation.BinaryOperation($0...$1...$3),
+        
+        "W"     :  Operation.BinaryOperation({sin($0.degreesToRadians) * $1}),
+        
+        "="     : Operation.Equals
     ]
     
     
