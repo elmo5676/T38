@@ -530,7 +530,7 @@ public extension String {
         let SS = Double(coordPartArray[2].dropLast())!/60/100
         let NSEW = coordPartArray[2].removeLast()
         let DDmmss = "\(NSEW)\(String(DD! + MM + SS))"
-        coords = "\(DDmmss)"
+        coords = String(DDmmss)
         print(coords)
         return coords
     }
@@ -554,15 +554,16 @@ public extension String {
     }
 }
 
+public extension String {
+    func contains(find: String) -> Bool{
+        return self.range(of: find) != nil
+    }
+    func containsIgnoringCase(find: String) -> Bool{
+        return self.range(of: find, options: .caseInsensitive) != nil
+    }
+}
 
-
-
-
-var x = 60.0.degreesToRadians
-
-sin(x)
-
-
+var latNew = "00-04-18.0000N".jsonCoordProcessing()
 
 
 
