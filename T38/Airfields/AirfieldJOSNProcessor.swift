@@ -8,12 +8,15 @@
 
 import Foundation
 
-struct Airfield: Decodable {
+class Airfield: Decodable {
     var ObjectID: Int? = 0
     var AirportID: String? = ""
     var Ident: String? = ""
     var Lat: String? = ""
     var Lon: String? = ""
+    var LatFormatted: String? = ""
+    var LongFormatted: String? = ""
+    var LatLongDouble: [Double]? = [Double]()
     var Elevation: Double? = 0.0
     var ICAO: String? = ""
     var City: String? = ""
