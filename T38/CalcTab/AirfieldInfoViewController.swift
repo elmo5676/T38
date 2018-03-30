@@ -27,6 +27,7 @@ class AirfieldInfoViewController: UIViewController {
     
     @IBAction func copyDirect(_ sender: UIButton!){
         UIPasteboard.general.string = "D \(ICAO)"
+        presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     
