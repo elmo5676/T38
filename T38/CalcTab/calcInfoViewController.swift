@@ -14,6 +14,7 @@ class calcInfoViewController: UIViewController {
         super.viewDidLoad()
         updateUI()
 
+
         
     }
 
@@ -41,6 +42,7 @@ class calcInfoViewController: UIViewController {
     }
     
     
+    @IBOutlet weak var windbuttonLabelOutlet: UILabel!
     @IBOutlet weak var dismissButtonOutlet: UIButton!
     @IBOutlet weak var instructionsStackView: UIStackView!
     @IBAction func dismissButton(_ sender: UIButton) {
