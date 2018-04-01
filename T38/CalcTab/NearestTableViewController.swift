@@ -20,6 +20,7 @@ class NearestTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadAirfileds()
+        updateUI()
     }
     
     
@@ -36,6 +37,46 @@ class NearestTableViewController: UITableViewController {
     var airportID = ""
     var ident = ""
     
+    // MARK: JSON Parse
+    func loadAirportFromJSON(){
+        let airportURL = Bundle.main.url(forResource: "Airports", withExtension: "json")!
+        let decoder = JSONDecoder()
+        do {
+            let result = try decoder.decode(Airport.self, from: Data(contentsOf: airportURL))
+            print(result.features[0].properties.icaoID as Any)
+            for airport in result.features {
+                print(airport.properties.icaoID as Any)
+                print(airport.geometry.coordinates)
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func loadRunwayFromJSON(){
+        let airportURL = Bundle.main.url(forResource: "Runways", withExtension: "json")!
+        let decoder = JSONDecoder()
+        do {
+            let result = try decoder.decode(Runway.self, from: Data(contentsOf: airportURL))
+            print(result.features[0].properties)
+            for runway in result.features {
+                print(runway.properties.globalID)
+                print(runway.properties.designator as Any)
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    private func updateUI(){
+        if presentationController is UIPopoverPresentationController {
+            view.backgroundColor = .clear
+        } else {
+            view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        }
+    }
+
+    @IBOutlet var tableViewOutlet: UITableView!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
@@ -58,22 +99,6 @@ class NearestTableViewController: UITableViewController {
         airfields.removeAll()
         airfields = resultAirfields!
         allAirields = airfields.filter {$0.ICAO != nil}
-//        allAirields = airfields.filter {$0.ICAO != nil || $0.ICAO!.hasPrefix("C") != true || $0.ICAO!.hasPrefix("M") == true }
-//        allAirields = allAirields1.filter {$0.ICAO!.hasPrefix("C") != true}
-//        for airfield in allAirields {
-//            print(airfield.ICAO!)
-//            if let latNew = airfield.Lat?.jsonCoordProcessing() {
-//                print(latNew)
-//                airfield.LatFormatted = latNew
-//            }
-//            if let longNew = airfield.Lon?.jsonCoordProcessing() {
-//                print(longNew)
-//                airfield.LongFormatted = longNew
-//            }
-//            if let latLongDoubleArray = ("\(String(describing: airfield.LatFormatted!)) \(String(describing: airfield.LongFormatted!))").coordTranslate(){
-//                airfield.LatLongDouble = latLongDoubleArray
-//            }
-//        }
     }
 
     // MARK: - Table view data

@@ -12,7 +12,9 @@ class calcInfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUI()
 
+        
     }
 
     @IBAction func dismiss(_ sender: UIBarButtonItem) {
@@ -22,6 +24,28 @@ class calcInfoViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let fittedSize = instructionsStackView?.sizeThatFits(UILayoutFittingCompressedSize) {
+            preferredContentSize = CGSize(width: fittedSize.width + 20, height: fittedSize.height + 20)
+        }
+    }
     
+    private func updateUI(){
+        if presentationController is UIPopoverPresentationController {
+            dismissButtonOutlet?.isHidden = true
+            view.backgroundColor = .clear
+        } else {
+            view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        }
+    }
+    
+    
+    @IBOutlet weak var dismissButtonOutlet: UIButton!
+    @IBOutlet weak var instructionsStackView: UIStackView!
+    @IBAction func dismissButton(_ sender: UIButton) {
+        presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+
 }

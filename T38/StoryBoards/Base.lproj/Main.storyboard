@@ -2276,7 +2276,7 @@ Decision Speed (DS)
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="calcDirectionsButton:" destination="tKd-T9-LyF" eventType="touchUpInside" id="uaD-Mt-Ddo"/>
-                                    <segue destination="dZj-lg-hyd" kind="popoverPresentation" identifier="calcDirectionsSeque" popoverAnchorView="YtO-GD-Rw5" id="w33-On-v7M">
+                                    <segue destination="LkU-D7-vfr" kind="popoverPresentation" identifier="calcDirectionsSeque" popoverAnchorView="YtO-GD-Rw5" id="3Hq-Rt-F7u">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
@@ -2336,19 +2336,22 @@ Decision Speed (DS)
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zun-ZD-TR6">
-                                <rect key="frame" x="19" y="52" width="337.5" height="224"/>
+                                <rect key="frame" x="19" y="52" width="337.5" height="210"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZO-hj-ayb">
-                                        <rect key="frame" x="0.0" y="0.0" width="225.5" height="48"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Qk9-oN-mlm">
-                                        <rect key="frame" x="0.0" y="58" width="337.5" height="166"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="337.5" height="210"/>
                                         <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZO-hj-ayb">
+                                                <rect key="frame" x="0.0" y="0.0" width="225.5" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="225.5" id="k3n-vP-Ddp"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Lag-SI-bj9">
-                                                <rect key="frame" x="0.0" y="0.0" width="337.5" height="50"/>
+                                                <rect key="frame" x="0.0" y="44" width="337.5" height="50"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DirectButton" translatesAutoresizingMaskIntoConstraints="NO" id="UHA-iR-fQI">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -2357,16 +2360,16 @@ Decision Speed (DS)
                                                             <constraint firstAttribute="height" constant="50" id="urP-6U-6r2"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description of how to use Direct To Button here." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ax-aq-goX">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Coming Soon: Nearest feilds filtered by 8000ft RWY length" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ax-aq-goX">
                                                         <rect key="frame" x="58" y="0.0" width="279.5" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8Tx-VW-QCZ">
-                                                <rect key="frame" x="0.0" y="58" width="337.5" height="50"/>
+                                                <rect key="frame" x="0.0" y="102" width="337.5" height="50"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WindButton" translatesAutoresizingMaskIntoConstraints="NO" id="vJl-Lq-A0I">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -2375,16 +2378,19 @@ Decision Speed (DS)
                                                             <constraint firstAttribute="height" constant="50" id="6s6-1l-cI6"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description of how to use the Wind Button here." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1x-S6-6ak">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Enter wind ANGLE then press the &lt;-- button, enter wind speed and hit the &quot;=&quot; button. The result is your crosswind." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1x-S6-6ak">
                                                         <rect key="frame" x="58" y="0.0" width="279.5" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="279.5" id="1fN-j6-9cf"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="l8z-JM-4hv">
-                                                <rect key="frame" x="0.0" y="116" width="337.5" height="50"/>
+                                                <rect key="frame" x="0.0" y="160" width="337.5" height="50"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GasButton" translatesAutoresizingMaskIntoConstraints="NO" id="dVD-Fr-m6S">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -2393,9 +2399,10 @@ Decision Speed (DS)
                                                             <constraint firstAttribute="width" constant="50" id="nkG-xd-W6V"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description of how to use the Gas Button here." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6pl-4x-kzP">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6pl-4x-kzP">
                                                         <rect key="frame" x="58" y="0.0" width="279.5" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <string key="text">Enter FUEL FLOW the hit &lt;-- button, enter time till destination and hit the "=" button. The result is the fuel you will burn enroute</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -2411,13 +2418,13 @@ Decision Speed (DS)
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Qk9-oN-mlm" firstAttribute="width" secondItem="zun-ZD-TR6" secondAttribute="width" id="YJY-an-w8h"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="un2-V6-sXK"/>
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="zun-ZD-TR6" firstAttribute="width" secondItem="VAH-ge-egT" secondAttribute="width" multiplier="0.9" id="DIb-Xs-qKC"/>
+                            <constraint firstItem="zun-ZD-TR6" firstAttribute="width" secondItem="VAH-ge-egT" secondAttribute="width" multiplier="0.9" priority="999" id="DIb-Xs-qKC"/>
                             <constraint firstItem="zun-ZD-TR6" firstAttribute="top" secondItem="QFA-ze-hEf" secondAttribute="bottom" constant="8" id="sX8-lt-RkR"/>
                             <constraint firstItem="zun-ZD-TR6" firstAttribute="centerX" secondItem="VAH-ge-egT" secondAttribute="centerX" id="tiX-re-MeO"/>
                         </constraints>
@@ -2429,19 +2436,23 @@ Decision Speed (DS)
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="instructionsStackView" destination="zun-ZD-TR6" id="O3b-Dq-607"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rwx-fl-eTG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-326" y="-1623"/>
+            <point key="canvasLocation" x="407" y="-1623"/>
         </scene>
         <!--Nearest-->
         <scene sceneID="Dmp-9Q-PeG">
             <objects>
                 <tableViewController id="W2V-4U-x7O" customClass="NearestTableViewController" customModule="T38" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hlt-80-CGR">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hlt-80-CGR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Nearest" textLabel="aDh-Is-0Dx" style="IBUITableViewCellStyleDefault" id="Sa0-in-d4h">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -2459,7 +2470,7 @@ Decision Speed (DS)
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.29031943669999999" green="0.34177078319999998" blue="0.42794257610000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="h71-me-PGX" kind="show" identifier="nearestDetail" id="LhP-RF-uRh"/>
                                 </connections>
@@ -2477,6 +2488,9 @@ Decision Speed (DS)
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableViewOutlet" destination="hlt-80-CGR" id="1cJ-R6-08I"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tbL-jQ-CgY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2555,7 +2569,7 @@ Decision Speed (DS)
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.29031943669999999" green="0.34177078319999998" blue="0.42794257610000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ABD-RK-GhI" firstAttribute="top" secondItem="kkj-MQ-hd9" secondAttribute="bottom" constant="20" id="4cD-Cb-6aG"/>
                             <constraint firstItem="ABD-RK-GhI" firstAttribute="centerX" secondItem="gCV-Lk-fPw" secondAttribute="centerX" id="EBg-ON-kHW"/>
@@ -2575,24 +2589,6 @@ Decision Speed (DS)
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xPI-vC-Neb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="329.8828125" y="-932.06442166910676"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="kRB-1u-4Pg">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dZj-lg-hyd" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9a1-J6-U97">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="WCu-an-5kx" kind="relationship" relationship="rootViewController" id="NJy-SL-59X"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9T5-gA-0Eu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-980" y="-1623"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="fwa-Iw-ZTO">
@@ -2648,6 +2644,24 @@ Decision Speed (DS)
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xP0-n1-meX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-980" y="-932"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HVp-7b-L5e">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LkU-D7-vfr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SU3-P1-h8G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WCu-an-5kx" kind="relationship" relationship="rootViewController" id="sKe-tt-FD7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zb9-DR-sCc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-326.3671875" y="-1623.4260614934112"/>
         </scene>
     </scenes>
     <resources>

@@ -27,32 +27,6 @@ class AirfieldInfoViewController: UIViewController {
         
     }
     
-    
-    
-    
-    var ThrowOUT = """
-    Airfield(ObjectID: Optional(1006),
-            AirportID: Optional("84EAFC4A-BF2A-4C6F-B8D8-FF45AA36AF4D"),
-            Ident: Optional("HRT"),
-            Lat: Optional("30-25-44.1050N"),
-            Lon: Optional("086-41-19.6840W"),
-            Elevation: Optional(38.0),
-            ICAO: Optional("KHRT"),
-            City: Optional("MARY ESTHER"),
-            State: Optional("FL"),
-            Runways: Optional([T38.Airfield.Runway(AirportID: Optional("84EAFC4A-BF2A-4C6F-B8D8-FF45AA36AF4D"),
-                    Designator: Optional("18"),
-                    Length: Optional(9600),
-                    Width: Optional(150),
-                    Coordinates: Optional(["-86.6874979186255, 30.4157728990562",
-                                "-86.6879725877575, 30.4157439060346",
-                                "-86.6901143194806, 30.4420744638481",
-                                "-86.6896395243486, 30.4421034648698",
-                                "-86.6874979186255, 30.4157728990562"]))]))
-
-
-"""
-    
     var selectedAirfield = Airfield()
     var ICAO = ""
     var lat = ""

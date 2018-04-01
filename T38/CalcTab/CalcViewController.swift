@@ -54,12 +54,13 @@ class CalcViewController: UIViewController {
         case "nearestPop"?:
             if let popoverPresentationController = segue.destination.popoverPresentationController, let sourceView = sender as? UIView {
                 popoverPresentationController.sourceRect = sourceView.bounds
-                popoverPresentationController.backgroundColor = #colorLiteral(red: 0.2771260142, green: 0.3437626958, blue: 0.4359292388, alpha: 1)
+                popoverPresentationController.backgroundColor = #colorLiteral(red: 0.4756349325, green: 0.4756467342, blue: 0.4756404161, alpha: 1)
             }
         case "calcDirectionsSeque"?:
             if let popoverPresentationController = segue.destination.popoverPresentationController, let sourceView = sender as? UIView {
             popoverPresentationController.sourceRect = sourceView.bounds
-            popoverPresentationController.backgroundColor = #colorLiteral(red: 0.2771260142, green: 0.3437626958, blue: 0.4359292388, alpha: 1)
+            //popoverPresentationController.backgroundColor = #colorLiteral(red: 0.2771260142, green: 0.3437626958, blue: 0.4359292388, alpha: 1)
+            
             }
 
         default:

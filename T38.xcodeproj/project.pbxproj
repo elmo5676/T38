@@ -10,6 +10,10 @@
 		6E12C3901E2C717000C43479 /* SpeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E12C38F1E2C717000C43479 /* SpeedsViewController.swift */; };
 		6E2AAAE0206B469000C34D93 /* AirfieldStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2AAADF206B469000C34D93 /* AirfieldStore.swift */; };
 		6E3D4C39206AC66F007757BB /* NearestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D4C38206AC66F007757BB /* NearestTableViewController.swift */; };
+		6E50D65B2070560D0071191C /* Airports.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E50D6592070560D0071191C /* Airports.json */; };
+		6E50D65C2070560D0071191C /* Runways.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E50D65A2070560D0071191C /* Runways.json */; };
+		6E50D65F2070561E0071191C /* Runway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E50D65D2070561E0071191C /* Runway.swift */; };
+		6E50D6602070561E0071191C /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E50D65E2070561E0071191C /* Airport.swift */; };
 		6E528AB5206BE2360084C644 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E6A0AD21E19F02600E23114 /* Info.plist */; };
 		6E6651762030E1C900F3E73F /* Launch Screen 38.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6651752030E1C900F3E73F /* Launch Screen 38.storyboard */; };
 		6E6A0AC51E19F02600E23114 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6A0AC41E19F02600E23114 /* AppDelegate.swift */; };
@@ -89,6 +93,10 @@
 		6E12C38F1E2C717000C43479 /* SpeedsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedsViewController.swift; sourceTree = "<group>"; };
 		6E2AAADF206B469000C34D93 /* AirfieldStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirfieldStore.swift; sourceTree = "<group>"; };
 		6E3D4C38206AC66F007757BB /* NearestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestTableViewController.swift; sourceTree = "<group>"; };
+		6E50D6592070560D0071191C /* Airports.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Airports.json; sourceTree = "<group>"; };
+		6E50D65A2070560D0071191C /* Runways.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Runways.json; sourceTree = "<group>"; };
+		6E50D65D2070561E0071191C /* Runway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Runway.swift; sourceTree = "<group>"; };
+		6E50D65E2070561E0071191C /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
 		6E6651752030E1C900F3E73F /* Launch Screen 38.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen 38.storyboard"; sourceTree = "<group>"; };
 		6E6A0AC41E19F02600E23114 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E6A0AC61E19F02600E23114 /* DivertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivertViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +193,10 @@
 			isa = PBXGroup;
 			children = (
 				6E6A0AC31E19F02600E23114 /* T38 */,
+				6E50D6592070560D0071191C /* Airports.json */,
+				6E50D65A2070560D0071191C /* Runways.json */,
+				6E50D65E2070561E0071191C /* Airport.swift */,
+				6E50D65D2070561E0071191C /* Runway.swift */,
 				6ED580A720674C6300B1D2BA /* T38 TOLD */,
 				6EF01505206D69BE0074A7DC /* Nearest */,
 				6EC983C51E1D416100F74556 /* Frameworks */,
@@ -427,10 +439,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E50D65B2070560D0071191C /* Airports.json in Resources */,
 				6E97C2E6202AB111005F4971 /* ATIS.css in Resources */,
 				6ED5809F2067402600B1D2BA /* automator.html in Resources */,
 				6E97C2F3202AB111005F4971 /* jquery in Resources */,
 				6E97C2EC202AB111005F4971 /* results.html in Resources */,
+				6E50D65C2070560D0071191C /* Runways.json in Resources */,
 				6E97C2EB202AB111005F4971 /* Data-DS125.js in Resources */,
 				6E6651762030E1C900F3E73F /* Launch Screen 38.storyboard in Resources */,
 				6E97C2EA202AB111005F4971 /* Data-SECGGU.js in Resources */,
@@ -487,6 +501,8 @@
 				6ED5809B206737E500B1D2BA /* CalcViewController.swift in Sources */,
 				6EE82B99206B3A7D006DFF93 /* AirfieldJOSNProcessor.swift in Sources */,
 				6EBF8AE820322BA300CF67D8 /* notes_ViewController.swift in Sources */,
+				6E50D65F2070561E0071191C /* Runway.swift in Sources */,
+				6E50D6602070561E0071191C /* Airport.swift in Sources */,
 				6E6A0AC71E19F02600E23114 /* DivertViewController.swift in Sources */,
 				6ED0E5262027D73E0045D79D /* toldHTMLViewController.swift in Sources */,
 			);
