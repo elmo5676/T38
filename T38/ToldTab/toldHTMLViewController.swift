@@ -137,8 +137,9 @@ class toldHTMLViewController: UIViewController {
                                     document.getElementById('podMountedYes').checked = \(thereIsAPod(podMounted));
                                     document.getElementById('wtUsedForTOLD').value = '\(weightUsedForTOLD)';
                                     document.getElementById('givenEngFailAt').value = '\(givenEngFailure)';
+                                    document.getElementsByClassName('btn btn-xs btn-success')[0].click();
                                     """
-//        document.getElementsByClassName('btn btn-xs btn-success')[0].click();
+        
 //        document.getElementById('resetFormButton').value = '\()';
         return submitFormJavaScript
     }
