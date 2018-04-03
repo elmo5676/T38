@@ -11,13 +11,28 @@ import UIKit
 class TOLDInputViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         aeroBreakingYesNoLabel.text = "No"
         celciusOrFehrenheitLabel.text = "C"
         podYesOrNoLabel.text = "No"
         
-        
+        self.temperatureTextField.delegate = self
+        self.pressureAltTextField.delegate = self
+        self.runwayLengthTextField.delegate = self
+        self.runwayHeadingTextField.delegate = self
+        self.windDirectionTextField.delegate = self
+        self.windVelocityTextField.delegate = self
+        self.windVelocityTextField.delegate = self
+        self.runwaySlopeTextField.delegate = self
+        self.rcrTextField.delegate = self
+        self.aircraftGrosWTTextField.delegate = self
+        self.weightOfCargoInPODTextField.delegate = self
+        self.wieghtUsedForTOLDTextField.delegate = self
+        self.givenEngFailureTextField.delegate = self
       
     }
+    
+    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == temperatureTextField {

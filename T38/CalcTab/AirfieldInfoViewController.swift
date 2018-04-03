@@ -54,6 +54,8 @@ class AirfieldInfoViewController: UIViewController {
     @IBAction func copyDirect(_ sender: UIButton!){
         UIPasteboard.general.string = "D \(ICAO)"
         presentingViewController?.dismiss(animated: true, completion: nil)
+//        let url = URL(string: "foreflight://")
+//        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
     }
     
     

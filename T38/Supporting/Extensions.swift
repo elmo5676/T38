@@ -10,6 +10,18 @@ import Foundation
 import UIKit
 
 
+public extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
 public extension Double {
     //http://www.kylesconverter.com
     var radiansToDegrees: Double { return self * 180 / Double.pi }
