@@ -19,8 +19,10 @@ import UIKit
 class NearestTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         loadAirfileds()
         updateUI()
+//        loadRunwayFromJSON()
     }
     
     
@@ -43,10 +45,10 @@ class NearestTableViewController: UITableViewController {
         let decoder = JSONDecoder()
         do {
             let result = try decoder.decode(Airport.self, from: Data(contentsOf: airportURL))
-            print(result.features[0].properties.icaoID as Any)
+//            print(result.features[0].properties.icaoID as Any)
             for airport in result.features {
-                print(airport.properties.icaoID as Any)
-                print(airport.geometry.coordinates)
+//                print(airport.properties.icaoID as Any)
+//                print(airport.geometry.coordinates)
             }
         } catch {
             print(error)
@@ -58,10 +60,10 @@ class NearestTableViewController: UITableViewController {
         let decoder = JSONDecoder()
         do {
             let result = try decoder.decode(Runway.self, from: Data(contentsOf: airportURL))
-            print(result.features[0].properties)
+//            print(result.features[0].properties)
             for runway in result.features {
-                print(runway.properties.globalID)
-                print(runway.properties.designator as Any)
+//                print(runway.properties.globalID)
+//                print(runway.properties.length)
             }
         } catch {
             print(error)

@@ -52,10 +52,12 @@ class AirfieldInfoViewController: UIViewController {
     @IBOutlet weak var bearingLabel: UILabel!
     
     @IBAction func copyDirect(_ sender: UIButton!){
-        UIPasteboard.general.string = "D \(ICAO)"
+//        UIPasteboard.general.string = "D \(ICAO)"
         presentingViewController?.dismiss(animated: true, completion: nil)
-//        let url = URL(string: "foreflight://")
-//        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+        var urlString = URLComponents(string: "foreflightmobile://maps/search?")!
+        urlString.query = "q=D \(ICAO)"
+        let url = urlString.url!
+        UIApplication.shared.open(url , options: [:], completionHandler: nil)
     }
     
     

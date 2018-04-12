@@ -1,14 +1,58 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="AirportCD" representedClassName="AirportCD" syncable="YES">
-        <attribute name="new" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="tre" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AirportCD" representedClassName=".AirportCD" syncable="YES" codeGenerationType="category">
+        <attribute name="airAnal_CD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="akHigh_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="akLow_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="country_CD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dodHiFlip_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="elevation_CD" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="far91_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="far93_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="geometryCoordinates_CD" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="globalID_CD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="iapExists_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="icaoID_CD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ident_CD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude_CD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitude_CD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="milCode_CD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name_CD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectID_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="operStatus_CD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pacific_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="privateUse_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="serviceCity_CD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state_CD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="typeCode_CD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="usArea_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="usHigh_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="usLow_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="runways" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RunwayCD" inverseName="airport" inverseEntity="RunwayCD" syncable="YES"/>
     </entity>
-    <entity name="RunwayCD" representedClassName="RunwayCD" syncable="YES">
-        <attribute name="test" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    <entity name="RunwayCD" representedClassName=".RunwayCD" syncable="YES" codeGenerationType="category">
+        <attribute name="airportID_CD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="akHigh_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="akLow_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="designator_CD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dimUom_CD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="geometryCoordinates_CD" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="globalID_CD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="length_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lightAct_CD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lightInt_CD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectID_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="pacific_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="shapeArea_CD" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="shapeLength_CD" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="usArea_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="usHigh_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="usLow_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="width_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="airport" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AirportCD" inverseName="runways" inverseEntity="AirportCD" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AirportCD" positionX="-54" positionY="-9" width="128" height="75"/>
-        <element name="RunwayCD" positionX="-36" positionY="9" width="128" height="60"/>
+        <element name="AirportCD" positionX="-558" positionY="-189" width="128" height="463"/>
+        <element name="RunwayCD" positionX="-36" positionY="9" width="128" height="328"/>
     </elements>
 </model>
