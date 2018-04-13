@@ -9,11 +9,61 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
+    func loadAirportFromJSON(){
+        
+    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+//        let moc = persistentContainer.viewContext
+//        let airportURL = Bundle.main.url(forResource: "Airports", withExtension: "json")!
+//        let airportDB = AirportCD(context: moc)
+//        let decoder = JSONDecoder()
+//        do {
+//            let result = try decoder.decode(Airport.self, from: Data(contentsOf: airportURL))
+//            for airport in result.features {
+//                airportDB.objectID_CD = Int32(airport.properties.objectid)
+//                airportDB.globalID_CD = airport.properties.globalID
+//                airportDB.ident_CD = airport.properties.ident
+//                airportDB.name_CD = airport.properties.name
+//                airportDB.latitude_CD = airport.properties.latitude
+//                airportDB.longitude_CD = airport.properties.longitude
+//                airportDB.elevation_CD = airport.properties.elevation
+//                airportDB.icaoID_CD = airport.properties.icaoID
+//                airportDB.typeCode_CD = airport.properties.typeCode.rawValue
+//                airportDB.serviceCity_CD = airport.properties.servcity
+//                airportDB.state_CD = airport.properties.state.map { $0.rawValue }
+//                airportDB.country_CD = airport.properties.country.rawValue
+//                airportDB.operStatus_CD = airport.properties.operstatus.rawValue
+//                airportDB.privateUse_CD = Int32(airport.properties.privateuse)
+//                airportDB.iapExists_CD = Int32(airport.properties.iapexists)
+//                airportDB.dodHiFlip_CD = Int32(airport.properties.dodhiflip)
+//                airportDB.far91_CD = Int32(airport.properties.far91)
+//                airportDB.far93_CD = Int32(airport.properties.far93)
+//                airportDB.milCode_CD = airport.properties.milCode.rawValue
+//                airportDB.airAnal_CD = airport.properties.airanal.rawValue
+//                airportDB.usHigh_CD = Int32(airport.properties.usHigh)
+//                airportDB.usLow_CD = Int32(airport.properties.usLow)
+//                airportDB.akHigh_CD = Int32(airport.properties.akHigh)
+//                airportDB.akLow_CD = Int32(airport.properties.akLow)
+//                airportDB.usArea_CD = Int32(airport.properties.usArea)
+//                airportDB.pacific_CD = Int32(airport.properties.pacific)
+//                airportDB.geometryCoordinates_CD = airport.geometry.coordinates as NSObject
+//                try moc.save()
+//            }
+//        } catch {
+//            print(error)
+//        }
+//        
+        //        let airportRequest: NSFetchRequest<AirportCD> = AirportCD.fetchRequest()
+        //        airportRequest.returnsObjectsAsFaults = true
+        //        let moc = persistentContainer.viewContext
+        //        var airportICAOArray = [AirportCD]()
+        //        do {
+        //            airportICAOArray = try moc.fetch(airportRequest)
+        //        } catch {
+        //            print(error)
+        //        }
 
-        
-        
         return true
     }
 
@@ -42,31 +92,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     // MARK: - Core Data stack
-    
     lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-         */
-        
-        
         //Name of CoreData Model File:
         let container = NSPersistentContainer(name: "T38CD")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
+                print(error.localizedDescription)
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
@@ -74,23 +105,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
     
     // MARK: - Core Data Saving support
-    
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                print(error.localizedDescription)
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }
-
-    
-
-
 }
+
+
+
+
+
+
 

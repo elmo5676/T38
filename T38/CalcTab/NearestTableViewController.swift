@@ -15,6 +15,7 @@
 //        let new = allNewICAOS
 
 import UIKit
+import CoreData
 
 class NearestTableViewController: UITableViewController {
     override func viewDidLoad() {
@@ -22,9 +23,14 @@ class NearestTableViewController: UITableViewController {
         
         loadAirfileds()
         updateUI()
-//        loadRunwayFromJSON()
+        
+        moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
     }
     
+    
+    var moc: NSManagedObjectContext!
+    var airport: [NSManagedObject] = []
     
     var airfields = AirfieldStore().airfieldsAll
     var allAirields1 = [Airfield]()
@@ -38,37 +44,6 @@ class NearestTableViewController: UITableViewController {
     var state = ""
     var airportID = ""
     var ident = ""
-    
-    // MARK: JSON Parse
-    func loadAirportFromJSON(){
-        let airportURL = Bundle.main.url(forResource: "Airports", withExtension: "json")!
-        let decoder = JSONDecoder()
-        do {
-            let result = try decoder.decode(Airport.self, from: Data(contentsOf: airportURL))
-//            print(result.features[0].properties.icaoID as Any)
-            for airport in result.features {
-//                print(airport.properties.icaoID as Any)
-//                print(airport.geometry.coordinates)
-            }
-        } catch {
-            print(error)
-        }
-    }
-    
-    func loadRunwayFromJSON(){
-        let airportURL = Bundle.main.url(forResource: "Runways", withExtension: "json")!
-        let decoder = JSONDecoder()
-        do {
-            let result = try decoder.decode(Runway.self, from: Data(contentsOf: airportURL))
-//            print(result.features[0].properties)
-            for runway in result.features {
-//                print(runway.properties.globalID)
-//                print(runway.properties.length)
-            }
-        } catch {
-            print(error)
-        }
-    }
     
     private func updateUI(){
         if presentationController is UIPopoverPresentationController {

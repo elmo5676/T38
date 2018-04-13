@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="AirportCD" representedClassName=".AirportCD" syncable="YES" codeGenerationType="category">
+    <entity name="AirportCD" representedClassName=".AirportCD" syncable="YES">
         <attribute name="airAnal_CD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="akHigh_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="akLow_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -28,9 +28,9 @@
         <attribute name="usArea_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="usHigh_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="usLow_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="runways" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RunwayCD" inverseName="airport" inverseEntity="RunwayCD" syncable="YES"/>
+        <relationship name="runways" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RunwayCD" inverseName="airport" inverseEntity="RunwayCD" syncable="YES"/>
     </entity>
-    <entity name="RunwayCD" representedClassName=".RunwayCD" syncable="YES" codeGenerationType="category">
+    <entity name="RunwayCD" representedClassName=".RunwayCD" syncable="YES">
         <attribute name="airportID_CD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="akHigh_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="akLow_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -39,8 +39,8 @@
         <attribute name="geometryCoordinates_CD" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="globalID_CD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="length_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="lightAct_CD" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="lightInt_CD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lightAct_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lightInt_CD" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="objectID_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="pacific_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="shapeArea_CD" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -52,7 +52,7 @@
         <relationship name="airport" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AirportCD" inverseName="runways" inverseEntity="AirportCD" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AirportCD" positionX="-558" positionY="-189" width="128" height="463"/>
-        <element name="RunwayCD" positionX="-36" positionY="9" width="128" height="328"/>
+        <element name="AirportCD" positionX="-558" positionY="-189" width="128" height="465"/>
+        <element name="RunwayCD" positionX="-351" positionY="-72" width="128" height="328"/>
     </elements>
 </model>
