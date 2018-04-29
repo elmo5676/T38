@@ -46,6 +46,9 @@
 		6EB8B352207FC78D00C4ABDB /* RunwayCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB8B34E207FC78D00C4ABDB /* RunwayCD+CoreDataProperties.swift */; };
 		6EBF8AE820322BA300CF67D8 /* notes_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBF8AE720322BA300CF67D8 /* notes_ViewController.swift */; };
 		6EC983C71E1D416100F74556 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EC983C61E1D416100F74556 /* CoreLocation.framework */; };
+		6ECADBD9209631D5005FF5AE /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = 6ECADBD8209631D5005FF5AE /* Scripts */; };
+		6ECADBDC20963230005FF5AE /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECADBDA20963230005FF5AE /* Calculator.swift */; };
+		6ECADBDD20963230005FF5AE /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECADBDB20963230005FF5AE /* Results.swift */; };
 		6ECF45F220708B820057F317 /* T38CD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF45F020708B820057F317 /* T38CD.xcdatamodeld */; };
 		6ED0E5262027D73E0045D79D /* toldHTMLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED0E5252027D73E0045D79D /* toldHTMLViewController.swift */; };
 		6ED5809A206737E500B1D2BA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED58097206737E400B1D2BA /* Extensions.swift */; };
@@ -137,6 +140,9 @@
 		6EB8B34E207FC78D00C4ABDB /* RunwayCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RunwayCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6EBF8AE720322BA300CF67D8 /* notes_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notes_ViewController.swift; sourceTree = "<group>"; };
 		6EC983C61E1D416100F74556 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		6ECADBD8209631D5005FF5AE /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
+		6ECADBDA20963230005FF5AE /* Calculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
+		6ECADBDB20963230005FF5AE /* Results.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		6ECF45F120708B820057F317 /* T38CD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = T38CD.xcdatamodel; sourceTree = "<group>"; };
 		6ED0E5252027D73E0045D79D /* toldHTMLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toldHTMLViewController.swift; sourceTree = "<group>"; };
 		6ED58097206737E400B1D2BA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -327,6 +333,9 @@
 		6EE82B92206B39AA006DFF93 /* ToldTab */ = {
 			isa = PBXGroup;
 			children = (
+				6ECADBDA20963230005FF5AE /* Calculator.swift */,
+				6ECADBDB20963230005FF5AE /* Results.swift */,
+				6ECADBD8209631D5005FF5AE /* Scripts */,
 				6EB58CE32071C535008F2D38 /* TOLDInputViewController.swift */,
 				6EBF8AE720322BA300CF67D8 /* notes_ViewController.swift */,
 				6ED0E5252027D73E0045D79D /* toldHTMLViewController.swift */,
@@ -490,6 +499,7 @@
 				6E97C2EA202AB111005F4971 /* Data-SECGGU.js in Resources */,
 				6E97C2ED202AB111005F4971 /* T38TOLDindex.js in Resources */,
 				6E528AB5206BE2360084C644 /* Info.plist in Resources */,
+				6ECADBD9209631D5005FF5AE /* Scripts in Resources */,
 				6EE8B261202EA2AF0082E363 /* indexCompact.html in Resources */,
 				6E97C2F2202AB111005F4971 /* Data-TOData2.js in Resources */,
 				6E97C2E8202AB111005F4971 /* Data-SEROC.js in Resources */,
@@ -542,6 +552,7 @@
 				6EAB7F072068DB090033B99B /* calcInfoViewController.swift in Sources */,
 				6E9956B220812B8B00B73264 /* PreferencesViewController.swift in Sources */,
 				6E6A0AC51E19F02600E23114 /* AppDelegate.swift in Sources */,
+				6ECADBDC20963230005FF5AE /* Calculator.swift in Sources */,
 				6EB8B34F207FC78D00C4ABDB /* AirportCD+CoreDataClass.swift in Sources */,
 				6ED5809A206737E500B1D2BA /* Extensions.swift in Sources */,
 				6ED5809B206737E500B1D2BA /* CalcViewController.swift in Sources */,
@@ -550,6 +561,7 @@
 				6E50D65F2070561E0071191C /* Runway.swift in Sources */,
 				6ECF45F220708B820057F317 /* T38CD.xcdatamodeld in Sources */,
 				6E50D6602070561E0071191C /* Airport.swift in Sources */,
+				6ECADBDD20963230005FF5AE /* Results.swift in Sources */,
 				6EB8B350207FC78D00C4ABDB /* AirportCD+CoreDataProperties.swift in Sources */,
 				6E6A0AC71E19F02600E23114 /* DivertViewController.swift in Sources */,
 				6ED0E5262027D73E0045D79D /* toldHTMLViewController.swift in Sources */,
