@@ -22,21 +22,6 @@
 		6E6A0AC91E19F02600E23114 /* ClimbRangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6A0AC81E19F02600E23114 /* ClimbRangeViewController.swift */; };
 		6E6A0ACC1E19F02600E23114 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6A0ACA1E19F02600E23114 /* Main.storyboard */; };
 		6E7E5E53206CA2B1005A23AE /* AirfieldInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E5E52206CA2B1005A23AE /* AirfieldInfoViewController.swift */; };
-		6E97C2E6202AB111005F4971 /* ATIS.css in Resources */ = {isa = PBXBuildFile; fileRef = 6E97C2D7202AB10B005F4971 /* ATIS.css */; };
-		6E97C2E7202AB111005F4971 /* bootstrap in Resources */ = {isa = PBXBuildFile; fileRef = 6E97C2D8202AB10C005F4971 /* bootstrap */; };
-		6E97C2E8202AB111005F4971 /* Data-SEROC.js in Resources */ = {isa = PBXBuildFile; fileRef = 6E97C2D9202AB10C005F4971 /* Data-SEROC.js */; };
-		6E97C2E9202AB111005F4971 /* T38TOLDresults.js in Resources */ = {isa = PBXBuildFile; fileRef = 6E97C2DA202AB10C005F4971 /* T38TOLDresults.js */; };
-		6E97C2EA202AB111005F4971 /* Data-SECGGU.js in Resources */ = {isa = PBXBuildFile; fileRef = 6E97C2DB202AB10D005F4971 /* Data-SECGGU.js */; };
-		6E97C2EB202AB111005F4971 /* Data-DS125.js in Resources */ = {isa = PBXBuildFile; fileRef = 6E97C2DC202AB10D005F4971 /* Data-DS125.js */; };
-		6E97C2EC202AB111005F4971 /* results.html in Resources */ = {isa = PBXBuildFile; fileRef = 6E97C2DD202AB10D005F4971 /* results.html */; };
-		6E97C2ED202AB111005F4971 /* T38TOLDindex.js in Resources */ = {isa = PBXBuildFile; fileRef = 6E97C2DE202AB10E005F4971 /* T38TOLDindex.js */; };
-		6E97C2EE202AB111005F4971 /* Data-SECG.js in Resources */ = {isa = PBXBuildFile; fileRef = 6E97C2DF202AB10E005F4971 /* Data-SECG.js */; };
-		6E97C2EF202AB111005F4971 /* Data-SEROCGU.js in Resources */ = {isa = PBXBuildFile; fileRef = 6E97C2E0202AB10F005F4971 /* Data-SEROCGU.js */; };
-		6E97C2F0202AB111005F4971 /* T38TOLDConversions.js in Resources */ = {isa = PBXBuildFile; fileRef = 6E97C2E1202AB10F005F4971 /* T38TOLDConversions.js */; };
-		6E97C2F1202AB111005F4971 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 6E97C2E2202AB10F005F4971 /* index.html */; };
-		6E97C2F2202AB111005F4971 /* Data-TOData2.js in Resources */ = {isa = PBXBuildFile; fileRef = 6E97C2E3202AB110005F4971 /* Data-TOData2.js */; };
-		6E97C2F3202AB111005F4971 /* jquery in Resources */ = {isa = PBXBuildFile; fileRef = 6E97C2E4202AB110005F4971 /* jquery */; };
-		6E97C2F4202AB111005F4971 /* Data-TOData.js in Resources */ = {isa = PBXBuildFile; fileRef = 6E97C2E5202AB111005F4971 /* Data-TOData.js */; };
 		6E9956B220812B8B00B73264 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9956B120812B8B00B73264 /* PreferencesViewController.swift */; };
 		6EAB7F072068DB090033B99B /* calcInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAB7F062068DB090033B99B /* calcInfoViewController.swift */; };
 		6EB58CE42071C535008F2D38 /* TOLDInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB58CE32071C535008F2D38 /* TOLDInputViewController.swift */; };
@@ -46,22 +31,21 @@
 		6EB8B352207FC78D00C4ABDB /* RunwayCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB8B34E207FC78D00C4ABDB /* RunwayCD+CoreDataProperties.swift */; };
 		6EBF8AE820322BA300CF67D8 /* notes_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBF8AE720322BA300CF67D8 /* notes_ViewController.swift */; };
 		6EC983C71E1D416100F74556 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EC983C61E1D416100F74556 /* CoreLocation.framework */; };
-		6ECADBD9209631D5005FF5AE /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = 6ECADBD8209631D5005FF5AE /* Scripts */; };
 		6ECADBDC20963230005FF5AE /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECADBDA20963230005FF5AE /* Calculator.swift */; };
 		6ECADBDD20963230005FF5AE /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECADBDB20963230005FF5AE /* Results.swift */; };
+		6ECADBDF20963F04005FF5AE /* TOLDResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECADBDE20963F04005FF5AE /* TOLDResultsViewController.swift */; };
+		6ECADBE120965DF3005FF5AE /* main_script.js in Resources */ = {isa = PBXBuildFile; fileRef = 6ECADBE020965DF3005FF5AE /* main_script.js */; };
 		6ECF45F220708B820057F317 /* T38CD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF45F020708B820057F317 /* T38CD.xcdatamodeld */; };
 		6ED0E5262027D73E0045D79D /* toldHTMLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED0E5252027D73E0045D79D /* toldHTMLViewController.swift */; };
 		6ED5809A206737E500B1D2BA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED58097206737E400B1D2BA /* Extensions.swift */; };
 		6ED5809B206737E500B1D2BA /* CalcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED58098206737E400B1D2BA /* CalcViewController.swift */; };
 		6ED5809C206737E500B1D2BA /* CalcBrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED58099206737E500B1D2BA /* CalcBrains.swift */; };
-		6ED5809F2067402600B1D2BA /* automator.html in Resources */ = {isa = PBXBuildFile; fileRef = 6ED5809E2067402600B1D2BA /* automator.html */; };
 		6ED580A620674C6300B1D2BA /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED580A520674C6300B1D2BA /* NotificationCenter.framework */; };
 		6ED580A920674C6300B1D2BA /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED580A820674C6300B1D2BA /* TodayViewController.swift */; };
 		6ED580AC20674C6300B1D2BA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED580AA20674C6300B1D2BA /* MainInterface.storyboard */; };
 		6ED580B020674C6300B1D2BA /* T38 TOLD.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6ED580A420674C6300B1D2BA /* T38 TOLD.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6EE82B97206B3A59006DFF93 /* getAtis7000.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EE82B96206B3A59006DFF93 /* getAtis7000.json */; };
 		6EE82B99206B3A7D006DFF93 /* AirfieldJOSNProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE82B98206B3A7D006DFF93 /* AirfieldJOSNProcessor.swift */; };
-		6EE8B261202EA2AF0082E363 /* indexCompact.html in Resources */ = {isa = PBXBuildFile; fileRef = 6EE8B260202EA2AF0082E363 /* indexCompact.html */; };
 		6EEC9628202DFE4B00B92DED /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EEC9627202DFE4B00B92DED /* Media.xcassets */; };
 		6EF01507206D69BE0074A7DC /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF01506206D69BE0074A7DC /* KeyboardViewController.swift */; };
 		6EF0150B206D69BE0074A7DC /* Nearest.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6EF01504206D69BE0074A7DC /* Nearest.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -116,21 +100,6 @@
 		6E6A0ACB1E19F02600E23114 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6E6A0AD21E19F02600E23114 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E7E5E52206CA2B1005A23AE /* AirfieldInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirfieldInfoViewController.swift; sourceTree = "<group>"; };
-		6E97C2D7202AB10B005F4971 /* ATIS.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = ATIS.css; sourceTree = "<group>"; };
-		6E97C2D8202AB10C005F4971 /* bootstrap */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bootstrap; sourceTree = "<group>"; };
-		6E97C2D9202AB10C005F4971 /* Data-SEROC.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "Data-SEROC.js"; sourceTree = "<group>"; };
-		6E97C2DA202AB10C005F4971 /* T38TOLDresults.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = T38TOLDresults.js; sourceTree = "<group>"; };
-		6E97C2DB202AB10D005F4971 /* Data-SECGGU.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "Data-SECGGU.js"; sourceTree = "<group>"; };
-		6E97C2DC202AB10D005F4971 /* Data-DS125.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "Data-DS125.js"; sourceTree = "<group>"; };
-		6E97C2DD202AB10D005F4971 /* results.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = results.html; sourceTree = "<group>"; };
-		6E97C2DE202AB10E005F4971 /* T38TOLDindex.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = T38TOLDindex.js; sourceTree = "<group>"; };
-		6E97C2DF202AB10E005F4971 /* Data-SECG.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "Data-SECG.js"; sourceTree = "<group>"; };
-		6E97C2E0202AB10F005F4971 /* Data-SEROCGU.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "Data-SEROCGU.js"; sourceTree = "<group>"; };
-		6E97C2E1202AB10F005F4971 /* T38TOLDConversions.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = T38TOLDConversions.js; sourceTree = "<group>"; };
-		6E97C2E2202AB10F005F4971 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		6E97C2E3202AB110005F4971 /* Data-TOData2.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "Data-TOData2.js"; sourceTree = "<group>"; };
-		6E97C2E4202AB110005F4971 /* jquery */ = {isa = PBXFileReference; lastKnownFileType = folder; path = jquery; sourceTree = "<group>"; };
-		6E97C2E5202AB111005F4971 /* Data-TOData.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "Data-TOData.js"; sourceTree = "<group>"; };
 		6E9956B120812B8B00B73264 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		6EAB7F062068DB090033B99B /* calcInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calcInfoViewController.swift; sourceTree = "<group>"; };
 		6EB58CE32071C535008F2D38 /* TOLDInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOLDInputViewController.swift; sourceTree = "<group>"; };
@@ -140,15 +109,15 @@
 		6EB8B34E207FC78D00C4ABDB /* RunwayCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RunwayCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6EBF8AE720322BA300CF67D8 /* notes_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notes_ViewController.swift; sourceTree = "<group>"; };
 		6EC983C61E1D416100F74556 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		6ECADBD8209631D5005FF5AE /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		6ECADBDA20963230005FF5AE /* Calculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		6ECADBDB20963230005FF5AE /* Results.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		6ECADBDE20963F04005FF5AE /* TOLDResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOLDResultsViewController.swift; sourceTree = "<group>"; };
+		6ECADBE020965DF3005FF5AE /* main_script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = main_script.js; sourceTree = "<group>"; };
 		6ECF45F120708B820057F317 /* T38CD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = T38CD.xcdatamodel; sourceTree = "<group>"; };
 		6ED0E5252027D73E0045D79D /* toldHTMLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toldHTMLViewController.swift; sourceTree = "<group>"; };
 		6ED58097206737E400B1D2BA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		6ED58098206737E400B1D2BA /* CalcViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcViewController.swift; sourceTree = "<group>"; };
 		6ED58099206737E500B1D2BA /* CalcBrains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcBrains.swift; sourceTree = "<group>"; };
-		6ED5809E2067402600B1D2BA /* automator.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = automator.html; sourceTree = "<group>"; };
 		6ED580A420674C6300B1D2BA /* T38 TOLD.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "T38 TOLD.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ED580A520674C6300B1D2BA /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		6ED580A820674C6300B1D2BA /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -157,7 +126,6 @@
 		6EE82B96206B3A59006DFF93 /* getAtis7000.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAtis7000.json; sourceTree = "<group>"; };
 		6EE82B98206B3A7D006DFF93 /* AirfieldJOSNProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirfieldJOSNProcessor.swift; sourceTree = "<group>"; };
 		6EE8B25F202E98730082E363 /* T38.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = T38.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6EE8B260202EA2AF0082E363 /* indexCompact.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = indexCompact.html; sourceTree = "<group>"; };
 		6EEC9627202DFE4B00B92DED /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		6EF01504206D69BE0074A7DC /* Nearest.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Nearest.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF01506206D69BE0074A7DC /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
@@ -241,11 +209,7 @@
 				6EE82B95206B39E1006DFF93 /* ClimbRangeSumTab */,
 				6EE82B92206B39AA006DFF93 /* ToldTab */,
 				6ECF45D9207085AE0057F317 /* PreferencesTab */,
-				6ED580962067369E00B1D2BA /* HTML */,
-				6ED580952067368C00B1D2BA /* JavaScript */,
-				6E97C2D8202AB10C005F4971 /* bootstrap */,
 				6EEC9627202DFE4B00B92DED /* Media.xcassets */,
-				6E97C2E4202AB110005F4971 /* jquery */,
 			);
 			path = T38;
 			sourceTree = "<group>";
@@ -279,35 +243,6 @@
 			path = PreferencesTab;
 			sourceTree = "<group>";
 		};
-		6ED580952067368C00B1D2BA /* JavaScript */ = {
-			isa = PBXGroup;
-			children = (
-				6E97C2E1202AB10F005F4971 /* T38TOLDConversions.js */,
-				6E97C2DE202AB10E005F4971 /* T38TOLDindex.js */,
-				6E97C2DA202AB10C005F4971 /* T38TOLDresults.js */,
-				6E97C2DC202AB10D005F4971 /* Data-DS125.js */,
-				6E97C2DF202AB10E005F4971 /* Data-SECG.js */,
-				6E97C2DB202AB10D005F4971 /* Data-SECGGU.js */,
-				6E97C2D9202AB10C005F4971 /* Data-SEROC.js */,
-				6E97C2E0202AB10F005F4971 /* Data-SEROCGU.js */,
-				6E97C2E5202AB111005F4971 /* Data-TOData.js */,
-				6E97C2E3202AB110005F4971 /* Data-TOData2.js */,
-			);
-			path = JavaScript;
-			sourceTree = "<group>";
-		};
-		6ED580962067369E00B1D2BA /* HTML */ = {
-			isa = PBXGroup;
-			children = (
-				6ED5809E2067402600B1D2BA /* automator.html */,
-				6E97C2D7202AB10B005F4971 /* ATIS.css */,
-				6EE8B260202EA2AF0082E363 /* indexCompact.html */,
-				6E97C2E2202AB10F005F4971 /* index.html */,
-				6E97C2DD202AB10D005F4971 /* results.html */,
-			);
-			path = HTML;
-			sourceTree = "<group>";
-		};
 		6ED580A720674C6300B1D2BA /* T38 TOLD */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,9 +268,10 @@
 		6EE82B92206B39AA006DFF93 /* ToldTab */ = {
 			isa = PBXGroup;
 			children = (
+				6ECADBE020965DF3005FF5AE /* main_script.js */,
 				6ECADBDA20963230005FF5AE /* Calculator.swift */,
 				6ECADBDB20963230005FF5AE /* Results.swift */,
-				6ECADBD8209631D5005FF5AE /* Scripts */,
+				6ECADBDE20963F04005FF5AE /* TOLDResultsViewController.swift */,
 				6EB58CE32071C535008F2D38 /* TOLDInputViewController.swift */,
 				6EBF8AE720322BA300CF67D8 /* notes_ViewController.swift */,
 				6ED0E5252027D73E0045D79D /* toldHTMLViewController.swift */,
@@ -489,30 +425,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E50D65B2070560D0071191C /* Airports.json in Resources */,
-				6E97C2E6202AB111005F4971 /* ATIS.css in Resources */,
-				6ED5809F2067402600B1D2BA /* automator.html in Resources */,
-				6E97C2F3202AB111005F4971 /* jquery in Resources */,
-				6E97C2EC202AB111005F4971 /* results.html in Resources */,
 				6E50D65C2070560D0071191C /* Runways.json in Resources */,
-				6E97C2EB202AB111005F4971 /* Data-DS125.js in Resources */,
 				6E6651762030E1C900F3E73F /* Launch Screen 38.storyboard in Resources */,
-				6E97C2EA202AB111005F4971 /* Data-SECGGU.js in Resources */,
-				6E97C2ED202AB111005F4971 /* T38TOLDindex.js in Resources */,
 				6E528AB5206BE2360084C644 /* Info.plist in Resources */,
-				6ECADBD9209631D5005FF5AE /* Scripts in Resources */,
-				6EE8B261202EA2AF0082E363 /* indexCompact.html in Resources */,
-				6E97C2F2202AB111005F4971 /* Data-TOData2.js in Resources */,
-				6E97C2E8202AB111005F4971 /* Data-SEROC.js in Resources */,
 				6E6A0ACC1E19F02600E23114 /* Main.storyboard in Resources */,
-				6E97C2EE202AB111005F4971 /* Data-SECG.js in Resources */,
-				6E97C2E9202AB111005F4971 /* T38TOLDresults.js in Resources */,
-				6E97C2F4202AB111005F4971 /* Data-TOData.js in Resources */,
-				6E97C2F0202AB111005F4971 /* T38TOLDConversions.js in Resources */,
-				6E97C2EF202AB111005F4971 /* Data-SEROCGU.js in Resources */,
-				6E97C2E7202AB111005F4971 /* bootstrap in Resources */,
 				6EE82B97206B3A59006DFF93 /* getAtis7000.json in Resources */,
 				6EEC9628202DFE4B00B92DED /* Media.xcassets in Resources */,
-				6E97C2F1202AB111005F4971 /* index.html in Resources */,
+				6ECADBE120965DF3005FF5AE /* main_script.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +467,7 @@
 				6E6A0AC91E19F02600E23114 /* ClimbRangeViewController.swift in Sources */,
 				6E7E5E53206CA2B1005A23AE /* AirfieldInfoViewController.swift in Sources */,
 				6EB8B351207FC78D00C4ABDB /* RunwayCD+CoreDataClass.swift in Sources */,
+				6ECADBDF20963F04005FF5AE /* TOLDResultsViewController.swift in Sources */,
 				6E3D4C39206AC66F007757BB /* NearestTableViewController.swift in Sources */,
 				6EAB7F072068DB090033B99B /* calcInfoViewController.swift in Sources */,
 				6E9956B220812B8B00B73264 /* PreferencesViewController.swift in Sources */,

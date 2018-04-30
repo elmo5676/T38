@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -1215,53 +1216,40 @@
             </objects>
             <point key="canvasLocation" x="-1691" y="304"/>
         </scene>
-        <!--TOLD-->
-        <scene sceneID="dYV-LF-WKN">
+        <!--Results View Controller-->
+        <scene sceneID="i8y-G3-lUp">
             <objects>
-                <viewController id="0Iw-Gw-1hW" customClass="toldHTMLViewController" customModule="T38" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="EKX-Zr-uDV" customClass="TOLDResultsViewController" customModule="T38" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="9wS-6F-1Yc"/>
-                        <viewControllerLayoutGuide type="bottom" id="006-9T-PIn"/>
+                        <viewControllerLayoutGuide type="top" id="STO-qx-Jg4"/>
+                        <viewControllerLayoutGuide type="bottom" id="ep2-Ea-2gh"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="5JF-0A-2zK">
+                    <view key="view" contentMode="scaleToFill" id="fJ5-Ky-cuf">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Iv-23-unH">
-                                <rect key="frame" x="708" y="93" width="40" height="40"/>
-                                <color key="backgroundColor" red="0.98039871450000005" green="0.98038035629999998" blue="0.98039287330000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Ez9-7m-mkR"/>
-                                    <constraint firstAttribute="width" constant="40" id="gzu-Mf-YNV"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <state key="normal" title="i">
-                                    <color key="titleColor" red="0.29031943669999999" green="0.34177078319999998" blue="0.42794257610000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="noteButton:" destination="0Iw-Gw-1hW" eventType="touchUpInside" id="ioi-fM-mB1"/>
-                                    <segue destination="X2T-zr-0VZ" kind="popoverPresentation" popoverAnchorView="8Iv-23-unH" id="Ia0-td-Jt3">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLN-9C-Zpx">
+                                <rect key="frame" x="20" y="64" width="728" height="911"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="8Iv-23-unH" firstAttribute="top" secondItem="9wS-6F-1Yc" secondAttribute="bottom" constant="29" id="Qqp-Xi-Nbh"/>
-                            <constraint firstAttribute="trailing" secondItem="8Iv-23-unH" secondAttribute="trailing" constant="20" id="bfO-pA-FjX"/>
+                            <constraint firstItem="ep2-Ea-2gh" firstAttribute="top" secondItem="fLN-9C-Zpx" secondAttribute="bottom" id="6d4-tp-ScZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fLN-9C-Zpx" secondAttribute="trailing" id="N7v-Se-utx"/>
+                            <constraint firstItem="fLN-9C-Zpx" firstAttribute="leading" secondItem="fJ5-Ky-cuf" secondAttribute="leadingMargin" id="gIt-FS-LVl"/>
+                            <constraint firstItem="fLN-9C-Zpx" firstAttribute="top" secondItem="STO-qx-Jg4" secondAttribute="bottom" id="nBu-bN-IeP"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="TOLD" image="calculator" selectedImage="calculator_filled" id="ahc-7d-1nw">
-                        <color key="badgeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </tabBarItem>
                     <connections>
-                        <outlet property="noteButtonOutlet" destination="8Iv-23-unH" id="60f-fM-gvm"/>
+                        <outlet property="labelLabel" destination="fLN-9C-Zpx" id="1MR-Fh-can"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kfy-ux-G6l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EGn-bD-f4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-523" y="1665"/>
+            <point key="canvasLocation" x="-502" y="1665"/>
         </scene>
         <!--TOLD-->
         <scene sceneID="JKG-Z1-Hdz">
@@ -1628,22 +1616,37 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7K-7s-JmN">
-                                                <rect key="frame" x="352" y="634" width="64" height="30"/>
-                                                <state key="normal" title="Calculate"/>
-                                                <connections>
-                                                    <action selector="calculateButton:" destination="S19-DN-MPg" eventType="touchUpInside" id="kna-wx-ge2"/>
-                                                    <segue destination="0Iw-Gw-1hW" kind="show" identifier="submitTOLD" id="GKT-Ye-KgY"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fnZ-Ja-3lh">
+                                                <rect key="frame" x="19" y="634" width="730" height="96"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRI-9o-U96">
+                                                        <rect key="frame" x="0.0" y="0.0" width="730" height="30"/>
+                                                        <state key="normal" title="Calculate"/>
+                                                        <connections>
+                                                            <action selector="calculateButton:" destination="S19-DN-MPg" eventType="touchUpInside" id="h2u-8B-tVR"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N1s-OV-e3c">
+                                                        <rect key="frame" x="0.0" y="38" width="730" height="30"/>
+                                                        <state key="normal" title="Results"/>
+                                                        <connections>
+                                                            <segue destination="EKX-Zr-uDV" kind="show" identifier="calculateTOLD" id="zK5-9g-ioY"/>
+                                                        </connections>
+                                                    </button>
+                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="gZ2-r0-ZUe">
+                                                        <rect key="frame" x="0.0" y="76" width="730" height="20"/>
+                                                    </activityIndicatorView>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="RHa-1N-Ipm" firstAttribute="top" secondItem="1Fi-Lt-S0s" secondAttribute="top" constant="70" id="9X7-Q8-Yl3"/>
-                                            <constraint firstItem="C7K-7s-JmN" firstAttribute="centerX" secondItem="RHa-1N-Ipm" secondAttribute="centerX" id="AUC-An-oy3"/>
                                             <constraint firstItem="RHa-1N-Ipm" firstAttribute="centerX" secondItem="1Fi-Lt-S0s" secondAttribute="centerX" id="I8h-2D-xcR"/>
-                                            <constraint firstItem="C7K-7s-JmN" firstAttribute="top" secondItem="RHa-1N-Ipm" secondAttribute="bottom" constant="26" id="Uh8-aq-KVw"/>
+                                            <constraint firstItem="fnZ-Ja-3lh" firstAttribute="centerX" secondItem="RHa-1N-Ipm" secondAttribute="centerX" id="TlO-g0-3gW"/>
                                             <constraint firstItem="RHa-1N-Ipm" firstAttribute="width" secondItem="1Fi-Lt-S0s" secondAttribute="width" multiplier="0.95" id="YQV-7Q-r79"/>
+                                            <constraint firstItem="fnZ-Ja-3lh" firstAttribute="top" secondItem="RHa-1N-Ipm" secondAttribute="bottom" constant="26" id="oUq-ze-eVa"/>
+                                            <constraint firstItem="fnZ-Ja-3lh" firstAttribute="width" secondItem="RHa-1N-Ipm" secondAttribute="width" id="sEe-hH-qRb"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1678,9 +1681,11 @@
                         <outlet property="podYesOrNoLabel" destination="nqs-Z1-0vQ" id="L7D-IL-SZ6"/>
                         <outlet property="pressureAltTextField" destination="hPm-Mi-VU3" id="hrB-6t-tLf"/>
                         <outlet property="rcrTextField" destination="t6U-CC-HBe" id="6v8-uo-Acn"/>
+                        <outlet property="resultsButtonOutlet" destination="N1s-OV-e3c" id="wl5-6K-ZuH"/>
                         <outlet property="runwayHeadingTextField" destination="FZQ-6Y-yS6" id="yH0-NV-oez"/>
                         <outlet property="runwayLengthTextField" destination="DvK-vx-4Bq" id="b44-22-nmD"/>
                         <outlet property="runwaySlopeTextField" destination="IUT-nj-YfM" id="svd-S6-MfG"/>
+                        <outlet property="spinner" destination="gZ2-r0-ZUe" id="lFy-Te-DSg"/>
                         <outlet property="temperatureCorFSwitchOutlet" destination="J9E-tX-dw0" id="gTG-Ag-80L"/>
                         <outlet property="temperatureTextField" destination="YQE-1Y-S2w" id="AK1-tF-kSH"/>
                         <outlet property="weightOfCargoInPODTextField" destination="WkU-wj-16e" id="h8c-kO-6E4"/>
@@ -2273,21 +2278,21 @@
                         <viewControllerLayoutGuide type="bottom" id="OwR-YA-sQY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7sm-Jy-S71">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0I-2c-rv9">
-                                <rect key="frame" x="0.0" y="44" width="320" height="436"/>
+                                <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Orr-HX-a9e">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="800"/>
                                         <color key="backgroundColor" red="0.29053461549999998" green="0.34492880110000002" blue="0.42745995520000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="800" id="z5a-SU-pjT"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kp-ag-naw">
-                                        <rect key="frame" x="19" y="0.0" width="288" height="800"/>
+                                        <rect key="frame" x="51" y="0.0" width="672.5" height="800"/>
                                         <string key="text">
 Rotation, Takeoff, and 50 FT Obstacle Speed
 - Aft stick applied at the rotation speed shown and 7.5° pitch attitude held after rotation through 50ft AGL
@@ -2379,7 +2384,7 @@ Decision Speed (DS)
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X2T-zr-0VZ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NVs-2e-kVu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="768" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

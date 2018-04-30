@@ -84,6 +84,9 @@ class Calculator: NSObject {
                 var doubleValue = Double(stringValueNoSpaces)
                 if (key == Results.SAEORKey && stringValueNoSpaces == ">200") {
                     doubleValue = 201.0
+                }//EFSAEORKey
+                if (key == Results.EFSAEORKey && stringValueNoSpaces == ">200") {
+                    doubleValue = 201.0
                 }
                 
                 doubleDict[key] = doubleValue
