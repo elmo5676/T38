@@ -51,10 +51,8 @@
         <attribute name="width_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="airport" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AirportCD" inverseName="runways" inverseEntity="AirportCD" syncable="YES"/>
     </entity>
-    <entity name="UserCD" representedClassName="UserCD" syncable="YES" codeGenerationType="class"/>
     <elements>
         <element name="AirportCD" positionX="-558" positionY="-189" width="128" height="465"/>
         <element name="RunwayCD" positionX="-351" positionY="-72" width="128" height="328"/>
-        <element name="UserCD" positionX="-830" positionY="-180" width="128" height="43"/>
     </elements>
 </model>

@@ -9,61 +9,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func loadAirportFromJSON(){
-        
-    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-//        let moc = persistentContainer.viewContext
-//        let airportURL = Bundle.main.url(forResource: "Airports", withExtension: "json")!
-//        let airportDB = AirportCD(context: moc)
-//        let decoder = JSONDecoder()
-//        do {
-//            let result = try decoder.decode(Airport.self, from: Data(contentsOf: airportURL))
-//            for airport in result.features {
-//                airportDB.objectID_CD = Int32(airport.properties.objectid)
-//                airportDB.globalID_CD = airport.properties.globalID
-//                airportDB.ident_CD = airport.properties.ident
-//                airportDB.name_CD = airport.properties.name
-//                airportDB.latitude_CD = airport.properties.latitude
-//                airportDB.longitude_CD = airport.properties.longitude
-//                airportDB.elevation_CD = airport.properties.elevation
-//                airportDB.icaoID_CD = airport.properties.icaoID
-//                airportDB.typeCode_CD = airport.properties.typeCode.rawValue
-//                airportDB.serviceCity_CD = airport.properties.servcity
-//                airportDB.state_CD = airport.properties.state.map { $0.rawValue }
-//                airportDB.country_CD = airport.properties.country.rawValue
-//                airportDB.operStatus_CD = airport.properties.operstatus.rawValue
-//                airportDB.privateUse_CD = Int32(airport.properties.privateuse)
-//                airportDB.iapExists_CD = Int32(airport.properties.iapexists)
-//                airportDB.dodHiFlip_CD = Int32(airport.properties.dodhiflip)
-//                airportDB.far91_CD = Int32(airport.properties.far91)
-//                airportDB.far93_CD = Int32(airport.properties.far93)
-//                airportDB.milCode_CD = airport.properties.milCode.rawValue
-//                airportDB.airAnal_CD = airport.properties.airanal.rawValue
-//                airportDB.usHigh_CD = Int32(airport.properties.usHigh)
-//                airportDB.usLow_CD = Int32(airport.properties.usLow)
-//                airportDB.akHigh_CD = Int32(airport.properties.akHigh)
-//                airportDB.akLow_CD = Int32(airport.properties.akLow)
-//                airportDB.usArea_CD = Int32(airport.properties.usArea)
-//                airportDB.pacific_CD = Int32(airport.properties.pacific)
-//                airportDB.geometryCoordinates_CD = airport.geometry.coordinates as NSObject
-//                try moc.save()
-//            }
-//        } catch {
-//            print(error)
-//        }
-//        
-        //        let airportRequest: NSFetchRequest<AirportCD> = AirportCD.fetchRequest()
-        //        airportRequest.returnsObjectsAsFaults = true
-        //        let moc = persistentContainer.viewContext
-        //        var airportICAOArray = [AirportCD]()
-        //        do {
-        //            airportICAOArray = try moc.fetch(airportRequest)
-        //        } catch {
-        //            print(error)
-        //        }
-
+        let moc = persistentContainer.viewContext
+        let loadCD = LoadCD()
+        let loadedOrNot = loadCD.checkIfCoreDataIsLoaded(moc: moc)
+        if loadedOrNot == true {
+            print("CoreData has been loaded")
+        } else {
+            loadCD.loadToDBFromJSON(moc: moc)
+            loadCD.mocSave(moc: moc)
+            print("CoreData was just loaded")
+        }
+        
         return true
     }
 

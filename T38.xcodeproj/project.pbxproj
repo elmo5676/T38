@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E10AF70209A734B001144F7 /* AirportATIS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10AF6F209A734B001144F7 /* AirportATIS.swift */; };
 		6E129E9620765E4500EBEBBB /* NearestKeyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E129E9520765E4500EBEBBB /* NearestKeyboard.storyboard */; };
 		6E12C3901E2C717000C43479 /* SpeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E12C38F1E2C717000C43479 /* SpeedsViewController.swift */; };
-		6E2AAAE0206B469000C34D93 /* AirfieldStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2AAADF206B469000C34D93 /* AirfieldStore.swift */; };
 		6E3D4C39206AC66F007757BB /* NearestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D4C38206AC66F007757BB /* NearestTableViewController.swift */; };
 		6E50D65B2070560D0071191C /* Airports.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E50D6592070560D0071191C /* Airports.json */; };
 		6E50D65C2070560D0071191C /* Runways.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E50D65A2070560D0071191C /* Runways.json */; };
@@ -44,9 +44,8 @@
 		6ED580A920674C6300B1D2BA /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED580A820674C6300B1D2BA /* TodayViewController.swift */; };
 		6ED580AC20674C6300B1D2BA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED580AA20674C6300B1D2BA /* MainInterface.storyboard */; };
 		6ED580B020674C6300B1D2BA /* T38 TOLD.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6ED580A420674C6300B1D2BA /* T38 TOLD.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		6EE82B97206B3A59006DFF93 /* getAtis7000.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EE82B96206B3A59006DFF93 /* getAtis7000.json */; };
-		6EE82B99206B3A7D006DFF93 /* AirfieldJOSNProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE82B98206B3A7D006DFF93 /* AirfieldJOSNProcessor.swift */; };
 		6EEC9628202DFE4B00B92DED /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EEC9627202DFE4B00B92DED /* Media.xcassets */; };
+		6EEDDA29209BEE8500C54747 /* LoadCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEDDA28209BEE8500C54747 /* LoadCD.swift */; };
 		6EF01507206D69BE0074A7DC /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF01506206D69BE0074A7DC /* KeyboardViewController.swift */; };
 		6EF0150B206D69BE0074A7DC /* Nearest.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6EF01504206D69BE0074A7DC /* Nearest.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6EF0150F206D69F30074A7DC /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF01506206D69BE0074A7DC /* KeyboardViewController.swift */; };
@@ -85,9 +84,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6E10AF6F209A734B001144F7 /* AirportATIS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportATIS.swift; sourceTree = "<group>"; };
 		6E129E9520765E4500EBEBBB /* NearestKeyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NearestKeyboard.storyboard; sourceTree = "<group>"; };
 		6E12C38F1E2C717000C43479 /* SpeedsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedsViewController.swift; sourceTree = "<group>"; };
-		6E2AAADF206B469000C34D93 /* AirfieldStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirfieldStore.swift; sourceTree = "<group>"; };
 		6E3D4C38206AC66F007757BB /* NearestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestTableViewController.swift; sourceTree = "<group>"; };
 		6E50D6592070560D0071191C /* Airports.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Airports.json; sourceTree = "<group>"; };
 		6E50D65A2070560D0071191C /* Runways.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Runways.json; sourceTree = "<group>"; };
@@ -123,10 +122,9 @@
 		6ED580A820674C6300B1D2BA /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		6ED580AB20674C6300B1D2BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		6ED580AD20674C6300B1D2BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6EE82B96206B3A59006DFF93 /* getAtis7000.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAtis7000.json; sourceTree = "<group>"; };
-		6EE82B98206B3A7D006DFF93 /* AirfieldJOSNProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirfieldJOSNProcessor.swift; sourceTree = "<group>"; };
 		6EE8B25F202E98730082E363 /* T38.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = T38.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EEC9627202DFE4B00B92DED /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		6EEDDA28209BEE8500C54747 /* LoadCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadCD.swift; sourceTree = "<group>"; };
 		6EF01504206D69BE0074A7DC /* Nearest.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Nearest.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF01506206D69BE0074A7DC /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		6EF01508206D69BE0074A7DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -169,16 +167,6 @@
 			path = Supporting;
 			sourceTree = "<group>";
 		};
-		6E528AB4206BDFC80084C644 /* Airfields */ = {
-			isa = PBXGroup;
-			children = (
-				6EE82B96206B3A59006DFF93 /* getAtis7000.json */,
-				6EE82B98206B3A7D006DFF93 /* AirfieldJOSNProcessor.swift */,
-				6E2AAADF206B469000C34D93 /* AirfieldStore.swift */,
-			);
-			path = Airfields;
-			sourceTree = "<group>";
-		};
 		6E6A0AB81E19F02600E23114 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +174,7 @@
 				6E50D6592070560D0071191C /* Airports.json */,
 				6E50D65A2070560D0071191C /* Runways.json */,
 				6E50D65E2070561E0071191C /* Airport.swift */,
+				6E10AF6F209A734B001144F7 /* AirportATIS.swift */,
 				6E50D65D2070561E0071191C /* Runway.swift */,
 				6ED580A720674C6300B1D2BA /* T38 TOLD */,
 				6EF01505206D69BE0074A7DC /* Nearest */,
@@ -203,7 +192,6 @@
 				6E9956B32081567200B73264 /* CoreData */,
 				6EE82B93206B39BA006DFF93 /* StoryBoards */,
 				6E528AB3206BDFB50084C644 /* Supporting */,
-				6E528AB4206BDFC80084C644 /* Airfields */,
 				6EE82B91206B3992006DFF93 /* CalcTab */,
 				6EE82B94206B39CA006DFF93 /* A46Tab */,
 				6EE82B95206B39E1006DFF93 /* ClimbRangeSumTab */,
@@ -217,6 +205,7 @@
 		6E9956B32081567200B73264 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				6EEDDA28209BEE8500C54747 /* LoadCD.swift */,
 				6EB8B34B207FC78D00C4ABDB /* AirportCD+CoreDataClass.swift */,
 				6EB8B34D207FC78D00C4ABDB /* RunwayCD+CoreDataClass.swift */,
 				6EB8B34C207FC78D00C4ABDB /* AirportCD+CoreDataProperties.swift */,
@@ -429,7 +418,6 @@
 				6E6651762030E1C900F3E73F /* Launch Screen 38.storyboard in Resources */,
 				6E528AB5206BE2360084C644 /* Info.plist in Resources */,
 				6E6A0ACC1E19F02600E23114 /* Main.storyboard in Resources */,
-				6EE82B97206B3A59006DFF93 /* getAtis7000.json in Resources */,
 				6EEC9628202DFE4B00B92DED /* Media.xcassets in Resources */,
 				6ECADBE120965DF3005FF5AE /* main_script.js in Resources */,
 			);
@@ -460,9 +448,10 @@
 			files = (
 				6E12C3901E2C717000C43479 /* SpeedsViewController.swift in Sources */,
 				6EB8B352207FC78D00C4ABDB /* RunwayCD+CoreDataProperties.swift in Sources */,
+				6E10AF70209A734B001144F7 /* AirportATIS.swift in Sources */,
 				6EF0150F206D69F30074A7DC /* KeyboardViewController.swift in Sources */,
 				6ED5809C206737E500B1D2BA /* CalcBrains.swift in Sources */,
-				6E2AAAE0206B469000C34D93 /* AirfieldStore.swift in Sources */,
+				6EEDDA29209BEE8500C54747 /* LoadCD.swift in Sources */,
 				6EB58CE42071C535008F2D38 /* TOLDInputViewController.swift in Sources */,
 				6E6A0AC91E19F02600E23114 /* ClimbRangeViewController.swift in Sources */,
 				6E7E5E53206CA2B1005A23AE /* AirfieldInfoViewController.swift in Sources */,
@@ -476,7 +465,6 @@
 				6EB8B34F207FC78D00C4ABDB /* AirportCD+CoreDataClass.swift in Sources */,
 				6ED5809A206737E500B1D2BA /* Extensions.swift in Sources */,
 				6ED5809B206737E500B1D2BA /* CalcViewController.swift in Sources */,
-				6EE82B99206B3A7D006DFF93 /* AirfieldJOSNProcessor.swift in Sources */,
 				6EBF8AE820322BA300CF67D8 /* notes_ViewController.swift in Sources */,
 				6E50D65F2070561E0071191C /* Runway.swift in Sources */,
 				6ECF45F220708B820057F317 /* T38CD.xcdatamodeld in Sources */,

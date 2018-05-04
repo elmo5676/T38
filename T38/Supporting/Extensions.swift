@@ -17,10 +17,48 @@ public extension UIViewController {
         view.addGestureRecognizer(tap)
     }
     
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         view.endEditing(true)
     }
 }
+
+public extension String {
+    func latitudeStringToDouble() -> Double {
+        var lat = 0.0
+        var a = self.split(separator: "-")
+        let b = Double(a[0])!
+        let c = Double(a[1])!/60.0
+        let d = a[2]
+        if d.contains("N") {
+            let e = d.replacingOccurrences(of: "N", with: "")
+            let f = Double(e)!/3600
+            lat = b + c + f
+        } else if d.contains("S") {
+            let e = d.replacingOccurrences(of: "S", with: "")
+            let f = Double(e)!/3600
+            lat = -1 * (b + c + f)
+        }
+        return lat
+    }
+    func longitudeStringToDouble() -> Double {
+        var long = 0.0
+        var a = self.split(separator: "-")
+        let b = Double(a[0])!
+        let c = Double(a[1])!/60.0
+        let d = a[2]
+        if d.contains("E") {
+            let e = d.replacingOccurrences(of: "E", with: "")
+            let f = Double(e)!/3600
+            long = b + c + f
+        } else if d.contains("W") {
+            let e = d.replacingOccurrences(of: "W", with: "")
+            let f = Double(e)!/3600
+            long = -1 * (b + c + f)
+        }
+        return long
+    }
+}
+
 
 public extension Double {
     //http://www.kylesconverter.com
