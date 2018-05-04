@@ -13,37 +13,65 @@
 //        let allNewICAOS = airfields.map {$0}
 //        let airfieldInfoFull = allNewICAOS
 //        let new = allNewICAOS
+//        let sortedArray = Array(preSorted).sorted{$0.1 < $1.1}
 
 import UIKit
 import CoreData
+import CoreLocation
 
 class NearestTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadAirfileds()
+        //loadAirports()
         updateUI()
-        
         moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
+        guard let model = moc.persistentStoreCoordinator?.managedObjectModel,
+            let fetchAllAirports = model.fetchRequestTemplate(forName: "FetchAllAirports") as? NSFetchRequest<AirportCD> else {
+                return
+        }
+        self.fetchAllAirports = fetchAllAirports
+        fetchAndReload()
     }
     
     
     var moc: NSManagedObjectContext!
-    var airport: [NSManagedObject] = []
+    var airports: [AirportCD] = []
+    var airportsSorted = [AirportCD:Double]()
+    var fetchAllAirports: NSFetchRequest<AirportCD>?
     
-    var airfields = AirfieldStore().airfieldsAll
-    var allAirields1 = [Airfield]()
-    var allAirields = [Airfield]()
-    var ICAO = ""
-    var elevation = 0.0
-    var lat = ""
-    var long = ""
-    var runways = ""
-    var city = ""
-    var state = ""
-    var airportID = ""
-    var ident = ""
+    var loadCD = LoadCD()
+    let myLat = 39.119150812
+    let myLong = -121.539447243
+ 
+    
+    func printResults(){
+        for airport in airports {
+            print("\(String(describing: airport.icaoID_CD)) : \(distanceAway(deviceLat: myLat, deviceLong: myLong, airport: airport).distanceAway)")
+        }
+    }
+    
+    func fetchAndReload() {
+        guard let fetchRequest = fetchAllAirports else {
+            return
+        }
+        do {
+            airports = try moc.fetch(fetchRequest)
+            var preSorted = [AirportCD:Double]()
+            for airport in airports {
+                let dictValue = distanceAway(deviceLat: myLat, deviceLong: myLong, airport: airport).airport
+                let dictKey = distanceAway(deviceLat: myLat, deviceLong: myLong, airport: airport).distanceAway
+                preSorted.updateValue(dictKey, forKey: dictValue)
+            }
+            let airportICAO = preSorted.keys.sorted{preSorted[$0]! < preSorted[$1]!}
+            airports = airportICAO.filter({$0.icaoID_CD != nil })
+            tableView.reloadData()
+//            printResults()
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+    }
+    
     
     private func updateUI(){
         if presentationController is UIPopoverPresentationController {
@@ -59,23 +87,31 @@ class NearestTableViewController: UITableViewController {
         switch segue.identifier {
         case "nearestDetail"?:
             let row = self.tableView.indexPathForSelectedRow?.row
-            let selectedAirfield = allAirields[row!] //else {print("No Airfield Found"); return }
+            let selectedAirfield = airports[row!] //else {print("No Airfield Found"); return }
             let destinationViewController = segue.destination as! AirfieldInfoViewController
-            destinationViewController.selectedAirfield = selectedAirfield
+            destinationViewController.currentAirport = selectedAirfield
+            destinationViewController.myLat = self.myLat
+            destinationViewController.myLong = self.myLong
         default:
             preconditionFailure("Unexpected segue identifier")
         }
     }
 
-    func loadAirfileds(){
-        let url = Bundle.main.url(forResource: "getAtis7000", withExtension: "json")!
-        let decoder = JSONDecoder()
-        let data = try! Data(contentsOf: url)
-        let resultAirfields = try? decoder.decode([Airfield].self, from: data)
-        allAirields.removeAll()
-        airfields.removeAll()
-        airfields = resultAirfields!
-        allAirields = airfields.filter {$0.ICAO != nil}
+    func distanceAway(deviceLat lat: Double, deviceLong long: Double, airport: AirportCD) -> (airport: AirportCD, distanceAway: Double) {
+        let airportLat = airport.geometryCoordinates_CD[1]
+        let airportLong = airport.geometryCoordinates_CD[0]
+        let myCoords =  CLLocation(latitude: lat, longitude: long)
+        let airportCoords = CLLocation(latitude: airportLat, longitude: airportLong)
+        let distanceAwayInNM = myCoords.distance(from: airportCoords).metersToNauticalMiles
+        //airportDictEntry[airport] = distanceAwayInNM
+        return (airport, distanceAwayInNM)
+    }
+    
+    
+    func loadAirports(){
+//        let myLat = 39.0
+//        let myLong = -121.0
+
     }
 
     // MARK: - Table view data
@@ -83,7 +119,7 @@ class NearestTableViewController: UITableViewController {
         return 1
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allAirields.count
+        return airports.count
     }
 
     
@@ -92,7 +128,7 @@ class NearestTableViewController: UITableViewController {
         if cell == nil {
             cell = UITableViewCell(style: .default, reuseIdentifier: "Nearest");
         }
-        cell!.textLabel?.text = allAirields[indexPath.row].ICAO
+        cell!.textLabel?.text = airports[indexPath.row].icaoID_CD
         return cell!
     }
     

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreData
+import CoreLocation
 
 class AirfieldInfoViewController: UIViewController {
     override func viewDidLoad() {
@@ -22,17 +24,24 @@ class AirfieldInfoViewController: UIViewController {
         cityLabel.text = city
         //        rangeLabel.text = "0.0"
         //        bearingLabel.text = "0.0"
-        
+
         //        print(selectedAirfield.Runways!.first?.Designator)
-        
+
     }
+
+    var currentAirport: AirportCD?
+    var myLat = 0.0
+    var myLong = 0.0
     
-    var selectedAirfield = Airfield()
+    
+    
+
+
     var ICAO = ""
     var lat = ""
     var long = ""
     var elevation = 0.0
-    var runways = [Airfield.Runway]()
+
     var numberOfRunways = 0
     var runwayDesignatorList = [""]
     var runwayListString = ""
@@ -40,7 +49,7 @@ class AirfieldInfoViewController: UIViewController {
     var city = ""
     var range = 0.0
     var bearing = 0.0
-    
+
     @IBOutlet weak var ICAOLabel: UILabel!
     @IBOutlet weak var lattitudeLabel: UILabel!
     @IBOutlet weak var longitudeLabel: UILabel!
@@ -51,6 +60,18 @@ class AirfieldInfoViewController: UIViewController {
     @IBOutlet weak var rangeLabel: UILabel!
     @IBOutlet weak var bearingLabel: UILabel!
     
+    
+    
+    func distanceAway(deviceLat lat: Double, deviceLong long: Double, airport: AirportCD) -> Double {
+        let airportLat = airport.geometryCoordinates_CD[1]
+        let airportLong = airport.geometryCoordinates_CD[0]
+        let myCoords =  CLLocation(latitude: lat, longitude: long)
+        let airportCoords = CLLocation(latitude: airportLat, longitude: airportLong)
+        let distanceAwayInNM = myCoords.distance(from: airportCoords).metersToNauticalMiles
+        return distanceAwayInNM
+    }
+    
+
     @IBAction func copyDirect(_ sender: UIButton!){
 //        UIPasteboard.general.string = "D \(ICAO)"
         presentingViewController?.dismiss(animated: true, completion: nil)
@@ -59,52 +80,52 @@ class AirfieldInfoViewController: UIViewController {
         let url = urlString.url!
         UIApplication.shared.open(url , options: [:], completionHandler: nil)
     }
-    
-    
+
+
     func loadDetail() {
-        if let newICAO = selectedAirfield.ICAO {
+        if let newICAO = currentAirport?.icaoID_CD {
             ICAO = newICAO
         } else {
             ICAO = " "
         }
-        if let newElevation = selectedAirfield.Elevation {
+        if let newElevation = currentAirport?.elevation_CD {
             elevation = newElevation
         } else {
             elevation = 0.0
         }
-        if let newLat = selectedAirfield.Lat {
+        if let newLat = currentAirport?.latitude_CD {
             lat = newLat
         } else {
             lat = " "
         }
-        if let newLong = selectedAirfield.Lon {
+        if let newLong = currentAirport?.longitude_CD {
             long = newLong
         } else {
             long = " "
         }
         //runways = airfields[row].Runways
-        if let newCity = selectedAirfield.City{
+        if let newCity = currentAirport?.serviceCity_CD{
             city = newCity
         } else {
             city = " "
         }
-        if let newState = selectedAirfield.State{
+        if let newState = currentAirport?.state_CD{
             state = newState
         } else {
             state = " "
         }
-        if let newRunways = selectedAirfield.Runways {
-            runways = newRunways
-            numberOfRunways = runways.count
-            runwayDesignatorList = runways.map({$0.Designator!})
-            for runway in runwayDesignatorList {
-                runwayListString += " \(runway) "
-            }
-        } else {
-            print("No Runways: AirfieldInfoViewController 122")
-        }
+//        if let newRunways = selectedAirfield.Runways {
+//            runways = newRunways
+//            numberOfRunways = runways.count
+//            runwayDesignatorList = runways.map({$0.Designator!})
+//            for runway in runwayDesignatorList {
+//                runwayListString += " \(runway) "
+//            }
+//        } else {
+//            print("No Runways: AirfieldInfoViewController 122")
+//        }
     }
-    
+
     func clearState() {
         ICAO = ""
         lat = ""
@@ -116,11 +137,9 @@ class AirfieldInfoViewController: UIViewController {
         range = 0.0
         bearing = 0.0
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         clearState()
     }
-    
-    
 }
 

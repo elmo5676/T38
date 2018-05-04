@@ -25,7 +25,7 @@ extension AirportCD {
     @NSManaged public var elevation_CD: Double
     @NSManaged public var far91_CD: Int32
     @NSManaged public var far93_CD: Int32
-    @NSManaged public var geometryCoordinates_CD: NSObject?
+    @NSManaged public var geometryCoordinates_CD: [Double]//NSObject?
     @NSManaged public var globalID_CD: String?
     @NSManaged public var iapExists_CD: Int32
     @NSManaged public var icaoID_CD: String?
