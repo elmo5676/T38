@@ -1,9 +1,9 @@
-
 //
-//  Created by elmo on 3/31/18.
-//  Copyright © 2018 elmo. All rights reserved.
+////
+////  Created by elmo on 3/31/18.
+////  Copyright © 2018 elmo. All rights reserved.
+////
 //
-
 import Foundation
 
 struct Airport: Codable {

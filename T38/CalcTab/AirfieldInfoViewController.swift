@@ -29,7 +29,7 @@ class AirfieldInfoViewController: UIViewController {
 
     }
 
-    var currentAirport: AirportCD?
+    var currentAirport: AirfieldCD?
     var myLat = 0.0
     var myLong = 0.0
     
@@ -62,9 +62,9 @@ class AirfieldInfoViewController: UIViewController {
     
     
     
-    func distanceAway(deviceLat lat: Double, deviceLong long: Double, airport: AirportCD) -> Double {
-        let airportLat = airport.geometryCoordinates_CD[1]
-        let airportLong = airport.geometryCoordinates_CD[0]
+    func distanceAway(deviceLat lat: Double, deviceLong long: Double, airport: AirfieldCD) -> Double {
+        let airportLat = airport.latitude_CD
+        let airportLong = airport.longitude_CD
         let myCoords =  CLLocation(latitude: lat, longitude: long)
         let airportCoords = CLLocation(latitude: airportLat, longitude: airportLong)
         let distanceAwayInNM = myCoords.distance(from: airportCoords).metersToNauticalMiles
@@ -83,7 +83,7 @@ class AirfieldInfoViewController: UIViewController {
 
 
     func loadDetail() {
-        if let newICAO = currentAirport?.icaoID_CD {
+        if let newICAO = currentAirport?.icao_CD {
             ICAO = newICAO
         } else {
             ICAO = " "
@@ -94,17 +94,17 @@ class AirfieldInfoViewController: UIViewController {
             elevation = 0.0
         }
         if let newLat = currentAirport?.latitude_CD {
-            lat = newLat
+            lat = String(newLat)
         } else {
             lat = " "
         }
         if let newLong = currentAirport?.longitude_CD {
-            long = newLong
+            long = String(newLong)
         } else {
             long = " "
         }
         //runways = airfields[row].Runways
-        if let newCity = currentAirport?.serviceCity_CD{
+        if let newCity = currentAirport?.mgrs_CD{
             city = newCity
         } else {
             city = " "

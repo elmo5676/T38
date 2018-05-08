@@ -40,5 +40,11 @@
 		<key>NSExtensionMainStoryboard</key>
 		<string>NearestKeyboard</string>
 	</dict>
+	<key></key>
+	<string></string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This application needs access to your location to determine the closest airfield</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This application needs access to your location to determine the closest airfield</string>
 </dict>
 </plist>

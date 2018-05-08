@@ -2432,24 +2432,13 @@ Decision Speed (DS)
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="VqY-Ip-vwz">
                                                 <rect key="frame" x="0.0" y="0.0" width="768" height="163.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6s0-SS-NXj" customClass="customButton" customModule="T38" customModuleProvider="target">
+                                                    <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6s0-SS-NXj">
                                                         <rect key="frame" x="0.0" y="0.0" width="190" height="163.5"/>
                                                         <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="60"/>
                                                         <state key="normal" title="×">
                                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="0.0"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="0.0"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" red="0.99687284229999995" green="0.31938081289999998" blue="0.25048076759999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="performOperation:" destination="tKd-T9-LyF" eventType="touchUpInside" id="Nfz-p4-KG0"/>
                                                         </connections>
@@ -2461,14 +2450,6 @@ Decision Speed (DS)
                                                         <state key="normal" title="÷">
                                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="30"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="10"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="performOperation:" destination="tKd-T9-LyF" eventType="touchUpInside" id="pHh-zA-GrJ"/>
                                                         </connections>
@@ -2710,14 +2691,6 @@ Decision Speed (DS)
                                 <state key="normal" title="?">
                                     <color key="titleColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="calcDirectionsButton:" destination="tKd-T9-LyF" eventType="touchUpInside" id="uaD-Mt-Ddo"/>
                                     <segue destination="LkU-D7-vfr" kind="popoverPresentation" identifier="calcDirectionsSeque" popoverAnchorView="YtO-GD-Rw5" id="3Hq-Rt-F7u">

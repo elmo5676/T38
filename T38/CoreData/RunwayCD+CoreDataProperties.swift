@@ -2,7 +2,7 @@
 //  RunwayCD+CoreDataProperties.swift
 //  T38
 //
-//  Created by elmo on 4/12/18.
+//  Created by elmo on 5/7/18.
 //  Copyright © 2018 elmo. All rights reserved.
 //
 //
@@ -17,24 +17,31 @@ extension RunwayCD {
         return NSFetchRequest<RunwayCD>(entityName: "RunwayCD")
     }
 
-    @NSManaged public var airportID_CD: String?
-    @NSManaged public var akHigh_CD: Int32
-    @NSManaged public var akLow_CD: Int32
-    @NSManaged public var designator_CD: String?
-    @NSManaged public var dimUom_CD: String?
-    @NSManaged public var geometryCoordinates_CD: NSObject?
-    @NSManaged public var globalID_CD: String?
-    @NSManaged public var length_CD: Int32
-    @NSManaged public var lightAct_CD: Int32
-    @NSManaged public var lightInt_CD: NSObject?
-    @NSManaged public var objectID_CD: Int32
-    @NSManaged public var pacific_CD: Int32
-    @NSManaged public var shapeArea_CD: Double
-    @NSManaged public var shapeLength_CD: Double
-    @NSManaged public var usArea_CD: Int32
-    @NSManaged public var usHigh_CD: Int32
-    @NSManaged public var usLow_CD: Int32
-    @NSManaged public var width_CD: Int32
-    @NSManaged public var airport: AirportCD?
+    @NSManaged public var coordLatHi_CD: Double
+    @NSManaged public var coordLatLow_CD: Double
+    @NSManaged public var coordLonHi_CD: Double
+    @NSManaged public var coordLonLow_CD: Double
+    @NSManaged public var elevHi_CD: Double
+    @NSManaged public var elevLow_CD: Double
+    @NSManaged public var highID_CD: String?
+    @NSManaged public var id_CD: Int32
+    @NSManaged public var length_CD: Double
+    @NSManaged public var lowID_CD: String?
+    @NSManaged public var magHdgHi_CD: Double
+    @NSManaged public var magHdgLow_CD: Double
+    @NSManaged public var overrunHiLength_CD: Double
+    @NSManaged public var overrunHiType_CD: NSObject?
+    @NSManaged public var overrunLowLength_CD: Double
+    @NSManaged public var overrunLowType_CD: NSObject?
+    @NSManaged public var runwayCondition_CD: NSObject?
+    @NSManaged public var slopeHi_CD: Double
+    @NSManaged public var slopeLow_CD: Double
+    @NSManaged public var surfaceType_CD: NSObject?
+    @NSManaged public var tdzeHi_CD: Double
+    @NSManaged public var tdzeLow_CD: Double
+    @NSManaged public var trueHdgHi_CD: Double
+    @NSManaged public var trueHdgLow_CD: Double
+    @NSManaged public var width_CD: Double
+    @NSManaged public var newRelationship: AirfieldCD?
 
 }

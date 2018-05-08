@@ -2,6 +2,7 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,12 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let loadCD = LoadCD()
         let loadedOrNot = loadCD.checkIfCoreDataIsLoaded(moc: moc)
         if loadedOrNot == true {
-            print("CoreData has been loaded")
+            print("CoreData has Airfields in it 'past-tense'")
         } else {
             loadCD.loadToDBFromJSON(moc: moc)
             loadCD.mocSave(moc: moc)
             print("CoreData was just loaded")
         }
+        loadCD.howManyNavaids(moc: moc)
+        loadCD.howManyRunways(moc: moc)
+        loadCD.howManyAirfields(moc: moc)
+        loadCD.howManyFreqs(moc: moc)
+//        let locManager = CLLocationManager()
+//        locManager.requestAlwaysAuthorization()
+//        locManager.requestWhenInUseAuthorization()
+        
         
         return true
     }

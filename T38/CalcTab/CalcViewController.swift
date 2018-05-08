@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 var corner = 0.0
 
@@ -16,7 +17,7 @@ class CalcViewController: UIViewController {
     @IBOutlet weak var operatorLabel: UILabel!
     @IBOutlet var digitButtonCollection: [UIButton]!
     @IBOutlet var operationButtonCollection: [UIButton]!
-    @IBOutlet weak var questionButtonOutlet: customButton!
+    @IBOutlet weak var questionButtonOutlet: UIButton!
     
     @IBAction func calcDirectionsButton(_ sender: UIButton) {
 //        performSegue(withIdentifier: "calcDirectionsSeque", sender: nil)
@@ -92,7 +93,7 @@ class CalcViewController: UIViewController {
     }
     
     
-    
+    var locManager = CLLocationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         questionButtonOutlet.layer.borderColor = #colorLiteral(red: 0.5724972486, green: 0.5725823045, blue: 0.5724785328, alpha: 1)
@@ -101,7 +102,8 @@ class CalcViewController: UIViewController {
         self.view.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         digitButtonCollection.colorScheme_Standard()
         operationButtonCollection.colorScheme_Dark()
-        
+        locManager.requestWhenInUseAuthorization()
+        locManager.requestAlwaysAuthorization()
         
     }
     

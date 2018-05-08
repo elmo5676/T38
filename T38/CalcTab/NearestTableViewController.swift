@@ -4,85 +4,86 @@
 //
 //  Created by elmo on 3/27/18.
 //  Copyright © 2018 elmo. All rights reserved.
-//
-
-
-//        let allICAO2s = airfields.map {$0.ICAO ?? "Default"}
-//        let allNewICAOS = airfields.filter {$0.ICAO != nil}//.map {$0.ICAO!}
-//        let newOne = allICAO2s[0]
-//        let allNewICAOS = airfields.map {$0}
-//        let airfieldInfoFull = allNewICAOS
-//        let new = allNewICAOS
-//        let sortedArray = Array(preSorted).sorted{$0.1 < $1.1}
 
 import UIKit
 import CoreData
 import CoreLocation
 
-class NearestTableViewController: UITableViewController {
+class NearestTableViewController: UITableViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //loadAirports()
         updateUI()
         moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         guard let model = moc.persistentStoreCoordinator?.managedObjectModel,
-            let fetchAllAirports = model.fetchRequestTemplate(forName: "FetchAllAirports") as? NSFetchRequest<AirportCD> else {
+            let fetchAllAirports = model.fetchRequestTemplate(forName: "FetchAllAirports") as? NSFetchRequest<AirfieldCD> else {
                 return
         }
         self.fetchAllAirports = fetchAllAirports
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         fetchAndReload()
     }
-    
-    
+   
+    // MARK: CoreData Variables
     var moc: NSManagedObjectContext!
-    var airports: [AirportCD] = []
-    var airportsSorted = [AirportCD:Double]()
-    var fetchAllAirports: NSFetchRequest<AirportCD>?
+    var airports: [AirfieldCD] = []
+    var airportsSorted = [AirfieldCD:Double]()
+    var fetchAllAirports: NSFetchRequest<AirfieldCD>?
+    // MARK: Location Variables
+    let locManager = CLLocationManager()
+    var deviceLat = 0.0
+    var deviceLong = 0.0
+    var deviceAlt = 0.0
     
-    var loadCD = LoadCD()
-    let myLat = 39.119150812
-    let myLong = -121.539447243
- 
-    
-    func printResults(){
-        for airport in airports {
-            print("\(String(describing: airport.icaoID_CD)) : \(distanceAway(deviceLat: myLat, deviceLong: myLong, airport: airport).distanceAway)")
-        }
-    }
-    
+    // MARK: CoreData Functions
     func fetchAndReload() {
-        guard let fetchRequest = fetchAllAirports else {
-            return
-        }
+        guard let fetchRequest = fetchAllAirports else { return }
+        getLocationInformation()
         do {
             airports = try moc.fetch(fetchRequest)
-            var preSorted = [AirportCD:Double]()
+            var preSorted = [AirfieldCD:Double]()
             for airport in airports {
-                let dictValue = distanceAway(deviceLat: myLat, deviceLong: myLong, airport: airport).airport
-                let dictKey = distanceAway(deviceLat: myLat, deviceLong: myLong, airport: airport).distanceAway
+                let dictValue = distanceAway(deviceLat: deviceLat, deviceLong: deviceLong, airport: airport).airport
+                let dictKey = distanceAway(deviceLat: deviceLat, deviceLong: deviceLong, airport: airport).distanceAway
                 preSorted.updateValue(dictKey, forKey: dictValue)
             }
             let airportICAO = preSorted.keys.sorted{preSorted[$0]! < preSorted[$1]!}
-            airports = airportICAO.filter({$0.icaoID_CD != nil })
+            airports = airportICAO.filter({$0.icao_CD != nil })
             tableView.reloadData()
-//            printResults()
+            print("\(deviceLat) : \(deviceLong)")
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
-        }
+        }}
+    
+    // MARK: Location Functions
+    func getLocationInformation() {
+        if let loc = locManager.location {
+            locManager.requestAlwaysAuthorization()
+            locManager.requestWhenInUseAuthorization()
+            self.deviceLat = loc.coordinate.latitude
+            self.deviceLong = loc.coordinate.longitude
+            self.deviceAlt = loc.altitude
+        }}
+    
+    func distanceAway(deviceLat lat: Double, deviceLong long: Double, airport: AirfieldCD) -> (airport: AirfieldCD, distanceAway: Double) {
+        let airportLat = airport.latitude_CD
+        let airportLong = airport.longitude_CD
+        let myCoords =  CLLocation(latitude: lat, longitude: long)
+        let airportCoords = CLLocation(latitude: airportLat, longitude: airportLong)
+        let distanceAwayInNM = myCoords.distance(from: airportCoords).metersToNauticalMiles
+        return (airport, distanceAwayInNM)
     }
     
+    func printResults(){
+        for airport in airports {
+            deviceLat = (locManager.location?.coordinate.latitude)!
+            deviceLong = (locManager.location?.coordinate.longitude)!
+            print("\(String(describing: airport.icao_CD)) : \(distanceAway(deviceLat: deviceLat, deviceLong: deviceLong, airport: airport).distanceAway)")
+        }}
     
-    private func updateUI(){
-        if presentationController is UIPopoverPresentationController {
-            view.backgroundColor = .clear
-        } else {
-            view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        }
-    }
-
-    @IBOutlet var tableViewOutlet: UITableView!
-    
+    // MARK: Seque
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "nearestDetail"?:
@@ -90,52 +91,41 @@ class NearestTableViewController: UITableViewController {
             let selectedAirfield = airports[row!] //else {print("No Airfield Found"); return }
             let destinationViewController = segue.destination as! AirfieldInfoViewController
             destinationViewController.currentAirport = selectedAirfield
-            destinationViewController.myLat = self.myLat
-            destinationViewController.myLong = self.myLong
+            destinationViewController.myLat = self.deviceLat
+            destinationViewController.myLong = self.deviceLong
         default:
             preconditionFailure("Unexpected segue identifier")
-        }
-    }
+        }}
 
-    func distanceAway(deviceLat lat: Double, deviceLong long: Double, airport: AirportCD) -> (airport: AirportCD, distanceAway: Double) {
-        let airportLat = airport.geometryCoordinates_CD[1]
-        let airportLong = airport.geometryCoordinates_CD[0]
-        let myCoords =  CLLocation(latitude: lat, longitude: long)
-        let airportCoords = CLLocation(latitude: airportLat, longitude: airportLong)
-        let distanceAwayInNM = myCoords.distance(from: airportCoords).metersToNauticalMiles
-        //airportDictEntry[airport] = distanceAwayInNM
-        return (airport, distanceAwayInNM)
-    }
     
     
-    func loadAirports(){
-//        let myLat = 39.0
-//        let myLong = -121.0
 
+    // MARK: - TableView & UI
+    @IBOutlet var tableViewOutlet: UITableView!
+    @IBAction func dismissButton(_ sender: UIBarButtonItem) {
+        presentingViewController?.dismiss(animated: true, completion: nil)
     }
-
-    // MARK: - Table view data
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return airports.count
     }
-
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "Nearest")
         if cell == nil {
             cell = UITableViewCell(style: .default, reuseIdentifier: "Nearest");
         }
-        cell!.textLabel?.text = airports[indexPath.row].icaoID_CD
+        cell!.textLabel?.text = airports[indexPath.row].icao_CD
         return cell!
     }
-    
-    @IBAction func dismissButton(_ sender: UIBarButtonItem) {
-        presentingViewController?.dismiss(animated: true, completion: nil)
+    private func updateUI(){
+        if presentationController is UIPopoverPresentationController {
+            view.backgroundColor = .clear
+        } else { view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) }}
+    func alertPostition(){
+        let alertController = UIAlertController(title: "No Position", message:
+            "To use this function, the device must be able to determin it's location", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
     }
-    
-
-
 }

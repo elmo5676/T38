@@ -346,7 +346,7 @@ public extension Array where Element: UIButton {
             element.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             element.titleLabel?.textColor = #colorLiteral(red: 0.2771260142, green: 0.3437626958, blue: 0.4359292388, alpha: 1)
             element.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            element.layer.borderWidth = 0.0
+            //element.layer.borderWidth = 0.0
             element.layer.cornerRadius = CGFloat(corner)
         }
     }
@@ -355,7 +355,7 @@ public extension Array where Element: UIButton {
             element.backgroundColor = #colorLiteral(red: 0.2771260142, green: 0.3437626958, blue: 0.4359292388, alpha: 1)
             element.titleLabel?.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             element.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            element.layer.borderWidth = 0.0
+            //element.layer.borderWidth = 0.0
             element.layer.cornerRadius = CGFloat(corner)
         }
     }
@@ -368,16 +368,16 @@ public extension Array where Element: UIButton {
             self.layer.cornerRadius = self.cornerRadius
         }
     }
-    @IBInspectable
-    public var borderColor: CGColor = #colorLiteral(red: 0.5741485357, green: 0.5741624236, blue: 0.574154973, alpha: 1) {
-        didSet {
-            self.layer.borderColor = self.borderColor
-        }
-    }
-    @IBInspectable
-    public var borderWidth: CGFloat = 2.0 {
-        didSet {
-            self.layer.borderWidth = self.borderWidth
-        }
-    }
+//    @IBInspectable
+//    public var borderColor: CGColor = #colorLiteral(red: 0.5741485357, green: 0.5741624236, blue: 0.574154973, alpha: 1) {
+//        didSet {
+//            self.layer.borderColor = self.borderColor
+//        }
+//    }
+//    @IBInspectable
+//    public var borderWidth: CGFloat = 2.0 {
+//        didSet {
+//            self.layer.borderWidth = self.borderWidth
+//        }
+//    }
 }
