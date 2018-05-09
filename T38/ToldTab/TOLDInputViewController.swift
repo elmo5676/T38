@@ -8,6 +8,8 @@
 
 import UIKit
 import JavaScriptCore
+import CoreData
+import CoreLocation
 
 class TOLDInputViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
@@ -36,8 +38,108 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
         
         spinner.isHidden = true
         calculator = Calculator()
+        
+        moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        guard let model = moc.persistentStoreCoordinator?.managedObjectModel,
+            let fetchAllAirports = model.fetchRequestTemplate(forName: "FetchAllAirports") as? NSFetchRequest<AirfieldCD> else {
+                return
+        }
+        self.fetchAllAirports = fetchAllAirports
+        fetchAndSortByDistance()
+//        autoFill()
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchAndSortByDistance()
+//        autoFill()
+    }
+    
+    
+    // MARK: CoreData Variables
+    var moc : NSManagedObjectContext!
+    var cdu = CoreDataUtilies()
+    var airfields: [AirfieldCD] = []
+    var airportsSorted = [AirfieldCD:Double]()
+    var fetchAllAirports: NSFetchRequest<AirfieldCD>?
+    
+    // MARK: Location Variables
+    let locManager = CLLocationManager()
+    var deviceLat = 0.0
+    var deviceLong = 0.0
+    var deviceAlt = 0.0
+    
+    func fetchAndSortByDistance() {
+        guard let fetchRequest = fetchAllAirports else { return }
+        getLocationInformation()
+        do {
+            airfields = try moc.fetch(fetchRequest)
+            var preSorted = [AirfieldCD:Double]()
+            for airport in airfields {
+                let dictValue = cdu.distanceAway(deviceLat: deviceLat, deviceLong: deviceLong, airport: airport).airport
+                let dictKey = cdu.distanceAway(deviceLat: deviceLat, deviceLong: deviceLong, airport: airport).distanceAway
+                preSorted.updateValue(dictKey, forKey: dictValue)
+            }
+            let airportICAO = preSorted.keys.sorted{preSorted[$0]! < preSorted[$1]!}
+            airfields = airportICAO.filter({$0.icao_CD != "" })
+            
+            print("\(deviceLat) : \(deviceLong)")
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }}
+
+    func getLocationInformation() {
+        if let loc = locManager.location {
+            locManager.requestAlwaysAuthorization()
+            locManager.requestWhenInUseAuthorization()
+            self.deviceLat = loc.coordinate.latitude
+            self.deviceLong = loc.coordinate.longitude
+            self.deviceAlt = loc.altitude
+        }}
+    
+    
+    
+    // MARK: Closest Airfield AutoFill
+//    var temperatureMETAR = 0.0
+//    var pressureAltMETAR = 0.0
+//
+//    var runwayLengthNRST = 0.0
+//    var runwayHdgNRST = 0.0
+//    var runwaySlopeNRST = 0.0
+//
+//    var windDirectionMETAR = 0.0
+//    var windVelocityMETAR = 0.0
+//    var rcrMETAR = 0.0
+//
+//    var aircraftGrossWt_UD = 12700
+//    var weightOfCargoInPod_UD = 0.0
+//    var weightUsedForTOLD_UD = 12700
+//    var givenEngFailAt_UD = 0.0
+//
+//    func autoFill() {
+//        let airfieldNRST = airfields[0]
+//        print(airfieldNRST)
+//        if let runwayBest = airfieldNRST.runways_CD {
+////            print(runwayBest.first?.length_CD)
+//            print(runwayBest.first?.magHdgHi_CD)
+//            print(runwayBest.first?.slopeHi_CD)
+//            if let length_ = String(runwayBest.first?.length_CD) {
+//                runwayLengthTextField.text = length_
+//            }
+//            if let hdg_ = String(runwayBest.first?.magHdgHi_CD) {
+//                runwayHeadingTextField.text = hdg_
+//            }
+//            if let slope_ = String(runwayBest.first?.slopeHi_CD) {
+//                runwaySlopeTextField.text = slope_
+//            }
+            
+//        }
+        
+        
+//    }
+    
+    
+    
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     private let scriptContext = JSContext()!

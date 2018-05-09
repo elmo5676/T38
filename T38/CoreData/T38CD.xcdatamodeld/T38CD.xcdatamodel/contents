@@ -42,7 +42,7 @@
         <attribute name="long_CD" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name_CD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tacanDMEMode_CD" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="type_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="type_CD" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="airfield_R_CD" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AirfieldCD" inverseName="navaids_R_CD" inverseEntity="AirfieldCD" syncable="YES"/>
     </entity>
     <entity name="RunwayCD" representedClassName=".RunwayCD" syncable="YES">
@@ -59,13 +59,13 @@
         <attribute name="magHdgHi_CD" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="magHdgLow_CD" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="overrunHiLength_CD" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="overrunHiType_CD" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="overrunHiType_CD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="overrunLowLength_CD" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="overrunLowType_CD" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="runwayCondition_CD" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="overrunLowType_CD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="runwayCondition_CD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="slopeHi_CD" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="slopeLow_CD" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="surfaceType_CD" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="surfaceType_CD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tdzeHi_CD" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="tdzeLow_CD" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="trueHdgHi_CD" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -125,11 +125,12 @@
         <attribute name="runwayLength_UP_CD" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="userWeight_UP_CD" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
+    <fetchRequest name="FetchAllAirports" entity="AirfieldCD"/>
     <elements>
         <element name="AirfieldCD" positionX="-1064" positionY="45" width="128" height="298"/>
         <element name="CommunicationCD" positionX="-909" positionY="140" width="128" height="118"/>
         <element name="FreqCD" positionX="-720" positionY="171" width="128" height="88"/>
-        <element name="NavaidCD" positionX="-711" positionY="335" width="128" height="223"/>
+        <element name="NavaidCD" positionX="-711" positionY="335" width="128" height="225"/>
         <element name="RunwayCD" positionX="-495" positionY="63" width="128" height="435"/>
         <element name="ToldInputsCD" positionX="72" positionY="-27" width="128" height="313"/>
         <element name="ToldResults" positionX="-128" positionY="-114" width="128" height="403"/>

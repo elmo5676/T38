@@ -1638,10 +1638,16 @@
                                                     </activityIndicatorView>
                                                 </subviews>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePr-Uf-Ufb">
+                                                <rect key="frame" x="660" y="8" width="89" height="30"/>
+                                                <state key="normal" title="Closest Field"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="ePr-Uf-Ufb" firstAttribute="top" secondItem="1Fi-Lt-S0s" secondAttribute="top" constant="8" id="1OV-TQ-ayq"/>
                                             <constraint firstItem="RHa-1N-Ipm" firstAttribute="top" secondItem="1Fi-Lt-S0s" secondAttribute="top" constant="70" id="9X7-Q8-Yl3"/>
+                                            <constraint firstAttribute="trailing" secondItem="ePr-Uf-Ufb" secondAttribute="trailing" constant="19" id="GId-Th-HDi"/>
                                             <constraint firstItem="RHa-1N-Ipm" firstAttribute="centerX" secondItem="1Fi-Lt-S0s" secondAttribute="centerX" id="I8h-2D-xcR"/>
                                             <constraint firstItem="fnZ-Ja-3lh" firstAttribute="centerX" secondItem="RHa-1N-Ipm" secondAttribute="centerX" id="TlO-g0-3gW"/>
                                             <constraint firstItem="RHa-1N-Ipm" firstAttribute="width" secondItem="1Fi-Lt-S0s" secondAttribute="width" multiplier="0.95" id="YQV-7Q-r79"/>

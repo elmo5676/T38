@@ -48,7 +48,7 @@ class Calculator: NSObject {
             // Converting JavaScript JSON to Swift dictionary
             let dict: [String:Any]? = self.convertToDictionary(text: (result?.toString())!)
             
-            print(dict?.description)
+//            print(dict?.description)
             
             // Getting usable results
             let results = self.getResultsFrom(dict: dict!)

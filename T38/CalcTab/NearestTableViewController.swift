@@ -23,35 +23,41 @@ class NearestTableViewController: UITableViewController, CLLocationManagerDelega
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        fetchAndReload()
+        fetchAndSortByDistance()
+        tableView.reloadData()
     }
    
     // MARK: CoreData Variables
     var moc: NSManagedObjectContext!
-    var airports: [AirfieldCD] = []
+    var airfields: [AirfieldCD] = []
     var airportsSorted = [AirfieldCD:Double]()
     var fetchAllAirports: NSFetchRequest<AirfieldCD>?
+    
+    var cdu = CoreDataUtilies()
+    
     // MARK: Location Variables
     let locManager = CLLocationManager()
     var deviceLat = 0.0
     var deviceLong = 0.0
     var deviceAlt = 0.0
     
+    
+    
     // MARK: CoreData Functions
-    func fetchAndReload() {
+    func fetchAndSortByDistance() {
         guard let fetchRequest = fetchAllAirports else { return }
         getLocationInformation()
         do {
-            airports = try moc.fetch(fetchRequest)
+            airfields = try moc.fetch(fetchRequest)
             var preSorted = [AirfieldCD:Double]()
-            for airport in airports {
-                let dictValue = distanceAway(deviceLat: deviceLat, deviceLong: deviceLong, airport: airport).airport
-                let dictKey = distanceAway(deviceLat: deviceLat, deviceLong: deviceLong, airport: airport).distanceAway
+            for airport in airfields {
+                let dictValue = cdu.distanceAway(deviceLat: deviceLat, deviceLong: deviceLong, airport: airport).airport
+                let dictKey = cdu.distanceAway(deviceLat: deviceLat, deviceLong: deviceLong, airport: airport).distanceAway
                 preSorted.updateValue(dictKey, forKey: dictValue)
             }
             let airportICAO = preSorted.keys.sorted{preSorted[$0]! < preSorted[$1]!}
-            airports = airportICAO.filter({$0.icao_CD != nil })
-            tableView.reloadData()
+            airfields = airportICAO.filter({$0.icao_CD != "" })
+
             print("\(deviceLat) : \(deviceLong)")
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
@@ -67,20 +73,20 @@ class NearestTableViewController: UITableViewController, CLLocationManagerDelega
             self.deviceAlt = loc.altitude
         }}
     
-    func distanceAway(deviceLat lat: Double, deviceLong long: Double, airport: AirfieldCD) -> (airport: AirfieldCD, distanceAway: Double) {
-        let airportLat = airport.latitude_CD
-        let airportLong = airport.longitude_CD
-        let myCoords =  CLLocation(latitude: lat, longitude: long)
-        let airportCoords = CLLocation(latitude: airportLat, longitude: airportLong)
-        let distanceAwayInNM = myCoords.distance(from: airportCoords).metersToNauticalMiles
-        return (airport, distanceAwayInNM)
-    }
+//    func distanceAway(deviceLat lat: Double, deviceLong long: Double, airport: AirfieldCD) -> (airport: AirfieldCD, distanceAway: Double) {
+//        let airportLat = airport.latitude_CD
+//        let airportLong = airport.longitude_CD
+//        let myCoords =  CLLocation(latitude: lat, longitude: long)
+//        let airportCoords = CLLocation(latitude: airportLat, longitude: airportLong)
+//        let distanceAwayInNM = myCoords.distance(from: airportCoords).metersToNauticalMiles
+//        return (airport, distanceAwayInNM)
+//    }
     
     func printResults(){
-        for airport in airports {
+        for airport in airfields {
             deviceLat = (locManager.location?.coordinate.latitude)!
             deviceLong = (locManager.location?.coordinate.longitude)!
-            print("\(String(describing: airport.icao_CD)) : \(distanceAway(deviceLat: deviceLat, deviceLong: deviceLong, airport: airport).distanceAway)")
+            print("\(String(describing: airport.icao_CD)) : \(cdu.distanceAway(deviceLat: deviceLat, deviceLong: deviceLong, airport: airport).distanceAway)")
         }}
     
     // MARK: Seque
@@ -88,7 +94,7 @@ class NearestTableViewController: UITableViewController, CLLocationManagerDelega
         switch segue.identifier {
         case "nearestDetail"?:
             let row = self.tableView.indexPathForSelectedRow?.row
-            let selectedAirfield = airports[row!] //else {print("No Airfield Found"); return }
+            let selectedAirfield = airfields[row!] //else {print("No Airfield Found"); return }
             let destinationViewController = segue.destination as! AirfieldInfoViewController
             destinationViewController.currentAirport = selectedAirfield
             destinationViewController.myLat = self.deviceLat
@@ -109,14 +115,14 @@ class NearestTableViewController: UITableViewController, CLLocationManagerDelega
         return 1
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return airports.count
+        return airfields.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "Nearest")
         if cell == nil {
             cell = UITableViewCell(style: .default, reuseIdentifier: "Nearest");
         }
-        cell!.textLabel?.text = airports[indexPath.row].icao_CD
+        cell!.textLabel?.text = airfields[indexPath.row].icao_CD
         return cell!
     }
     private func updateUI(){
