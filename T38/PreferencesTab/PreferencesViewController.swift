@@ -14,7 +14,7 @@ class PreferencesViewController: UIViewController {
     
     var airport: [NSManagedObject] = []
     var downLoader = JSONDownLoader()
-    var loadCD = LoadCD()
+    var cdu = CoreDataUtilies()
     var moc: NSManagedObjectContext!
     var baseUrlJSON = "http://getatis.com/DAFIF/GetAirfieldsByState?state="
     var state = "CA"
@@ -26,22 +26,56 @@ class PreferencesViewController: UIViewController {
 
     
     @IBAction func addButton(_ sender: Any) {
-        loadCD.loadToDBFromJSON(state, moc: moc)
+        cdu.loadToDBFromJSON(state, moc: moc)
 //        downLoader.downloadAllStates(baseUrl: baseUrlJSON)
 
 //        print(loadCD.checkIfCoreDataIsLoaded(moc: moc))
-        loadCD.printResults(moc: moc)
+        cdu.printResults(moc: moc)
 //        downLoader.printAvailableDownloads()
         
     }
     
     
     @IBAction func printButton(_ sender: Any) {
-        downLoader.printAvailableDownloads()
+        cdu.printResults(moc: moc)
+        var airfieldIDSet = Set<Int32>()
+        
+        
+        
+        let runways = cdu.getRunwaysGreaterThan(13000.0, moc: moc)
+        for runway in runways {
+            print(runway.airfieldID_CD)
+            airfieldIDSet.insert(runway.airfieldID_CD)
+
+        }
+        
+        for airfield in airfieldIDSet {
+            let airfields = cdu.getAirfieldsForRunwayReturnOf(airfieldID: airfield, moc: moc)
+            for airfield in airfields {
+                print(airfield.icao_CD!)
+            }
+        }
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+        
+
+        
     }
     
     @IBAction func deleteButton(_ sender: Any) {
-        downLoader.removeAllFiles()
+        cdu.deleteAllFromDB(moc: moc)
+//        downLoader.removeAllFiles()
 //        downLoader.removeFile(fileNamewithExtension: "\(state).json")
         downLoader.printAvailableDownloads()
         
@@ -63,20 +97,4 @@ class PreferencesViewController: UIViewController {
         }
     }
     
-    func deleteAllFromDB() {
-        let deleteAirPort = NSBatchDeleteRequest(fetchRequest: AirfieldCD.fetchRequest())
-        let deleteRunway = NSBatchDeleteRequest(fetchRequest: RunwayCD.fetchRequest())
-        let deleteNavaids = NSBatchDeleteRequest(fetchRequest: NavaidCD.fetchRequest())
-        let deleteFreqs = NSBatchDeleteRequest(fetchRequest: CommunicationCD.fetchRequest())
-        do {
-            try moc.execute(deleteAirPort)
-            try moc.execute(deleteRunway)
-            try moc.execute(deleteNavaids)
-            try moc.execute(deleteFreqs)
-            try moc.save()
-        } catch {
-            print("Nope")
-        }
-        
     }
-}

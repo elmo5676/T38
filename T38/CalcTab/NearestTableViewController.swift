@@ -72,16 +72,7 @@ class NearestTableViewController: UITableViewController, CLLocationManagerDelega
             self.deviceLong = loc.coordinate.longitude
             self.deviceAlt = loc.altitude
         }}
-    
-//    func distanceAway(deviceLat lat: Double, deviceLong long: Double, airport: AirfieldCD) -> (airport: AirfieldCD, distanceAway: Double) {
-//        let airportLat = airport.latitude_CD
-//        let airportLong = airport.longitude_CD
-//        let myCoords =  CLLocation(latitude: lat, longitude: long)
-//        let airportCoords = CLLocation(latitude: airportLat, longitude: airportLong)
-//        let distanceAwayInNM = myCoords.distance(from: airportCoords).metersToNauticalMiles
-//        return (airport, distanceAwayInNM)
-//    }
-    
+        
     func printResults(){
         for airport in airfields {
             deviceLat = (locManager.location?.coordinate.latitude)!

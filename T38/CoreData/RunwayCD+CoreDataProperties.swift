@@ -2,7 +2,7 @@
 //  RunwayCD+CoreDataProperties.swift
 //  T38
 //
-//  Created by elmo on 5/8/18.
+//  Created by elmo on 5/9/18.
 //  Copyright © 2018 elmo. All rights reserved.
 //
 //
@@ -42,6 +42,7 @@ extension RunwayCD {
     @NSManaged public var trueHdgHi_CD: Double
     @NSManaged public var trueHdgLow_CD: Double
     @NSManaged public var width_CD: Double
-    @NSManaged public var newRelationship: AirfieldCD?
+    @NSManaged public var airfieldID_CD: Int32
+    @NSManaged public var airfields_R_CD: AirfieldCD?
 
 }

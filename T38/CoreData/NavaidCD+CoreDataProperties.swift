@@ -2,7 +2,7 @@
 //  NavaidCD+CoreDataProperties.swift
 //  T38
 //
-//  Created by elmo on 5/8/18.
+//  Created by elmo on 5/9/18.
 //  Copyright © 2018 elmo. All rights reserved.
 //
 //
@@ -28,6 +28,7 @@ extension NavaidCD {
     @NSManaged public var name_CD: String?
     @NSManaged public var tacanDMEMode_CD: String?
     @NSManaged public var type_CD: String?
+    @NSManaged public var airfieldID_CD: Int32
     @NSManaged public var airfield_R_CD: AirfieldCD?
 
 }

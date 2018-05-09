@@ -2,7 +2,7 @@
 //  FreqCD+CoreDataProperties.swift
 //  T38
 //
-//  Created by elmo on 5/8/18.
+//  Created by elmo on 5/9/18.
 //  Copyright © 2018 elmo. All rights reserved.
 //
 //
@@ -19,6 +19,7 @@ extension FreqCD {
 
     @NSManaged public var freq_CD: Double
     @NSManaged public var id_CD: Int32
+    @NSManaged public var communicationsId_CD: Int32
     @NSManaged public var communication_R_CD: CommunicationCD?
 
 }

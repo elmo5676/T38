@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let moc = persistentContainer.viewContext
-        let loadCD = LoadCD()
+        let loadCD = CoreDataUtilies()
 //        jsonD.downloadData(url, fileNamewithExtension: "bob.json")
 //        let loadedOrNot = loadCD.checkIfCoreDataIsLoaded(moc: moc)
 //        if loadedOrNot == true {

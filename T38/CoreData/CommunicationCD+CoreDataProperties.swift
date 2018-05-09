@@ -2,7 +2,7 @@
 //  CommunicationCD+CoreDataProperties.swift
 //  T38
 //
-//  Created by elmo on 5/8/18.
+//  Created by elmo on 5/9/18.
 //  Copyright © 2018 elmo. All rights reserved.
 //
 //
@@ -20,6 +20,7 @@ extension CommunicationCD {
     @NSManaged public var freqs_CD: [FreqCD]?
     @NSManaged public var id_CD: Int32
     @NSManaged public var name_CD: String?
+    @NSManaged public var airfieldID_CD: Int32
     @NSManaged public var airfields_R_CD: AirfieldCD?
     @NSManaged public var freqs_R_CD: NSSet?
 

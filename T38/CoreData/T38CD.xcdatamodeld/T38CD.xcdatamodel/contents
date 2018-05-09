@@ -17,9 +17,10 @@
         <attribute name="timeConversion_CD" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="communications_R_CD" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CommunicationCD" inverseName="airfields_R_CD" inverseEntity="CommunicationCD" syncable="YES"/>
         <relationship name="navaids_R_CD" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NavaidCD" inverseName="airfield_R_CD" inverseEntity="NavaidCD" syncable="YES"/>
-        <relationship name="runways_R_CD" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RunwayCD" inverseName="newRelationship" inverseEntity="RunwayCD" syncable="YES"/>
+        <relationship name="runways_R_CD" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RunwayCD" inverseName="airfields_R_CD" inverseEntity="RunwayCD" syncable="YES"/>
     </entity>
     <entity name="CommunicationCD" representedClassName=".CommunicationCD" syncable="YES">
+        <attribute name="airfieldID_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="freqs_CD" optional="YES" attributeType="Transformable" customClassName="[FreqCD]" syncable="YES"/>
         <attribute name="id_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name_CD" optional="YES" attributeType="String" syncable="YES"/>
@@ -27,11 +28,13 @@
         <relationship name="freqs_R_CD" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FreqCD" inverseName="communication_R_CD" inverseEntity="FreqCD" syncable="YES"/>
     </entity>
     <entity name="FreqCD" representedClassName=".FreqCD" syncable="YES">
+        <attribute name="communicationsId_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="freq_CD" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="communication_R_CD" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CommunicationCD" inverseName="freqs_R_CD" inverseEntity="CommunicationCD" syncable="YES"/>
     </entity>
     <entity name="NavaidCD" representedClassName=".NavaidCD" syncable="YES">
+        <attribute name="airfieldID_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="channel_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="course_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="distance_CD" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -46,6 +49,7 @@
         <relationship name="airfield_R_CD" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AirfieldCD" inverseName="navaids_R_CD" inverseEntity="AirfieldCD" syncable="YES"/>
     </entity>
     <entity name="RunwayCD" representedClassName=".RunwayCD" syncable="YES">
+        <attribute name="airfieldID_CD" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="coordLatHi_CD" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="coordLatLow_CD" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="coordLonHi_CD" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -71,7 +75,7 @@
         <attribute name="trueHdgHi_CD" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="trueHdgLow_CD" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="width_CD" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AirfieldCD" inverseName="runways_R_CD" inverseEntity="AirfieldCD" syncable="YES"/>
+        <relationship name="airfields_R_CD" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AirfieldCD" inverseName="runways_R_CD" inverseEntity="AirfieldCD" syncable="YES"/>
     </entity>
     <entity name="ToldInputsCD" representedClassName=".ToldInputsCD" syncable="YES">
         <attribute name="aeroBreakingCD" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -126,12 +130,13 @@
         <attribute name="userWeight_UP_CD" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <fetchRequest name="FetchAllAirports" entity="AirfieldCD"/>
+    <fetchRequest name="runwayLengthFetchRequest" entity="RunwayCD" predicateString="length_CD &gt; 7999"/>
     <elements>
         <element name="AirfieldCD" positionX="-1064" positionY="45" width="128" height="298"/>
-        <element name="CommunicationCD" positionX="-909" positionY="140" width="128" height="118"/>
-        <element name="FreqCD" positionX="-720" positionY="171" width="128" height="88"/>
-        <element name="NavaidCD" positionX="-711" positionY="335" width="128" height="225"/>
-        <element name="RunwayCD" positionX="-495" positionY="63" width="128" height="435"/>
+        <element name="CommunicationCD" positionX="-909" positionY="140" width="128" height="135"/>
+        <element name="FreqCD" positionX="-720" positionY="171" width="128" height="105"/>
+        <element name="NavaidCD" positionX="-711" positionY="335" width="128" height="240"/>
+        <element name="RunwayCD" positionX="-495" positionY="63" width="128" height="450"/>
         <element name="ToldInputsCD" positionX="72" positionY="-27" width="128" height="313"/>
         <element name="ToldResults" positionX="-128" positionY="-114" width="128" height="403"/>
         <element name="UserPreferencesCD" positionX="-101" positionY="342" width="128" height="103"/>
