@@ -51,9 +51,12 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         fetchAndSortByDistance()
+        jsonD.currentWeather(icao: cdu.getUserDefaults().homeFieldICAO_UD)
 
         print(cdu.getUserDefaults())
        }
+    
+    
     
     
     // MARK: CoreData Variables
@@ -73,7 +76,21 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
     var currentWeather: Weather?
     var useUDHomeField = true
     
-    
+    func clearAllFields(){
+        temperatureTextField.text = ""
+        airfieldICAO.text = ""
+        pressureAltTextField.text = ""
+        runwayLengthTextField.text = ""
+        runwayHeadingTextField.text = ""
+        windDirectionTextField.text = ""
+        windVelocityTextField.text = ""
+        runwaySlopeTextField.text = ""
+        rcrTextField.text = ""
+        aircraftGrosWTTextField.text = ""
+        weightOfCargoInPODTextField.text = ""
+        wieghtUsedForTOLDTextField.text = ""
+        givenEngFailureTextField.text = ""
+    }
     
     
     func fetchAndSortByDistance() {
@@ -127,6 +144,10 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func autoFillButton(_ sender: UIButton) {
         autoFill()
+        
+    }
+    @IBAction func clearAllFieldsButton(_ sender: UIButton) {
+        clearAllFields()
     }
     
     
@@ -152,13 +173,21 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
             // DAFIF Info
             homeFieldDict = cdu.getAirfieldByICAO(defaults.homeFieldICAO_UD, moc: moc)
             
+            print(homeFieldDict)
+            
             for (key, value) in homeFieldDict {
+                var runwayIdSet = Set<Int32>()
+
+                for val in value {
+                    runwayIdSet.insert(val.id_CD)
+                }
+                print(runwayIdSet)
                 airfieldICAO.text = key.icao_CD
                 runwayLengthTextField.text = String(value[0].length_CD)
                 runwayHeadingTextField.text = String(value[0].magHdgHi_CD)
                 runwaySlopeTextField.text = String(value[0].slopeHi_CD)
                 rcrTextField.text = "23"
-                fieldElev = value[0].elevHi_CD
+                fieldElev = key.elevation_CD
             }
         } else {
             let alertController = UIAlertController(title: "No DAFIF Loaded", message:
@@ -168,6 +197,7 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
         
         // Weather Info
         if let cw = currentWeather {
+            print(cw)
             let altSetting = Double(cw.metars.metar.altimInHg)
             temperatureTextField.text = String(cw.metars.metar.tempC)
             pressureAltTextField.text = String(calcPressureAlt(altSetting: altSetting!, fieldElevation: fieldElev))
@@ -566,6 +596,9 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
             destinationViewController.givenEngFailAKey = givenEngFailAKey
             // Error Array
             destinationViewController.resultsErrorArray = resultsErrorArray
+        case "runwayChoicesSeque"?:
+            let destinationViewController = segue.destination as! RunwayChoicesTableViewController
+            
         default:
             preconditionFailure("Unexpected segue identifier")
         }

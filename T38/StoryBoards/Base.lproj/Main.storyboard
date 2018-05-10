@@ -1249,7 +1249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EGn-bD-f4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-502" y="1665"/>
+            <point key="canvasLocation" x="-489" y="2188"/>
         </scene>
         <!--TOLD-->
         <scene sceneID="JKG-Z1-Hdz">
@@ -1638,32 +1638,51 @@
                                                     </activityIndicatorView>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePr-Uf-Ufb">
-                                                <rect key="frame" x="685" y="8" width="64" height="30"/>
-                                                <state key="normal" title="Fill In WX"/>
-                                                <connections>
-                                                    <action selector="autoFillButton:" destination="S19-DN-MPg" eventType="touchUpInside" id="YY9-Z8-1Vb"/>
-                                                </connections>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5J-aa-VVa">
                                                 <rect key="frame" x="381" y="26" width="7" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DTc-ag-yRM">
+                                                <rect key="frame" x="668" y="8" width="81" height="90"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePr-Uf-Ufb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="81" height="30"/>
+                                                        <state key="normal" title="Fill In WX"/>
+                                                        <connections>
+                                                            <action selector="autoFillButton:" destination="S19-DN-MPg" eventType="touchUpInside" id="YY9-Z8-1Vb"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XF8-HK-WKS">
+                                                        <rect key="frame" x="0.0" y="30" width="81" height="30"/>
+                                                        <state key="normal" title="Clear Fields"/>
+                                                        <connections>
+                                                            <action selector="clearAllFieldsButton:" destination="S19-DN-MPg" eventType="touchUpInside" id="i4S-ON-s0P"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7o-4L-SJG">
+                                                        <rect key="frame" x="0.0" y="60" width="81" height="30"/>
+                                                        <state key="normal" title="Clear Fields"/>
+                                                        <connections>
+                                                            <segue destination="WKZ-fN-Hpn" kind="popoverPresentation" identifier="runwayChoicesSeque" popoverAnchorView="G7o-4L-SJG" id="Iai-6P-XNG">
+                                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                            </segue>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="ePr-Uf-Ufb" firstAttribute="top" secondItem="1Fi-Lt-S0s" secondAttribute="top" constant="8" id="1OV-TQ-ayq"/>
                                             <constraint firstItem="U5J-aa-VVa" firstAttribute="top" secondItem="1Fi-Lt-S0s" secondAttribute="top" constant="26" id="8rk-n6-1Kk"/>
                                             <constraint firstItem="RHa-1N-Ipm" firstAttribute="top" secondItem="1Fi-Lt-S0s" secondAttribute="top" constant="100" id="9X7-Q8-Yl3"/>
-                                            <constraint firstAttribute="trailing" secondItem="ePr-Uf-Ufb" secondAttribute="trailing" constant="19" id="GId-Th-HDi"/>
+                                            <constraint firstAttribute="trailing" secondItem="DTc-ag-yRM" secondAttribute="trailing" constant="19" id="Cow-LG-pwb"/>
                                             <constraint firstItem="RHa-1N-Ipm" firstAttribute="centerX" secondItem="1Fi-Lt-S0s" secondAttribute="centerX" id="I8h-2D-xcR"/>
                                             <constraint firstItem="fnZ-Ja-3lh" firstAttribute="centerX" secondItem="RHa-1N-Ipm" secondAttribute="centerX" id="TlO-g0-3gW"/>
                                             <constraint firstItem="U5J-aa-VVa" firstAttribute="centerX" secondItem="RHa-1N-Ipm" secondAttribute="centerX" id="Xkw-zl-c7u"/>
                                             <constraint firstItem="RHa-1N-Ipm" firstAttribute="width" secondItem="1Fi-Lt-S0s" secondAttribute="width" multiplier="0.95" id="YQV-7Q-r79"/>
                                             <constraint firstItem="fnZ-Ja-3lh" firstAttribute="top" secondItem="RHa-1N-Ipm" secondAttribute="bottom" constant="26" id="oUq-ze-eVa"/>
-                                            <constraint firstItem="ePr-Uf-Ufb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1Fi-Lt-S0s" secondAttribute="leading" constant="20" symbolic="YES" id="rAR-oE-vDR"/>
                                             <constraint firstItem="fnZ-Ja-3lh" firstAttribute="width" secondItem="RHa-1N-Ipm" secondAttribute="width" id="sEe-hH-qRb"/>
                                         </constraints>
                                     </view>
@@ -1683,6 +1702,7 @@
                             <constraint firstItem="P3M-u2-uJ4" firstAttribute="leading" secondItem="RW6-2q-s9O" secondAttribute="leading" id="Nxy-jS-rOt"/>
                             <constraint firstItem="1Fi-Lt-S0s" firstAttribute="height" secondItem="RW6-2q-s9O" secondAttribute="height" multiplier="1.5" id="OeK-f6-WSt"/>
                             <constraint firstItem="P3M-u2-uJ4" firstAttribute="centerY" secondItem="RW6-2q-s9O" secondAttribute="centerY" id="YfI-Mg-RGH"/>
+                            <constraint firstItem="DTc-ag-yRM" firstAttribute="top" secondItem="gR7-xv-yYN" secondAttribute="bottom" constant="8" id="rK0-ek-1F9"/>
                             <constraint firstItem="1Fi-Lt-S0s" firstAttribute="width" secondItem="RW6-2q-s9O" secondAttribute="width" id="u8P-3G-RE7"/>
                             <constraint firstItem="P3M-u2-uJ4" firstAttribute="centerX" secondItem="RW6-2q-s9O" secondAttribute="centerX" priority="250" id="xqg-OM-eId"/>
                         </constraints>
@@ -1716,6 +1736,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xLV-ja-lzV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1216.40625" y="1664.6484375"/>
+        </scene>
+        <!--Runway Choices Table View Controller-->
+        <scene sceneID="xKV-F8-Jto">
+            <objects>
+                <tableViewController id="WKZ-fN-Hpn" customClass="RunwayChoicesTableViewController" customModule="T38" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Cg5-Id-pwZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="WtJ-dR-eFK">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WtJ-dR-eFK" id="R95-yS-fEK">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="WKZ-fN-Hpn" id="neU-Bh-Zf1"/>
+                            <outlet property="delegate" destination="WKZ-fN-Hpn" id="ZXb-qE-ye6"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BUd-Kr-mOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-419" y="1353"/>
         </scene>
         <!--Pattern-->
         <scene sceneID="UYf-fi-MjL">
@@ -2413,7 +2461,7 @@ Decision Speed (DS)
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cF3-tE-2th" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="188" y="1665"/>
+            <point key="canvasLocation" x="201" y="2188"/>
         </scene>
         <!--Calculator-->
         <scene sceneID="Ucj-D2-5oB">

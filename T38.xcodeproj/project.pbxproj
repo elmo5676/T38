@@ -22,9 +22,10 @@
 		6E7E5E53206CA2B1005A23AE /* AirfieldInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E5E52206CA2B1005A23AE /* AirfieldInfoViewController.swift */; };
 		6E8DE6F320A2E63D00D69E0A /* Scrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8DE6F220A2E63D00D69E0A /* Scrap.swift */; };
 		6E9956B220812B8B00B73264 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9956B120812B8B00B73264 /* PreferencesViewController.swift */; };
-		6EA9C13B20A17CA900A578BE /* CoreDataUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA9C13A20A17CA900A578BE /* CoreDataUtilities.swift */; };
 		6EAB7F072068DB090033B99B /* calcInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAB7F062068DB090033B99B /* calcInfoViewController.swift */; };
 		6EB58CE42071C535008F2D38 /* TOLDInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB58CE32071C535008F2D38 /* TOLDInputViewController.swift */; };
+		6EB749A020A4C88600EFF401 /* RunwayChoicesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB7499F20A4C88600EFF401 /* RunwayChoicesTableViewController.swift */; };
+		6EB749A220A4CD2600EFF401 /* CoreDataUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB749A120A4CD2600EFF401 /* CoreDataUtilities.swift */; };
 		6EB9B39E20A24F330093AE96 /* AirfieldCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9B39420A24F330093AE96 /* AirfieldCD+CoreDataClass.swift */; };
 		6EB9B39F20A24F330093AE96 /* AirfieldCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9B39520A24F330093AE96 /* AirfieldCD+CoreDataProperties.swift */; };
 		6EB9B3A020A24F330093AE96 /* NavaidCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9B39620A24F330093AE96 /* NavaidCD+CoreDataClass.swift */; };
@@ -103,9 +104,10 @@
 		6E7E5E52206CA2B1005A23AE /* AirfieldInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirfieldInfoViewController.swift; sourceTree = "<group>"; };
 		6E8DE6F220A2E63D00D69E0A /* Scrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scrap.swift; sourceTree = "<group>"; };
 		6E9956B120812B8B00B73264 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
-		6EA9C13A20A17CA900A578BE /* CoreDataUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUtilities.swift; sourceTree = "<group>"; };
 		6EAB7F062068DB090033B99B /* calcInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calcInfoViewController.swift; sourceTree = "<group>"; };
 		6EB58CE32071C535008F2D38 /* TOLDInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOLDInputViewController.swift; sourceTree = "<group>"; };
+		6EB7499F20A4C88600EFF401 /* RunwayChoicesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunwayChoicesTableViewController.swift; sourceTree = "<group>"; };
+		6EB749A120A4CD2600EFF401 /* CoreDataUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUtilities.swift; sourceTree = "<group>"; };
 		6EB9B39420A24F330093AE96 /* AirfieldCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AirfieldCD+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6EB9B39520A24F330093AE96 /* AirfieldCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AirfieldCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6EB9B39620A24F330093AE96 /* NavaidCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavaidCD+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -230,7 +232,7 @@
 				6EB9B39B20A24F330093AE96 /* FreqCD+CoreDataProperties.swift */,
 				6EB9B39C20A24F330093AE96 /* RunwayCD+CoreDataClass.swift */,
 				6EB9B39D20A24F330093AE96 /* RunwayCD+CoreDataProperties.swift */,
-				6EA9C13A20A17CA900A578BE /* CoreDataUtilities.swift */,
+				6EB749A120A4CD2600EFF401 /* CoreDataUtilities.swift */,
 				6ECF45F020708B820057F317 /* T38CD.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -278,6 +280,7 @@
 		6EE82B92206B39AA006DFF93 /* ToldTab */ = {
 			isa = PBXGroup;
 			children = (
+				6EB7499F20A4C88600EFF401 /* RunwayChoicesTableViewController.swift */,
 				6ECADBE020965DF3005FF5AE /* main_script.js */,
 				6ECADBDA20963230005FF5AE /* Calculator.swift */,
 				6ECADBDB20963230005FF5AE /* Results.swift */,
@@ -469,7 +472,9 @@
 				6E12C3901E2C717000C43479 /* SpeedsViewController.swift in Sources */,
 				6EF0150F206D69F30074A7DC /* KeyboardViewController.swift in Sources */,
 				6ED5809C206737E500B1D2BA /* CalcBrains.swift in Sources */,
+				6EB749A220A4CD2600EFF401 /* CoreDataUtilities.swift in Sources */,
 				6EB9B3A420A24F330093AE96 /* FreqCD+CoreDataClass.swift in Sources */,
+				6EB749A020A4C88600EFF401 /* RunwayChoicesTableViewController.swift in Sources */,
 				6EB58CE42071C535008F2D38 /* TOLDInputViewController.swift in Sources */,
 				6EB9B3A020A24F330093AE96 /* NavaidCD+CoreDataClass.swift in Sources */,
 				6E6A0AC91E19F02600E23114 /* ClimbRangeViewController.swift in Sources */,
@@ -491,7 +496,6 @@
 				6ECADBDD20963230005FF5AE /* Results.swift in Sources */,
 				6E5C04D720A3BA220027FAE8 /* Weather.swift in Sources */,
 				6EB9B3A620A24F330093AE96 /* RunwayCD+CoreDataClass.swift in Sources */,
-				6EA9C13B20A17CA900A578BE /* CoreDataUtilities.swift in Sources */,
 				6EB9B39E20A24F330093AE96 /* AirfieldCD+CoreDataClass.swift in Sources */,
 				6E6A0AC71E19F02600E23114 /* DivertViewController.swift in Sources */,
 				6EB9B3A220A24F330093AE96 /* CommunicationCD+CoreDataClass.swift in Sources */,

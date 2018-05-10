@@ -1,16 +1,104 @@
+////
+////  Scrap.swift
+////  T38
+////
+////  Created by elmo on 5/9/18.
+////  Copyright © 2018 elmo. All rights reserved.
+////
 //
-//  Scrap.swift
-//  T38
+//import Foundation
 //
-//  Created by elmo on 5/9/18.
-//  Copyright © 2018 elmo. All rights reserved.
+//class Scrap {
 //
+//}
 
-import Foundation
 
-class Scrap {
-    
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

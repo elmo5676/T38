@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let cdu = CoreDataUtilies()
         cdu.printResults(moc: moc)
         cdu.setUserDefaults(runwayLength: 8000.0,
-                            homeAirfieldICAO: "KBAB",
+                            homeAirfieldICAO: "KSFO",
                             baseWeatherUrl: baseWeatherUrl_METAR,
                             baseDafifUrl: baseDafifUrl,
                             aeroBraking: "No",

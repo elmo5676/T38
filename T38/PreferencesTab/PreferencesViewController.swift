@@ -33,7 +33,7 @@ class PreferencesViewController: UIViewController {
     
     @IBAction func addButton(_ sender: Any) {
 //        downLoader.removeFile(fileNamewithExtension: "\(cdu.getUserDefaults().homeFieldICAO_UD).json")
-//        downLoader.downloadWeather(baseUrl: cdu.getUserDefaults().baseWeatherUrl_UD, icao: cdu.getUserDefaults().homeFieldICAO_UD)
+        downLoader.downloadWeather(baseUrl: cdu.getUserDefaults().baseWeatherUrl_UD, icao: cdu.getUserDefaults().homeFieldICAO_UD)
 //        print(downLoader.currentWeather(icao: cdu.getUserDefaults().homeFieldICAO_UD))
 
         
@@ -41,7 +41,7 @@ class PreferencesViewController: UIViewController {
         
         
         
-        cdu.loadToDBFromJSON(state, moc: moc)
+//        cdu.loadToDBFromJSON(state, moc: moc)
 //        downLoader.downloadAllStates(baseUrl: dafifUrlJSONBase)
 //        print(loadCD.checkIfCoreDataIsLoaded(moc: moc))
 //        cdu.printResults(moc: moc)
@@ -51,22 +51,25 @@ class PreferencesViewController: UIViewController {
     
     
     @IBAction func printButton(_ sender: Any) {
-        cdu.printResults(moc: moc)
-        var resultsDict = [AirfieldCD:[RunwayCD]]()
-//        resultsDict = cdu.getAirfieldAndRunwaysWithRWYLengthGreaterThanOrEqualTo(moc: moc)
-        resultsDict = cdu.getAirfieldByICAO("KBAB", moc: moc)
-        
-        for (key, value) in resultsDict {
-            print("Airfield ID: \(key.icao_CD!)")
-            for runway in value {
-                print("Runway Hi ID: \(runway.highID_CD!), Runway Length: \(runway.length_CD)")
-                print("Runway Low ID: \(runway.lowID_CD!), Runway Length: \(runway.length_CD)")
-            }
-        }
+        print(downLoader.currentWeather(icao: "KBAB"))
+//        print(downLoader.currentWeather(icao: cdu.getUserDefaults().homeFieldICAO_UD))
+//        cdu.printResults(moc: moc)
+//        var resultsDict = [AirfieldCD:[RunwayCD]]()
+////        resultsDict = cdu.getAirfieldAndRunwaysWithRWYLengthGreaterThanOrEqualTo(moc: moc)
+//        resultsDict = cdu.getAirfieldByICAO("KBAB", moc: moc)
+//
+//        for (key, value) in resultsDict {
+//            print("Airfield ID: \(key.icao_CD!)")
+//            for runway in value {
+//                print("Runway Hi ID: \(runway.highID_CD!), Runway Length: \(runway.length_CD)")
+//                print("Runway Low ID: \(runway.lowID_CD!), Runway Length: \(runway.length_CD)")
+//            }
+//        }
     }
     
     @IBAction func deleteButton(_ sender: Any) {
-        cdu.deleteAllFromDB(moc: moc)
+        downLoader.removeFile(fileNamewithExtension: "\(cdu.getUserDefaults().homeFieldICAO_UD).json")
+//        cdu.deleteAllFromDB(moc: moc)
 //        downLoader.removeFile(fileNamewithExtension: "\(state).json")
         downLoader.printAvailableDownloads()
         
