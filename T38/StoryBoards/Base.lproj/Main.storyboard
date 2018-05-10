@@ -1270,7 +1270,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="768" height="1650"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="RHa-1N-Ipm" userLabel="Everything">
-                                                <rect key="frame" x="19" y="70" width="730" height="538"/>
+                                                <rect key="frame" x="19" y="100" width="730" height="538"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bW6-en-ljx" userLabel="LabelStack">
                                                         <rect key="frame" x="0.0" y="0.0" width="361" height="538"/>
@@ -1617,7 +1617,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fnZ-Ja-3lh">
-                                                <rect key="frame" x="19" y="634" width="730" height="96"/>
+                                                <rect key="frame" x="19" y="664" width="730" height="96"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRI-9o-U96">
                                                         <rect key="frame" x="0.0" y="0.0" width="730" height="30"/>
@@ -1639,19 +1639,31 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePr-Uf-Ufb">
-                                                <rect key="frame" x="660" y="8" width="89" height="30"/>
-                                                <state key="normal" title="Closest Field"/>
+                                                <rect key="frame" x="685" y="8" width="64" height="30"/>
+                                                <state key="normal" title="Fill In WX"/>
+                                                <connections>
+                                                    <action selector="autoFillButton:" destination="S19-DN-MPg" eventType="touchUpInside" id="YY9-Z8-1Vb"/>
+                                                </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5J-aa-VVa">
+                                                <rect key="frame" x="381" y="26" width="7" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="ePr-Uf-Ufb" firstAttribute="top" secondItem="1Fi-Lt-S0s" secondAttribute="top" constant="8" id="1OV-TQ-ayq"/>
-                                            <constraint firstItem="RHa-1N-Ipm" firstAttribute="top" secondItem="1Fi-Lt-S0s" secondAttribute="top" constant="70" id="9X7-Q8-Yl3"/>
+                                            <constraint firstItem="U5J-aa-VVa" firstAttribute="top" secondItem="1Fi-Lt-S0s" secondAttribute="top" constant="26" id="8rk-n6-1Kk"/>
+                                            <constraint firstItem="RHa-1N-Ipm" firstAttribute="top" secondItem="1Fi-Lt-S0s" secondAttribute="top" constant="100" id="9X7-Q8-Yl3"/>
                                             <constraint firstAttribute="trailing" secondItem="ePr-Uf-Ufb" secondAttribute="trailing" constant="19" id="GId-Th-HDi"/>
                                             <constraint firstItem="RHa-1N-Ipm" firstAttribute="centerX" secondItem="1Fi-Lt-S0s" secondAttribute="centerX" id="I8h-2D-xcR"/>
                                             <constraint firstItem="fnZ-Ja-3lh" firstAttribute="centerX" secondItem="RHa-1N-Ipm" secondAttribute="centerX" id="TlO-g0-3gW"/>
+                                            <constraint firstItem="U5J-aa-VVa" firstAttribute="centerX" secondItem="RHa-1N-Ipm" secondAttribute="centerX" id="Xkw-zl-c7u"/>
                                             <constraint firstItem="RHa-1N-Ipm" firstAttribute="width" secondItem="1Fi-Lt-S0s" secondAttribute="width" multiplier="0.95" id="YQV-7Q-r79"/>
                                             <constraint firstItem="fnZ-Ja-3lh" firstAttribute="top" secondItem="RHa-1N-Ipm" secondAttribute="bottom" constant="26" id="oUq-ze-eVa"/>
+                                            <constraint firstItem="ePr-Uf-Ufb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1Fi-Lt-S0s" secondAttribute="leading" constant="20" symbolic="YES" id="rAR-oE-vDR"/>
                                             <constraint firstItem="fnZ-Ja-3lh" firstAttribute="width" secondItem="RHa-1N-Ipm" secondAttribute="width" id="sEe-hH-qRb"/>
                                         </constraints>
                                     </view>
@@ -1681,6 +1693,7 @@
                         <outlet property="aeroBreakingSwitchOutlet" destination="gbU-yJ-6pr" id="qja-IR-10E"/>
                         <outlet property="aeroBreakingYesNoLabel" destination="8bW-Wt-OWE" id="RKV-lz-zeN"/>
                         <outlet property="aircraftGrosWTTextField" destination="p0Q-OH-Acf" id="dN7-Ie-nD8"/>
+                        <outlet property="airfieldICAO" destination="U5J-aa-VVa" id="RRn-2K-60N"/>
                         <outlet property="celciusOrFehrenheitLabel" destination="egf-kE-qNO" id="b5X-8j-yxh"/>
                         <outlet property="givenEngFailureTextField" destination="21L-Dg-qjS" id="2Ph-4u-KLi"/>
                         <outlet property="podSwitchOutlet" destination="cgx-hO-aUI" id="zMV-90-frO"/>

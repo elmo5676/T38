@@ -46,14 +46,14 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
         }
         self.fetchAllAirports = fetchAllAirports
         fetchAndSortByDistance()
-//        autoFill()
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         fetchAndSortByDistance()
-//        autoFill()
-    }
+
+        print(cdu.getUserDefaults())
+       }
     
     
     // MARK: CoreData Variables
@@ -68,6 +68,13 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
     var deviceLat = 0.0
     var deviceLong = 0.0
     var deviceAlt = 0.0
+    
+    var jsonD = JSONHandler()
+    var currentWeather: Weather?
+    var useUDHomeField = true
+    
+    
+    
     
     func fetchAndSortByDistance() {
         guard let fetchRequest = fetchAllAirports else { return }
@@ -99,14 +106,14 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    // MARK: Closest Airfield AutoFill
+    // MARK: Airfield AutoFill
 //    var temperatureMETAR = 0.0
 //    var pressureAltMETAR = 0.0
 //
-//    var runwayLengthNRST = 0.0
-//    var runwayHdgNRST = 0.0
-//    var runwaySlopeNRST = 0.0
-//
+//    var runwayLength = 0.0
+//    var runwayHdg = 0.0
+//    var runwaySlope = 0.0
+//    
 //    var windDirectionMETAR = 0.0
 //    var windVelocityMETAR = 0.0
 //    var rcrMETAR = 0.0
@@ -115,30 +122,60 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
 //    var weightOfCargoInPod_UD = 0.0
 //    var weightUsedForTOLD_UD = 12700
 //    var givenEngFailAt_UD = 0.0
-//
-//    func autoFill() {
-//        let airfieldNRST = airfields[0]
-//        print(airfieldNRST)
-//        if let runwayBest = airfieldNRST.runways_CD {
-////            print(runwayBest.first?.length_CD)
-//            print(runwayBest.first?.magHdgHi_CD)
-//            print(runwayBest.first?.slopeHi_CD)
-//            if let length_ = String(runwayBest.first?.length_CD) {
-//                runwayLengthTextField.text = length_
-//            }
-//            if let hdg_ = String(runwayBest.first?.magHdgHi_CD) {
-//                runwayHeadingTextField.text = hdg_
-//            }
-//            if let slope_ = String(runwayBest.first?.slopeHi_CD) {
-//                runwaySlopeTextField.text = slope_
-//            }
+
+    
+    
+    @IBAction func autoFillButton(_ sender: UIButton) {
+        autoFill()
+    }
+    
+    
+    func calcPressureAlt(altSetting: Double, fieldElevation: Double) -> Double {
+        let pa = ((29.92 - altSetting) * 1000) + fieldElevation
+        return pa
+    }
+    
+    
+    func autoFill() {
+        currentWeather = jsonD.currentWeather(icao: cdu.getUserDefaults().homeFieldICAO_UD)
+        var fieldElev = 0.0
+        if useUDHomeField == true {
+            var homeFieldDict = [AirfieldCD:[RunwayCD]]()
+            let defaults = cdu.getUserDefaults()
             
-//        }
+            // User Preferences aka: UserDefaults
+            aircraftGrosWTTextField.text = defaults.aircraftGrossWeight_UD
+            weightOfCargoInPODTextField.text = defaults.weightOfCargoInPOD_UD
+            wieghtUsedForTOLDTextField.text = defaults.weightUsedForTOLD_UD
+            givenEngFailureTextField.text = defaults.givenEngineFailure_UD
+            
+            // DAFIF Info
+            homeFieldDict = cdu.getAirfieldByICAO(defaults.homeFieldICAO_UD, moc: moc)
+            
+            for (key, value) in homeFieldDict {
+                airfieldICAO.text = key.icao_CD
+                runwayLengthTextField.text = String(value[0].length_CD)
+                runwayHeadingTextField.text = String(value[0].magHdgHi_CD)
+                runwaySlopeTextField.text = String(value[0].slopeHi_CD)
+                rcrTextField.text = "23"
+                fieldElev = value[0].elevHi_CD
+            }
+        } else {
+            let alertController = UIAlertController(title: "No DAFIF Loaded", message:
+                "You need to load Airfield information for autofill to work", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Bring It!", style: UIAlertActionStyle.default,handler: nil))
+        }
         
+        // Weather Info
+        if let cw = currentWeather {
+            let altSetting = Double(cw.metars.metar.altimInHg)
+            temperatureTextField.text = String(cw.metars.metar.tempC)
+            pressureAltTextField.text = String(calcPressureAlt(altSetting: altSetting!, fieldElevation: fieldElev))
+            windDirectionTextField.text = String(cw.metars.metar.windDirDegrees)
+            windVelocityTextField.text = String(cw.metars.metar.windSpeedKt)
+        }
         
-//    }
-    
-    
+    }
     
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
@@ -196,6 +233,7 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
             celciusOrFehrenheitLabel.text = "C"
         }
     }
+    @IBOutlet weak var airfieldICAO: UILabel!
     @IBOutlet weak var celciusOrFehrenheitLabel: UILabel!
     @IBOutlet weak var pressureAltTextField: UITextField!
     @IBOutlet weak var runwayLengthTextField: UITextField!

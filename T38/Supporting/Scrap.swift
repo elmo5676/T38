@@ -8,6 +8,11 @@
 
 import Foundation
 
+class Scrap {
+    
+}
+
+
 
 //*********************************** PreferencesViewController **************************************************
 //        downLoader.downloadAllStates(baseUrl: baseUrlJSON)

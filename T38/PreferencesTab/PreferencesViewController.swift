@@ -13,12 +13,18 @@ class PreferencesViewController: UIViewController {
 
     
     var airport: [NSManagedObject] = []
-    var downLoader = JSONDownLoader()
+    var downLoader = JSONHandler()
     var cdu = CoreDataUtilies()
     var moc: NSManagedObjectContext!
-    var baseUrlJSON = "http://getatis.com/DAFIF/GetAirfieldsByState?state="
+    var dafifUrlJSONBase = "http://getatis.com/DAFIF/GetAirfieldsByState?state="
+    var weatherUrlJSONBase = "https://www.getatis.com/services/GetMETAR?stations="
+//    var homeStation =
     var state = "CA"
     
+    var cw: Weather?
+    
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -26,11 +32,19 @@ class PreferencesViewController: UIViewController {
 
     
     @IBAction func addButton(_ sender: Any) {
-        cdu.loadToDBFromJSON(state, moc: moc)
-//        downLoader.downloadAllStates(baseUrl: baseUrlJSON)
+//        downLoader.removeFile(fileNamewithExtension: "\(cdu.getUserDefaults().homeFieldICAO_UD).json")
+//        downLoader.downloadWeather(baseUrl: cdu.getUserDefaults().baseWeatherUrl_UD, icao: cdu.getUserDefaults().homeFieldICAO_UD)
+//        print(downLoader.currentWeather(icao: cdu.getUserDefaults().homeFieldICAO_UD))
 
+        
+        
+        
+        
+        
+        cdu.loadToDBFromJSON(state, moc: moc)
+//        downLoader.downloadAllStates(baseUrl: dafifUrlJSONBase)
 //        print(loadCD.checkIfCoreDataIsLoaded(moc: moc))
-        cdu.printResults(moc: moc)
+//        cdu.printResults(moc: moc)
 //        downLoader.printAvailableDownloads()
         
     }
@@ -38,44 +52,21 @@ class PreferencesViewController: UIViewController {
     
     @IBAction func printButton(_ sender: Any) {
         cdu.printResults(moc: moc)
-        var airfieldIDSet = Set<Int32>()
+        var resultsDict = [AirfieldCD:[RunwayCD]]()
+//        resultsDict = cdu.getAirfieldAndRunwaysWithRWYLengthGreaterThanOrEqualTo(moc: moc)
+        resultsDict = cdu.getAirfieldByICAO("KBAB", moc: moc)
         
-        
-        
-        let runways = cdu.getRunwaysGreaterThan(13000.0, moc: moc)
-        for runway in runways {
-            print(runway.airfieldID_CD)
-            airfieldIDSet.insert(runway.airfieldID_CD)
-
-        }
-        
-        for airfield in airfieldIDSet {
-            let airfields = cdu.getAirfieldsForRunwayReturnOf(airfieldID: airfield, moc: moc)
-            for airfield in airfields {
-                print(airfield.icao_CD!)
+        for (key, value) in resultsDict {
+            print("Airfield ID: \(key.icao_CD!)")
+            for runway in value {
+                print("Runway Hi ID: \(runway.highID_CD!), Runway Length: \(runway.length_CD)")
+                print("Runway Low ID: \(runway.lowID_CD!), Runway Length: \(runway.length_CD)")
             }
         }
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-        
-        
-
-        
     }
     
     @IBAction func deleteButton(_ sender: Any) {
         cdu.deleteAllFromDB(moc: moc)
-//        downLoader.removeAllFiles()
 //        downLoader.removeFile(fileNamewithExtension: "\(state).json")
         downLoader.printAvailableDownloads()
         

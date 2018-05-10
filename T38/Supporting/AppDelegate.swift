@@ -8,26 +8,28 @@ import CoreLocation
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var url = "http://getatis.com/DAFIF/GetAirfieldsByState?state=CA"
-    var jsonD = JSONDownLoader()
+    var baseDafifUrl = "http://getatis.com/DAFIF/GetAirfieldsByState?state="
+    let baseWeatherUrl_METAR = "https://www.getatis.com/services/GetMETAR?stations="
+    var jsonD = JSONHandler()
+    
 
 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let moc = persistentContainer.viewContext
-        let loadCD = CoreDataUtilies()
-//        jsonD.downloadData(url, fileNamewithExtension: "bob.json")
-//        let loadedOrNot = loadCD.checkIfCoreDataIsLoaded(moc: moc)
-//        if loadedOrNot == true {
-//            print("CoreData has Airfields in it 'past-tense'")
-//        } else {
-//            loadCD.loadToDBFromJSON("bob" ,moc: moc)
-//            loadCD.mocSave(moc: moc)
-//            print("CoreData was just loaded")
-//        }
-        loadCD.printResults(moc: moc)
-
-        
+        let cdu = CoreDataUtilies()
+        cdu.printResults(moc: moc)
+        cdu.setUserDefaults(runwayLength: 8000.0,
+                            homeAirfieldICAO: "KBAB",
+                            baseWeatherUrl: baseWeatherUrl_METAR,
+                            baseDafifUrl: baseDafifUrl,
+                            aeroBraking: "No",
+                            tempScaleCorF: "C",
+                            aircraftGrossWeight: "12700",
+                            podInstalled: "No",
+                            weightOfCargoInPOD: "0",
+                            weightUsedForTOLD: "12700",
+                            givenEngineFailure: "0")
         return true
     }
 
