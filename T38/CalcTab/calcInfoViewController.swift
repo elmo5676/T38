@@ -27,9 +27,9 @@ class calcInfoViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        if let fittedSize = instructionsStackView?.sizeThatFits(UILayoutFittingCompressedSize) {
-            preferredContentSize = CGSize(width: fittedSize.width + 20, height: fittedSize.height + 20)
-        }
+//        if let fittedSize = instructionsStackView?.sizeThatFits(UILayoutFittingCompressedSize) {
+//            preferredContentSize = CGSize(width: fittedSize.width + 20, height: fittedSize.height + 20)
+//        }
     }
     
     private func updateUI(){

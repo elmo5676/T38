@@ -7,13 +7,17 @@
 //
 
 import Foundation
+import UIKit
 
 
-struct JSONHandler {
+struct JSONHandler  {
     
    
     
     private let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! //as URL?)!
+  
+    
+    
     
     // MARK: DAFIF
     func downloadAllStates(baseUrl url: String) {
@@ -21,6 +25,41 @@ struct JSONHandler {
             print(state.rawValue)
             downloadData("\(url)\(state.rawValue)", fileNamewithExtension: "\(state.rawValue).json")
         }}
+    
+    func downlaodMissingStates(_ ms: [String], from url: String){
+        for state in ms {
+            downloadData("\(url)\(state)", fileNamewithExtension: "\(state).json")
+        }
+    }
+    
+    func verifyIfStatesDownloadedfrom(_ url: String) {
+        var yesNo = false
+        var allStates: [String] = []
+        var missingStates: [String] = []
+        for state in StateCode.allValues {
+            allStates.append(state.rawValue)
+            let fileName = "\(state.rawValue).json"
+            let fileAndPath = self.documentsUrl.appendingPathComponent(fileName)
+            if FileManager.default.fileExists(atPath: fileAndPath.path) {
+                yesNo = true
+                print("\(state.rawValue): \(yesNo)")
+            } else {
+                missingStates.append(state.rawValue)
+                yesNo = false
+                print("\(state.rawValue): \(yesNo)")
+            }
+        }
+        if missingStates.count > 0 {
+            downlaodMissingStates(missingStates, from: url)
+        }
+        print("*****************************************************************************")
+        print("Total Number of States: \(allStates.count)")
+        print("*****************************************************************************")
+        print("Number of States Missing: \(missingStates.count)")
+        print("*****************************************************************************")
+    }
+    
+    
     
    
     // MARK: General FileHandling
@@ -77,27 +116,28 @@ struct JSONHandler {
     // MARK: Weather
     func downloadWeather(baseUrl: String, icao: String) {
         let fileName = "\(icao).json"
-        print(fileName)
         let fileAndPath = self.documentsUrl.appendingPathComponent(fileName)
+        print(fileAndPath)
         let fullUrl = "\(baseUrl)\(icao)"
         if FileManager.default.fileExists(atPath: fileAndPath.path) {
             removeFile(fileNamewithExtension: fileName)
             downloadData(fullUrl, fileNamewithExtension: fileName)
+            print("\(icao) weather downlaoded")
         } else {
             downloadData(fullUrl, fileNamewithExtension: fileName)
+            print("\(icao) weather downlaoded")
         }}
     
     func currentWeather(icao: String) -> Weather? {
         var currentWeather: Weather?
-//        let documentsURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         let weatherUrl = self.documentsUrl.appendingPathComponent("\(icao).json")
-//        let weatherUrl = documentsURL.appendingPathComponent(icao).appendingPathExtension("json")
         let decoder = JSONDecoder()
         do {
             currentWeather = try decoder.decode(Weather.self, from: Data(contentsOf: weatherUrl))
         } catch {
             print(error)
         }
+        print(currentWeather)
         return currentWeather
     }
 

@@ -8,9 +8,33 @@
 //
 //import Foundation
 //
-//class Scrap {
-//
-//}
+class Scrap {
+    
+    
+    
+//    func <#BackgroundFunction#>() {
+//        var container: NSPersistentContainer? = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+//        
+//        
+//        //this is for CoreData Stuff
+//        container?.performBackgroundTask({ context in
+//            self.<#functionToBeDonOnBackgroundThread#>(moc: context)
+//            
+//            DispatchQueue.main.async {
+//                self.<#functionDoneAfterAboveIsComplete#>(moc: context)
+//            }})
+//        
+//        
+//        //This is for non CoreData stuff
+//        DispatchQueue.global().async {
+//            self.<#functionToBeDonOnBackgroundThread#>(moc: context)
+//            DispatchQueue.main.async {
+//                self.<#functionDoneAfterAboveIsComplete#>(moc: context)
+//            }}}
+//    
+//    
+
+}
 
 
 

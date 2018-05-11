@@ -51,9 +51,7 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         fetchAndSortByDistance()
-        jsonD.currentWeather(icao: cdu.getUserDefaults().homeFieldICAO_UD)
-
-        print(cdu.getUserDefaults())
+        jsonD.downloadWeather(baseUrl: cdu.getUserDefaults().baseWeatherUrl_UD, icao: cdu.getUserDefaults().homeFieldICAO_UD)
        }
     
     
@@ -183,9 +181,9 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
                 }
                 print(runwayIdSet)
                 airfieldICAO.text = key.icao_CD
-                runwayLengthTextField.text = String(value[0].length_CD)
-                runwayHeadingTextField.text = String(value[0].magHdgHi_CD)
-                runwaySlopeTextField.text = String(value[0].slopeHi_CD)
+                runwayLengthTextField.text = String(format: "%.0f", value[0].length_CD)
+                runwayHeadingTextField.text = String(format: "%.0f", value[0].magHdgHi_CD)
+                runwaySlopeTextField.text = String(format: "%.1f", value[0].slopeHi_CD)
                 rcrTextField.text = "23"
                 fieldElev = key.elevation_CD
             }
@@ -200,7 +198,7 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
             print(cw)
             let altSetting = Double(cw.metars.metar.altimInHg)
             temperatureTextField.text = String(cw.metars.metar.tempC)
-            pressureAltTextField.text = String(calcPressureAlt(altSetting: altSetting!, fieldElevation: fieldElev))
+            pressureAltTextField.text = String(format: "%.0f", calcPressureAlt(altSetting: altSetting!, fieldElevation: fieldElev))
             windDirectionTextField.text = String(cw.metars.metar.windDirDegrees)
             windVelocityTextField.text = String(cw.metars.metar.windSpeedKt)
         }

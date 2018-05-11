@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eGr-SD-WDO">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="0Bz-6v-4FS">
+            <objects>
+                <viewController id="eGr-SD-WDO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0bt-Pm-iXY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchBG-C" translatesAutoresizingMaskIntoConstraints="NO" id="eVz-1K-v1x" userLabel="BackGround">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GroupC" translatesAutoresizingMaskIntoConstraints="NO" id="GkM-Pw-ax1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="GkM-Pw-ax1" firstAttribute="height" secondItem="eVz-1K-v1x" secondAttribute="height" id="CwP-pj-dL0"/>
+                            <constraint firstItem="GkM-Pw-ax1" firstAttribute="centerX" secondItem="eVz-1K-v1x" secondAttribute="centerX" id="Hfu-Jj-0tI"/>
+                            <constraint firstItem="GkM-Pw-ax1" firstAttribute="width" secondItem="eVz-1K-v1x" secondAttribute="width" id="QcJ-6l-Tir"/>
+                            <constraint firstItem="eVz-1K-v1x" firstAttribute="bottom" secondItem="mOu-A7-MTj" secondAttribute="bottom" id="SO3-N2-9gF"/>
+                            <constraint firstItem="GkM-Pw-ax1" firstAttribute="centerY" secondItem="eVz-1K-v1x" secondAttribute="centerY" id="guR-g3-8mh"/>
+                            <constraint firstItem="mOu-A7-MTj" firstAttribute="trailing" secondItem="eVz-1K-v1x" secondAttribute="trailing" id="kuT-LV-CMf"/>
+                            <constraint firstItem="eVz-1K-v1x" firstAttribute="leading" secondItem="mOu-A7-MTj" secondAttribute="leading" id="nJY-fR-dTJ"/>
+                            <constraint firstItem="eVz-1K-v1x" firstAttribute="top" secondItem="0bt-Pm-iXY" secondAttribute="top" id="vPj-iT-uI1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mOu-A7-MTj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xQe-e1-jAz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-215" y="156"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="GroupC" width="1522" height="1917"/>
+        <image name="LaunchBG-C" width="1522" height="1917"/>
+    </resources>
+</document>

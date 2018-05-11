@@ -8,19 +8,25 @@ import CoreLocation
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var baseDafifUrl = "http://getatis.com/DAFIF/GetAirfieldsByState?state="
-    let baseWeatherUrl_METAR = "https://www.getatis.com/services/GetMETAR?stations="
-    var jsonD = JSONHandler()
+    
     
 
 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let moc = persistentContainer.viewContext
+        let baseDafifUrl = "http://getatis.com/DAFIF/GetAirfieldsByState?state="
+        let baseWeatherUrl_METAR = "https://www.getatis.com/services/GetMETAR?stations="
         let cdu = CoreDataUtilies()
+        let jsonH = JSONHandler()
+        
+ 
+        jsonH.verifyIfStatesDownloadedfrom(baseDafifUrl)
+        
+
         cdu.printResults(moc: moc)
         cdu.setUserDefaults(runwayLength: 8000.0,
-                            homeAirfieldICAO: "KSFO",
+                            homeAirfieldICAO: "KBAB",
                             baseWeatherUrl: baseWeatherUrl_METAR,
                             baseDafifUrl: baseDafifUrl,
                             aeroBraking: "No",

@@ -23,7 +23,6 @@ class PreferencesViewController: UIViewController {
     
     var cw: Weather?
     
-    
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,32 +31,43 @@ class PreferencesViewController: UIViewController {
 
     
     @IBAction func addButton(_ sender: Any) {
-//        downLoader.removeFile(fileNamewithExtension: "\(cdu.getUserDefaults().homeFieldICAO_UD).json")
-        downLoader.downloadWeather(baseUrl: cdu.getUserDefaults().baseWeatherUrl_UD, icao: cdu.getUserDefaults().homeFieldICAO_UD)
-//        print(downLoader.currentWeather(icao: cdu.getUserDefaults().homeFieldICAO_UD))
-
-        
-        
-        
-        
-        
 //        cdu.loadToDBFromJSON(state, moc: moc)
+//        cdu.printResults(moc: moc)
+        
+        
+        cdu.loadJSONInBackground(state: state)
+        
+//        DispatchQueue.global().async {
+//            var moc2: NSManagedObjectContext
+//
+//            self.cdu.loadToDBFromJSON(self.state, moc: moc2)
+//
+//            DispatchQueue.main.async {
+//                self.cdu.printResults(moc: moc2)
+//            }
+//        }
+//        cdu.loadJSONInBackground(state: state, moc: moc)
+        
+        
+        
+//        downLoader.removeFile(fileNamewithExtension: "\(cdu.getUserDefaults().homeFieldICAO_UD).json")
+//        downLoader.downloadWeather(baseUrl: cdu.getUserDefaults().baseWeatherUrl_UD, icao: cdu.getUserDefaults().homeFieldICAO_UD)
+//        print(downLoader.currentWeather(icao: cdu.getUserDefaults().homeFieldICAO_UD))
 //        downLoader.downloadAllStates(baseUrl: dafifUrlJSONBase)
 //        print(loadCD.checkIfCoreDataIsLoaded(moc: moc))
-//        cdu.printResults(moc: moc)
 //        downLoader.printAvailableDownloads()
-        
     }
     
     
     @IBAction func printButton(_ sender: Any) {
-        print(downLoader.currentWeather(icao: "KBAB"))
+        cdu.printResults(moc: moc)
+        
+        
+//        print(downLoader.currentWeather(icao: "KBAB"))
 //        print(downLoader.currentWeather(icao: cdu.getUserDefaults().homeFieldICAO_UD))
-//        cdu.printResults(moc: moc)
 //        var resultsDict = [AirfieldCD:[RunwayCD]]()
 ////        resultsDict = cdu.getAirfieldAndRunwaysWithRWYLengthGreaterThanOrEqualTo(moc: moc)
 //        resultsDict = cdu.getAirfieldByICAO("KBAB", moc: moc)
-//
 //        for (key, value) in resultsDict {
 //            print("Airfield ID: \(key.icao_CD!)")
 //            for runway in value {
@@ -68,10 +78,14 @@ class PreferencesViewController: UIViewController {
     }
     
     @IBAction func deleteButton(_ sender: Any) {
-        downLoader.removeFile(fileNamewithExtension: "\(cdu.getUserDefaults().homeFieldICAO_UD).json")
-//        cdu.deleteAllFromDB(moc: moc)
+        cdu.deleteAllFromDB(moc: moc)
+        cdu.printResults(moc: moc)
+        
+        
+//        downLoader.removeFile(fileNamewithExtension: "\(cdu.getUserDefaults().homeFieldICAO_UD).json")
 //        downLoader.removeFile(fileNamewithExtension: "\(state).json")
-        downLoader.printAvailableDownloads()
+//        downLoader.removeAllFiles()
+//        downLoader.printAvailableDownloads()
         
     }
     
