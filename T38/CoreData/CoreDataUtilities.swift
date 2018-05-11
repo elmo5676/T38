@@ -202,14 +202,29 @@ class CoreDataUtilies {
             }
         }
         
-        //Step - 4: Set dictionary with Airfield and Runways
-        for airfield in airfields {
-            var runways = [RunwayCD]()
-            runways = getRunwaysAtAirfieldWithRWYLengthGreaterThanOrEqualToUserDefaultsRWYLength(airfieldId: airfield.id_CD, moc: moc)
-            resultsDict[airfield] = runways
-        }
+        func getAirfieldWithRWYLengthGreaterThanOrEqualToUserDefaultsRWYLength(moc: NSManagedObjectContext) -> [AirfieldCD] {
+            var airfields = [AirfieldCD]()
+            var runwaysIntermediate = [RunwayCD]()
+            var airfieldIDSet = Set<Int32>()
+            
+            //Step - 1: Get Runways with a length of: length
+            runwaysIntermediate = getRunwaysGreaterThanOrEqualToUserDefaultsRWYLength(moc: moc)
+            
+            //Step - 2: Get Set of Airfield IDs from: Step - 1
+            for runway in runwaysIntermediate {
+                airfieldIDSet.insert(runway.airfieldID_CD)
+            }
+            
+            //Step - 3: Get Airfields with ID of: airfieldIDSet
+            for id in airfieldIDSet {
+                var afs = [AirfieldCD]()
+                afs = getAirfieldsWith(airfieldID: id, moc: moc)
+                for af in afs {
+                    airfields.append(af)
+                }
+            }
         
-        return resultsDict
+        return airfields
     }
     
     
@@ -276,11 +291,35 @@ class CoreDataUtilies {
     
     
     
+    func loadJSONInBackground(state: String) {
+        let container: NSPersistentContainer? = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+        var counter = 1
+        let start = Date()
+        for state in StateCode.allValues {
+            container?.performBackgroundTask({ context in
+                self.loadToDBFromJSON(state.rawValue, moc: context)
+                DispatchQueue.main.async {
+                    self.printResults(moc: context)
+                    print(counter)
+                    counter += 1
+                    let end = Date()
+                    print("Completion Time: \(end.timeIntervalSince(start))")
+                }
+            })
+        }
+        
+        }
+    
+    
+    
+    
+    
+    
+    
     // MARK: JSON Loading
     func loadToDBFromJSON(_ nameOfJSON: String, moc: NSManagedObjectContext){
         let documentsURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         let airfieldstURL = documentsURL.appendingPathComponent(nameOfJSON).appendingPathExtension("json")
-        //        let airfieldstURL = Bundle.main.url(forResource: nameOfJSON, withExtension: "json")!
         let decoder = JSONDecoder()
         var counter = 0
         do {
@@ -298,7 +337,7 @@ class CoreDataUtilies {
                 airfieldDB.name_CD = airfield.name
                 airfieldDB.state_CD = airfield.state
                 airfieldDB.timeConversion_CD = airfield.timeConversion
-                print(counter)
+//                print(counter)
                 counter += 1
                 
                 for runway in airfield.runways {
@@ -333,41 +372,41 @@ class CoreDataUtilies {
                     try? moc.save()
                 }
                 
-                for navaid in airfield.navaids {
-                    let navaidDB = NavaidCD(context: moc)
-                    navaidDB.airfieldID_CD = airfieldDB.id_CD
-                    navaidDB.id_CD = Int32(navaid.id)
-                    navaidDB.name_CD = navaid.name
-                    navaidDB.ident_CD = navaid.ident
-                    navaidDB.type_CD = navaid.type
-                    navaidDB.lat_CD = navaid.lat
-                    navaidDB.long_CD = navaid.lon
-                    navaidDB.frequency_CD = navaid.frequency
-                    navaidDB.channel_CD = Int32(navaid.channel)
-                    navaidDB.tacanDMEMode_CD = navaid.tacanDMEMode
-                    navaidDB.course_CD = Int32(navaid.course)
-                    navaidDB.distance_CD = navaid.distance
-                    airfieldDB.addToNavaids_R_CD(navaidDB)
-                    try? moc.save()
-                }
-                
-                for comm in airfield.communications {
-                    let communicationDB = CommunicationCD(context: moc)
-                    communicationDB.airfieldID_CD = airfieldDB.id_CD
-                    communicationDB.id_CD = Int32(comm.id)
-                    communicationDB.name_CD = comm.name
-                    try? moc.save()
-                    for freq in comm.freqs {
-                        let freqDB = FreqCD(context: moc)
-                        freqDB.communicationsId_CD = communicationDB.id_CD
-                        freqDB.id_CD = Int32(freq.id)
-                        freqDB.freq_CD = freq.freq
-                        communicationDB.addToFreqs_R_CD(freqDB)
-                        try? moc.save()
-                    }
-                    airfieldDB.addToCommunications_R_CD(communicationDB)
-                    try? moc.save()
-                }
+//                for navaid in airfield.navaids {
+//                    let navaidDB = NavaidCD(context: moc)
+//                    navaidDB.airfieldID_CD = airfieldDB.id_CD
+//                    navaidDB.id_CD = Int32(navaid.id)
+//                    navaidDB.name_CD = navaid.name
+//                    navaidDB.ident_CD = navaid.ident
+//                    navaidDB.type_CD = navaid.type
+//                    navaidDB.lat_CD = navaid.lat
+//                    navaidDB.long_CD = navaid.lon
+//                    navaidDB.frequency_CD = navaid.frequency
+//                    navaidDB.channel_CD = Int32(navaid.channel)
+//                    navaidDB.tacanDMEMode_CD = navaid.tacanDMEMode
+//                    navaidDB.course_CD = Int32(navaid.course)
+//                    navaidDB.distance_CD = navaid.distance
+//                    airfieldDB.addToNavaids_R_CD(navaidDB)
+//                    try? moc.save()
+//                }
+//
+//                for comm in airfield.communications {
+//                    let communicationDB = CommunicationCD(context: moc)
+//                    communicationDB.airfieldID_CD = airfieldDB.id_CD
+//                    communicationDB.id_CD = Int32(comm.id)
+//                    communicationDB.name_CD = comm.name
+//                    try? moc.save()
+//                    for freq in comm.freqs {
+//                        let freqDB = FreqCD(context: moc)
+//                        freqDB.communicationsId_CD = communicationDB.id_CD
+//                        freqDB.id_CD = Int32(freq.id)
+//                        freqDB.freq_CD = freq.freq
+//                        communicationDB.addToFreqs_R_CD(freqDB)
+//                        try? moc.save()
+//                    }
+//                    airfieldDB.addToCommunications_R_CD(communicationDB)
+//                    try? moc.save()
+//                }
             }
             try? moc.save()
         } catch {print(error)}

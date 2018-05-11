@@ -126,7 +126,8 @@ struct JSONHandler  {
         } else {
             downloadData(fullUrl, fileNamewithExtension: fileName)
             print("\(icao) weather downlaoded")
-        }}
+        }
+    }
     
     func currentWeather(icao: String) -> Weather? {
         var currentWeather: Weather?
@@ -140,6 +141,54 @@ struct JSONHandler  {
         print(currentWeather)
         return currentWeather
     }
+    
+//    func downloadDataWithIndicator(_ sourceFile: String, fileNamewithExtension fileName: String, button: UIButton) {
+//        // Create destination URL
+//        let destinationFileUrl = self.documentsUrl.appendingPathComponent(fileName)
+//        //Create URL to the source file you want to download
+//        let fileURL = URL(string: sourceFile)
+//        let sessionConfig = URLSessionConfiguration.default
+//        let session = URLSession(configuration: sessionConfig)
+//        let request = URLRequest(url:fileURL!)
+//        let task = session.downloadTask(with: request) { (tempLocalUrl, response, error) in
+//            if let tempLocalUrl = tempLocalUrl, error == nil {
+//                // Success
+//                if let statusCode = (response as? HTTPURLResponse)?.statusCode {
+//                    print("Successfully downloaded. Status code: \(statusCode)")
+////                    button.isHidden = false
+//                }
+//
+//                do {
+//                    try FileManager.default.copyItem(at: tempLocalUrl, to: destinationFileUrl)
+//                } catch (let writeError) {
+//                    print("Error creating a file \(destinationFileUrl) : \(writeError)")
+//                }
+//            } else {
+//                print("Error took place while downloading a file. Error description: %@", error?.localizedDescription as Any);
+//            }}; task.resume() }
+    
+//    func downloadWeatherWithIndicator(baseUrl: String, icao: String, button: UIButton) {
+//        let fileName = "\(icao).json"
+//        let fileAndPath = self.documentsUrl.appendingPathComponent(fileName)
+//        print(fileAndPath)
+//        let fullUrl = "\(baseUrl)\(icao)"
+//        if FileManager.default.fileExists(atPath: fileAndPath.path) {
+//            removeFile(fileNamewithExtension: fileName)
+//            downloadDataWithIndicator(fullUrl, fileNamewithExtension: fileName, button: button)
+//            print("\(icao) weather downlaoded")
+//        } else {
+//            downloadDataWithIndicator(fullUrl, fileNamewithExtension: fileName, button: button)
+//            print("\(icao) weather downlaoded")
+//        }
+//    }
+    
+    
+    
+    
+    
+    
+    
+    
 
 }
 

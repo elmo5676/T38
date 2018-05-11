@@ -50,7 +50,9 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        autoFillButtonOutlet.isHidden = false
         fetchAndSortByDistance()
+        
         jsonD.downloadWeather(baseUrl: cdu.getUserDefaults().baseWeatherUrl_UD, icao: cdu.getUserDefaults().homeFieldICAO_UD)
        }
     
@@ -140,6 +142,7 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
 
     
     
+    @IBOutlet weak var autoFillButtonOutlet: UIButton!
     @IBAction func autoFillButton(_ sender: UIButton) {
         autoFill()
         

@@ -27,10 +27,57 @@ class PreferencesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        homeStationICAOTextfield.text = cdu.getUserDefaults().homeFieldICAO_UD
+        minRWYLengthTextfield.text = String(cdu.getUserDefaults().runwayLength_UD)
+        acGrossWeightTextfield.text = cdu.getUserDefaults().aircraftGrossWeight_UD
+        weightOfCargoInPodTextfield.text = cdu.getUserDefaults().weightOfCargoInPOD_UD
+        givenEngFailTextfield.text = cdu.getUserDefaults().givenEngineFailure_UD
     }
 
     
-    @IBAction func addButton(_ sender: Any) {
+    
+    @IBOutlet weak var t38AorCLabel: UILabel!
+    @IBOutlet weak var aeroBreakingYesOrNoLabel: UILabel!
+    @IBOutlet weak var podInstalledYesOrNoLabel: UILabel!
+    
+    @IBOutlet weak var homeStationICAOTextfield: UITextField!
+    @IBOutlet weak var minRWYLengthTextfield: UITextField!
+    @IBOutlet weak var acGrossWeightTextfield: UITextField!
+    @IBOutlet weak var weightOfCargoInPodTextfield: UITextField!
+    @IBOutlet weak var givenEngFailTextfield: UITextField!
+    
+    
+    func saveUserPref(){
+        cdu.setUserDefaults(runwayLength: Double(minRWYLengthTextfield.text!)!,
+                            homeAirfieldICAO: homeStationICAOTextfield.text!,
+                            baseWeatherUrl: cdu.getUserDefaults().baseWeatherUrl_UD,
+                            baseDafifUrl: cdu.getUserDefaults().baseDafifUrl_UD,
+                            aeroBraking: "No",
+                            tempScaleCorF: "C",
+                            aircraftGrossWeight: acGrossWeightTextfield.text!,
+                            podInstalled: "No",
+                            weightOfCargoInPOD: weightOfCargoInPodTextfield.text!,
+                            weightUsedForTOLD: "127000",
+                            givenEngineFailure: "0")
+        print(cdu.getUserDefaults())
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @IBAction func first_Button(_ sender: Any) {
 //        cdu.loadToDBFromJSON(state, moc: moc)
 //        cdu.printResults(moc: moc)
         
@@ -59,8 +106,16 @@ class PreferencesViewController: UIViewController {
     }
     
     
-    @IBAction func printButton(_ sender: Any) {
+    @IBAction func second_Button(_ sender: Any) {
         cdu.printResults(moc: moc)
+//        cdu.deleteAllFromDB(moc: moc)
+        
+        
+        //        downLoader.removeFile(fileNamewithExtension: "\(cdu.getUserDefaults().homeFieldICAO_UD).json")
+        //        downLoader.removeFile(fileNamewithExtension: "\(state).json")
+        //        downLoader.removeAllFiles()
+        //        downLoader.printAvailableDownloads()
+        
         
         
 //        print(downLoader.currentWeather(icao: "KBAB"))
@@ -77,16 +132,11 @@ class PreferencesViewController: UIViewController {
 //        }
     }
     
-    @IBAction func deleteButton(_ sender: Any) {
-        cdu.deleteAllFromDB(moc: moc)
-        cdu.printResults(moc: moc)
+    @IBAction func third_Button(_ sender: Any) {
+        //save UserPreferences
+        saveUserPref()
         
-        
-//        downLoader.removeFile(fileNamewithExtension: "\(cdu.getUserDefaults().homeFieldICAO_UD).json")
-//        downLoader.removeFile(fileNamewithExtension: "\(state).json")
-//        downLoader.removeAllFiles()
-//        downLoader.printAvailableDownloads()
-        
+  
     }
     
     func retrieveFromDB() {
