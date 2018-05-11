@@ -44,24 +44,24 @@ class NearestTableViewController: UITableViewController, CLLocationManagerDelega
     
     
     // MARK: CoreData Functions
-//    func fetchAndSortByDistance() {
+    func fetchAndSortByDistance() {
 //        guard let fetchRequest = fetchAllAirports else { return }
-//        getLocationInformation()
-//        do {
-//            airfields = cdu.getAirfieldWithRWYLengthGreaterThanOrEqualToUserDefaultsRWYLength(moc: moc)
-//            var preSorted = [AirfieldCD:Double]()
-//            for airport in airfields {
-//                let dictValue = cdu.distanceAway(deviceLat: deviceLat, deviceLong: deviceLong, airport: airport).airport
-//                let dictKey = cdu.distanceAway(deviceLat: deviceLat, deviceLong: deviceLong, airport: airport).distanceAway
-//                preSorted.updateValue(dictKey, forKey: dictValue)
-//            }
-//            let airportICAO = preSorted.keys.sorted{preSorted[$0]! < preSorted[$1]!}
-//            airfields = airportICAO.filter({$0.icao_CD != "" })
-//            
-//            print("\(deviceLat) : \(deviceLong)")
-//        } catch let error as NSError {
-//            print("Could not fetch \(error), \(error.userInfo)")
-//        }}
+        getLocationInformation()
+        do {
+            airfields = cdu.getAirfieldWithRWYLengthGreaterThanOrEqualToUserDefaultsRWYLength(moc: moc)
+            var preSorted = [AirfieldCD:Double]()
+            for airport in airfields {
+                let dictValue = cdu.distanceAway(deviceLat: deviceLat, deviceLong: deviceLong, airport: airport).airport
+                let dictKey = cdu.distanceAway(deviceLat: deviceLat, deviceLong: deviceLong, airport: airport).distanceAway
+                preSorted.updateValue(dictKey, forKey: dictValue)
+            }
+            let airportICAO = preSorted.keys.sorted{preSorted[$0]! < preSorted[$1]!}
+            airfields = airportICAO.filter({$0.icao_CD != "" })
+            
+            print("\(deviceLat) : \(deviceLong)")
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }}
     
     
 //    func fetchAndSortByDistance() {

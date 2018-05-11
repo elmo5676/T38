@@ -26,16 +26,21 @@ class AirfieldInfoViewController: UIViewController {
         //        bearingLabel.text = "0.0"
 
         //        print(selectedAirfield.Runways!.first?.Designator)
+        
+        
+        print(myLat, myLong)
 
+        
+        
     }
 
+    let cdu = CoreDataUtilies()
     var currentAirport: AirfieldCD?
     var myLat = 0.0
     var myLong = 0.0
     
-    
-    
 
+    
 
     var ICAO = ""
     var lat = ""
@@ -71,6 +76,7 @@ class AirfieldInfoViewController: UIViewController {
         return distanceAwayInNM
     }
     
+
 
     @IBAction func copyDirect(_ sender: UIButton!){
 //        UIPasteboard.general.string = "D \(ICAO)"

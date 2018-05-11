@@ -3321,43 +3321,43 @@ Decision Speed (DS)
                                 <rect key="frame" x="0.0" y="64" width="320" height="350"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ICAO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Chm-6Q-SZk">
-                                        <rect key="frame" x="103" y="0.0" width="114.5" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lattitude" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmB-Le-Nnq">
-                                        <rect key="frame" x="121" y="74" width="78" height="24"/>
+                                        <rect key="frame" x="0.0" y="74" width="320" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitude" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEJ-Ym-T5d">
-                                        <rect key="frame" x="116" y="112" width="88" height="24"/>
+                                        <rect key="frame" x="0.0" y="112" width="320" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Elevation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRl-LS-n9k">
-                                        <rect key="frame" x="120.5" y="150" width="79.5" height="24"/>
+                                        <rect key="frame" x="0.0" y="150" width="320" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Runways" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlq-LC-RMu">
-                                        <rect key="frame" x="120.5" y="188" width="79" height="24"/>
+                                        <rect key="frame" x="0.0" y="188" width="320" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbL-t2-rLQ">
-                                        <rect key="frame" x="137" y="226" width="46" height="24"/>
+                                        <rect key="frame" x="0.0" y="226" width="320" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uyg-t3-Mq6">
-                                        <rect key="frame" x="142.5" y="264" width="35" height="24"/>
+                                        <rect key="frame" x="0.0" y="264" width="320" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -3374,6 +3374,13 @@ Decision Speed (DS)
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="wlq-LC-RMu" firstAttribute="width" secondItem="ABD-RK-GhI" secondAttribute="width" id="2dO-tY-G2F"/>
+                                    <constraint firstItem="Uyg-t3-Mq6" firstAttribute="width" secondItem="ABD-RK-GhI" secondAttribute="width" id="OJk-Lb-OCQ"/>
+                                    <constraint firstItem="dbL-t2-rLQ" firstAttribute="width" secondItem="ABD-RK-GhI" secondAttribute="width" id="Z63-Of-gDL"/>
+                                    <constraint firstItem="pmB-Le-Nnq" firstAttribute="width" secondItem="ABD-RK-GhI" secondAttribute="width" id="jMW-03-dfH"/>
+                                    <constraint firstItem="FRl-LS-n9k" firstAttribute="width" secondItem="ABD-RK-GhI" secondAttribute="width" id="pUu-B7-jvg"/>
+                                    <constraint firstItem="Chm-6Q-SZk" firstAttribute="width" secondItem="ABD-RK-GhI" secondAttribute="width" id="qVL-Mw-nTo"/>
+                                    <constraint firstItem="bEJ-Ym-T5d" firstAttribute="width" secondItem="ABD-RK-GhI" secondAttribute="width" id="sCa-nb-xe9"/>
                                     <constraint firstItem="MYD-pc-nTb" firstAttribute="width" secondItem="ABD-RK-GhI" secondAttribute="width" id="whW-i6-S8D"/>
                                 </constraints>
                             </stackView>
