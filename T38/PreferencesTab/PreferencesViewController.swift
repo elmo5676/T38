@@ -46,6 +46,14 @@ class PreferencesViewController: UIViewController {
     @IBOutlet weak var weightOfCargoInPodTextfield: UITextField!
     @IBOutlet weak var givenEngFailTextfield: UITextField!
     
+    @IBAction func aOrCmodelSwitch(_ sender: UISwitch) {
+        if sender.isOn {
+          t38AorCLabel.text = "T-38 C"
+        } else {
+            t38AorCLabel.text = "T-38 A"
+        }
+    }
+    
     
     func saveUserPref(){
         cdu.setUserDefaults(runwayLength: Double(minRWYLengthTextfield.text!)!,
