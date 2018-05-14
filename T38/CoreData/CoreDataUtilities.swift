@@ -33,7 +33,7 @@ class CoreDataUtilies {
                          givenEngineFailure: String){
         
         defaults.set(runwayLength, forKey: "runwayLength_UD")
-        defaults.set(homeAirfieldICAO, forKey: "homeAirfieldICAO_UD")
+        defaults.set(homeAirfieldICAO.uppercased(), forKey: "homeAirfieldICAO_UD")
         defaults.set(baseWeatherUrl, forKey: "baseWeatherUrl_UD")
         defaults.set(baseDafifUrl, forKey: "baseDafifUrl_UD")
         defaults.set(aeroBraking, forKey: "aeroBraking_UD")
@@ -126,6 +126,46 @@ class CoreDataUtilies {
         return (airport, distanceAwayInNM)
     }
     
+//    func distanceAway(deviceLat lat: Double, deviceLong long: Double, airport: AirfieldCD) -> (airport: AirfieldCD, bearing: Double, distanceAway: Double) {
+//        let airportLat = airport.latitude_CD
+//        let airportLong = airport.longitude_CD
+//        let myCoords =  CLLocation(latitude: lat, longitude: long)
+//        let airportCoords = CLLocation(latitude: airportLat, longitude: airportLong)
+//        let distanceAwayInNM = myCoords.distance(from: airportCoords).metersToNauticalMiles
+//
+//        let a3 = sin(airportLong - long) * cos(airportLat)
+//        let b3 = cos(lat) * sin(airportLat) - sin(lat) * cos(airportLat) * cos(airportLong - long)
+//        let bearing = ((atan2(a3, b3).radiansToDegrees) + 360).truncatingRemainder(dividingBy: 360) //Might need mag variation here
+//
+//        return (airport, bearing, distanceAwayInNM)
+//    }
+    
+    func rangeAndBearing(latitude_01: Double, longitude_01: Double, latitude_02: Double, longitude_02: Double) -> (range: Double, bearing: Double) {
+        let majEarthAxis_WGS84: Double = 6_378_137.0                // maj      - meters
+        let minEarthAxis_WGS84: Double = 6_356_752.314_245          // min      - meters
+        let lat_01 = latitude_01.degreesToRadians
+        let lat_02 = latitude_02.degreesToRadians
+        let long_01 = longitude_01.degreesToRadians
+        let long_02 = longitude_02.degreesToRadians
+        let difLong = (longitude_02 - longitude_01).degreesToRadians
+        //1: radiusCorrectionFactor()
+        let a1 = 1.0/(majEarthAxis_WGS84 * majEarthAxis_WGS84)
+        let b1 = (tan(lat_01) * tan(lat_01)) / (minEarthAxis_WGS84 * minEarthAxis_WGS84)
+        let c1 = 1.0/((a1+b1).squareRoot())
+        let d1 = c1/(cos(lat_01))
+        //2: Law of Cosines
+        let range = (acos(sin(lat_01)*sin(lat_02) + cos(lat_01)*cos(lat_02) * cos(difLong)) * d1).metersToNauticalMiles
+        
+        
+        //3: Calculating Bearing from 1st coords to second
+        let a3 = sin(long_02 - long_01) * cos(lat_02)
+        let b3 = cos(lat_01) * sin(lat_02) - sin(lat_01) * cos(lat_02) * cos(long_02 - long_01)
+        let bearing = ((atan2(a3, b3).radiansToDegrees) + 360).truncatingRemainder(dividingBy: 360) //Might need mag variation here
+        let results = [range, bearing]
+        print(range)
+        return (range: results[0], bearing: results[1])
+    }
+    
     // MARK: CD Queries
     func getRunwaysGreaterThanOrEqualToUserDefaultsRWYLength(moc: NSManagedObjectContext) -> [RunwayCD] {
         let runwayLength = getUserDefaults().runwayLength_UD
@@ -179,6 +219,7 @@ class CoreDataUtilies {
     }
     
     
+    
     func getAirfieldAndRunwaysWithRWYLengthGreaterThanOrEqualToUserDefaultsRWYLength(moc: NSManagedObjectContext) -> [AirfieldCD:[RunwayCD]] {
         var resultsDict = [AirfieldCD:[RunwayCD]]()
         var airfields = [AirfieldCD]()
@@ -202,6 +243,18 @@ class CoreDataUtilies {
             }
         }
         
+        //Step - 4: Set dictionary with Airfield and Runways
+        for airfield in airfields {
+            var runways = [RunwayCD]()
+            runways = getRunwaysAtAirfieldWithRWYLengthGreaterThanOrEqualToUserDefaultsRWYLength(airfieldId: airfield.id_CD, moc: moc)
+            resultsDict[airfield] = runways
+        }
+        
+        return resultsDict
+    }
+    
+    
+    
         func getAirfieldWithRWYLengthGreaterThanOrEqualToUserDefaultsRWYLength(moc: NSManagedObjectContext) -> [AirfieldCD] {
             var airfields = [AirfieldCD]()
             var runwaysIntermediate = [RunwayCD]()
@@ -438,5 +491,6 @@ class CoreDataUtilies {
     }
     
 }
+
 
 

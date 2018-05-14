@@ -25,17 +25,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 
         cdu.printResults(moc: moc)
-        cdu.setUserDefaults(runwayLength: 8000.0,
-                            homeAirfieldICAO: "KBAB",
-                            baseWeatherUrl: baseWeatherUrl_METAR,
-                            baseDafifUrl: baseDafifUrl,
-                            aeroBraking: "No",
-                            tempScaleCorF: "C",
-                            aircraftGrossWeight: "12700",
-                            podInstalled: "No",
-                            weightOfCargoInPOD: "0",
-                            weightUsedForTOLD: "12700",
-                            givenEngineFailure: "0")
+//        cdu.setUserDefaults(runwayLength: 8000.0,
+//                            homeAirfieldICAO: "KBAB",
+//                            baseWeatherUrl: baseWeatherUrl_METAR,
+//                            baseDafifUrl: baseDafifUrl,
+//                            aeroBraking: "No",
+//                            tempScaleCorF: "C",
+//                            aircraftGrossWeight: "12700",
+//                            podInstalled: "No",
+//                            weightOfCargoInPOD: "0",
+//                            weightUsedForTOLD: "12700",
+//                            givenEngineFailure: "0")
         return true
     }
 

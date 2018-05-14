@@ -48,6 +48,10 @@ class CalcViewController: UIViewController {
     private var brain = CalcBrains()
     @IBAction func nearestButton(_ sender: UIButton) {
         popoverPresentationController?.sourceRect = sender.bounds
+        sender.backgroundColor = #colorLiteral(red: 0.6157805324, green: 0.6158866882, blue: 0.6157665849, alpha: 1)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            sender.backgroundColor = #colorLiteral(red: 0.2901960784, green: 0.3490196078, blue: 0.4274509804, alpha: 1)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

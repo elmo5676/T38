@@ -20,9 +20,9 @@ struct Metar: Codable {
     let rawText, stationID, observationTime, latitude: String
     let longitude, tempC, dewpointC, windDirDegrees: String
     let windSpeedKt, visibilityStatuteMi, altimInHg, seaLevelPressureMB: String
-    let qualityControlFlags: QualityControlFlags
-    let skyCondition: SkyCondition
-    let flightCategory, metarType, elevationM: String
+    //let qualityControlFlags: QualityControlFlags
+    //let skyCondition: SkyCondition
+    //let flightCategory, metarType, elevationM: String
     
     enum CodingKeys: String, CodingKey {
         case rawText = "raw_text"
@@ -36,11 +36,11 @@ struct Metar: Codable {
         case visibilityStatuteMi = "visibility_statute_mi"
         case altimInHg = "altim_in_hg"
         case seaLevelPressureMB = "sea_level_pressure_mb"
-        case qualityControlFlags = "quality_control_flags"
-        case skyCondition = "sky_condition"
-        case flightCategory = "flight_category"
-        case metarType = "metar_type"
-        case elevationM = "elevation_m"
+        //case qualityControlFlags = "quality_control_flags"
+        //case skyCondition = "sky_condition"
+        //case flightCategory = "flight_category"
+        //case metarType = "metar_type"
+        //case elevationM = "elevation_m"
     }
 }
 

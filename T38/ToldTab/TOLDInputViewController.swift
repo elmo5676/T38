@@ -11,6 +11,10 @@ import JavaScriptCore
 import CoreData
 import CoreLocation
 
+protocol isAbleToReceiveData {
+    func pass(data: String)
+}
+
 class TOLDInputViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,11 +53,14 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
 
     }
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
-        autoFillButtonOutlet.isHidden = false
-        fetchAndSortByDistance()
+        autoFillButtonOutlet.isHidden = true
+//        fetchAndSortByDistance()
         
-        jsonD.downloadWeather(baseUrl: cdu.getUserDefaults().baseWeatherUrl_UD, icao: cdu.getUserDefaults().homeFieldICAO_UD)
+        
+        jsonD.downloadWeatherWithIndicator(baseUrl:  cdu.getUserDefaults().baseWeatherUrl_UD, icao: cdu.getUserDefaults().homeFieldICAO_UD, button: autoFillButtonOutlet)
        }
     
     
@@ -75,6 +82,7 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
     var jsonD = JSONHandler()
     var currentWeather: Weather?
     var useUDHomeField = true
+    var homeFieldRunways = [RunwayCD]()
     
     func clearAllFields(){
         temperatureTextField.text = ""
@@ -144,7 +152,7 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var autoFillButtonOutlet: UIButton!
     @IBAction func autoFillButton(_ sender: UIButton) {
-        autoFill()
+         _ = autoFill()
         
     }
     @IBAction func clearAllFieldsButton(_ sender: UIButton) {
@@ -157,8 +165,15 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
         return pa
     }
     
+//    func passRunwayInfo () {
+//        let defaults = cdu.getUserDefaults()
+//
+//
+//    }
     
-    func autoFill() {
+    
+    func autoFill() -> Bool {
+        let result = true
         currentWeather = jsonD.currentWeather(icao: cdu.getUserDefaults().homeFieldICAO_UD)
         var fieldElev = 0.0
         if useUDHomeField == true {
@@ -173,6 +188,7 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
             
             // DAFIF Info
             homeFieldDict = cdu.getAirfieldByICAO(defaults.homeFieldICAO_UD, moc: moc)
+            homeFieldRunways = homeFieldDict.values.first!
             
             print(homeFieldDict)
             
@@ -205,6 +221,7 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
             windDirectionTextField.text = String(cw.metars.metar.windDirDegrees)
             windVelocityTextField.text = String(cw.metars.metar.windSpeedKt)
         }
+        return result
         
     }
     
@@ -293,33 +310,18 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
     
     
 
-//    var aeroBraking = true
-//    //Temp: -20 to 122
-//    var temperature = "0"
-//    var tempScale = "F"
-//    //Pressure Alt: 0 to 6000
-//    var pressureAlt = "200"
-//    //Runway Length: 7000 to 15000
-//    var runwayLength = "12000"
-//    //Runway Heading: 0 to 359
-//    var runwayHDG = "150"
-//    //WindDirectio: 0 to 359
-//    var windDir = "150"
-//    //Wind Velocity: 0 to 40
-//    var windVelocity = "10"
-//    //Runway Slope: -6 to 6
-//    var runwaySlope = "0"
-//    //RCR: 5 to 23
-//    var rcr = "23"
-//    //Aircraft Gross Weight: 11000 to 14000
-//    var aircraftGrossWeight = "12700"
-//    //Pod Weight: 0 to 140
-//    var podCargoWeight = "0"
-//    var podMounted = false
-//    //Weight used for told: Max = 14000
-//    var weightUsedForTOLD = "12700"
-//    //Given Engine Failure: No restrictions
-//    var givenEngFailure = "0"
+//  Temp: -20 to 122
+//  Pressure Alt: 0 to 6000
+//  Runway Length: 7000 to 15000
+//  Runway Heading: 0 to 359
+//  WindDirectio: 0 to 359
+//  Wind Velocity: 0 to 40
+//  Runway Slope: -6 to 6
+//  RCR: 5 to 23
+//  Aircraft Gross Weight: 11000 to 14000
+//  Pod Weight: 0 to 140
+//  Weight used for told: Max = 14000
+//  Given Engine Failure: No restrictions
     
     // MARK: INPUT Variables
     var aeroBreaking = 2
@@ -599,6 +601,8 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
             destinationViewController.resultsErrorArray = resultsErrorArray
         case "runwayChoicesSeque"?:
             let destinationViewController = segue.destination as! RunwayChoicesTableViewController
+            destinationViewController.runways = homeFieldRunways
+            print(homeFieldRunways)
             
         default:
             preconditionFailure("Unexpected segue identifier")
