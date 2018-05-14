@@ -31,10 +31,10 @@ class RunwayChoicesTableViewController: UITableViewController {
 
  
     
-    @IBAction func dismissButton(_ sender: UIBarButtonItem) {
-        presentingViewController?.dismiss(animated: true, completion: nil)
-    }
-    
+//    @IBAction func dismissButton(_ sender: UIBarButtonItem) {
+//        presentingViewController?.dismiss(animated: true, completion: nil)
+//    }
+//    
     
     
     var rwyID = ""

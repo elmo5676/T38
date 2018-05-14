@@ -1677,7 +1677,7 @@
                                                             <color key="titleColor" red="0.98039871450000005" green="0.98038035629999998" blue="0.98039287330000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="IYd-Ls-r5W" kind="popoverPresentation" identifier="runwayChoicesSeque" popoverAnchorView="G7o-4L-SJG" id="Iai-6P-XNG">
+                                                            <segue destination="WKZ-fN-Hpn" kind="popoverPresentation" identifier="runwayChoicesSeque" popoverAnchorView="G7o-4L-SJG" id="Iai-6P-XNG">
                                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                                             </segue>
                                                         </connections>
@@ -1875,17 +1875,10 @@
                             <outlet property="delegate" destination="WKZ-fN-Hpn" id="ZXb-qE-ye6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="HFO-PW-adP">
-                        <barButtonItem key="leftBarButtonItem" title="Dismiss" id="oUv-8p-tD3">
-                            <connections>
-                                <action selector="dismissButton:" destination="WKZ-fN-Hpn" id="6Lg-XB-uCX"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BUd-Kr-mOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="346.09375" y="1352.9296875"/>
+            <point key="canvasLocation" x="-419" y="1353"/>
         </scene>
         <!--Pattern-->
         <scene sceneID="UYf-fi-MjL">
@@ -2892,7 +2885,7 @@ Decision Speed (DS)
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ex6-FQ-Zxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1608.59375" y="1664.6484375"/>
+            <point key="canvasLocation" x="843" y="1665"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wsw-yq-6Kb">
@@ -3581,24 +3574,6 @@ Decision Speed (DS)
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v4E-os-ALa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1883" y="1665"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="j2B-Vc-2oU">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IYd-Ls-r5W" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Rcn-E5-wYl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="WKZ-fN-Hpn" kind="relationship" relationship="rootViewController" id="AUW-OG-QXE"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fQF-Ul-WhN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-419.53125" y="1352.9296875"/>
         </scene>
     </scenes>
     <resources>
