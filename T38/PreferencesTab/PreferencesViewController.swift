@@ -116,7 +116,7 @@ class PreferencesViewController: UIViewController {
     
     @IBAction func second_Button(_ sender: Any) {
         cdu.printResults(moc: moc)
-//        cdu.deleteAllFromDB(moc: moc)
+        cdu.deleteAllFromDB(moc: moc)
         
         
         //        downLoader.removeFile(fileNamewithExtension: "\(cdu.getUserDefaults().homeFieldICAO_UD).json")
