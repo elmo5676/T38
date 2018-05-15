@@ -14,10 +14,14 @@ import CoreLocation
 class CoreDataUtilies {
     
     
+    
     // MARK: UserDefaults List
     let defaults = UserDefaults.standard
     //    var runwayLength: Double = 8000.0
     //    var homeAirfieldICAO: String = "KSMF"
+    
+    var dafifUrlJSONBase = "http://getatis.com/DAFIF/GetAirfieldsByState?state="
+    var weatherUrlJSONBase = "https://www.getatis.com/services/GetMETAR?stations="
     
     // MARK: Setting UserDefaults
     func setUserDefaults(runwayLength: Double,
@@ -33,7 +37,7 @@ class CoreDataUtilies {
                          givenEngineFailure: String){
         
         defaults.set(runwayLength, forKey: "runwayLength_UD")
-        defaults.set(homeAirfieldICAO, forKey: "homeAirfieldICAO_UD")
+        defaults.set(homeAirfieldICAO.uppercased(), forKey: "homeAirfieldICAO_UD")
         defaults.set(baseWeatherUrl, forKey: "baseWeatherUrl_UD")
         defaults.set(baseDafifUrl, forKey: "baseDafifUrl_UD")
         defaults.set(aeroBraking, forKey: "aeroBraking_UD")
@@ -59,32 +63,149 @@ class CoreDataUtilies {
         weightUsedForTOLD_UD: String,
         givenEngineFailure_UD: String){
             
+            var homeAirfieldICAO_Optional = ""
+            var  baseWeatherUrl_Optional = weatherUrlJSONBase
+            var  baseDafifUrl_Optional = dafifUrlJSONBase
+            
+            var  aeroBraking_Optional = ""
+            var  tempScaleCorF_Optional = ""
+            var  aircraftGrossWeight_Optional = ""
+            var  podInstalled_Optional = ""
+            var  weightOfCargoInPOD_Optional = ""
+            var  weightUsedForTOLD_Optional = ""
+            var  givenEngineFailure_Optional = ""
+//            var  <#letDefaultName#>_Optional = <#placeHolderInitializer#>
+//            var  <#letDefaultName#>_Optional = <#placeHolderInitializer#>
+            
             let runwayLength = defaults.double(forKey: "runwayLength_UD")
-            let homeAirfieldICAO = defaults.string(forKey: "homeAirfieldICAO_UD")!
-            let baseWeatherUrl = defaults.string(forKey: "baseWeatherUrl_UD")!
-            let baseDafifUrl = defaults.string(forKey: "baseDafifUrl_UD")!
-            let aeroBraking = defaults.string(forKey: "aeroBraking_UD")!
-            let tempScaleCorF = defaults.string(forKey: "tempScaleCorF_UD")!
-            let aircraftGrossWeight = defaults.string(forKey: "aircraftGrossWeight_UD")!
-            let podInstalled = defaults.string(forKey: "podInstalled_UD")!
-            let weightOfCargoInPOD = defaults.string(forKey: "weightOfCargoInPOD_UD")!
-            let weightUsedForTOLD = defaults.string(forKey: "weightUsedForTOLD_UD")!
-            let givenEngineFailure = defaults.string(forKey: "givenEngineFailure_UD")!
+            let homeAirfieldICAO = defaults.string(forKey: "homeAirfieldICAO_UD")
+            let baseWeatherUrl = defaults.string(forKey: "baseWeatherUrl_UD")
+            let baseDafifUrl = defaults.string(forKey: "baseDafifUrl_UD")
+            let aeroBraking = defaults.string(forKey: "aeroBraking_UD")
+            let tempScaleCorF = defaults.string(forKey: "tempScaleCorF_UD")
+            let aircraftGrossWeight = defaults.string(forKey: "aircraftGrossWeight_UD")
+            let podInstalled = defaults.string(forKey: "podInstalled_UD")
+            let weightOfCargoInPOD = defaults.string(forKey: "weightOfCargoInPOD_UD")
+            let weightUsedForTOLD = defaults.string(forKey: "weightUsedForTOLD_UD")
+            let givenEngineFailure = defaults.string(forKey: "givenEngineFailure_UD")
             //let <#xxxxx#> = defaults.string(forKey: "<#xxxxx#>_UD")!
             
+            if let homeFieldICAO_UD_ = homeAirfieldICAO {
+                homeAirfieldICAO_Optional = homeFieldICAO_UD_
+            }
+            if let baseWeatherUrl_UD_ = baseWeatherUrl {
+                baseWeatherUrl_Optional = baseWeatherUrl_UD_
+            }
+            if let baseDafifUrl_UD_ = baseDafifUrl {
+                baseDafifUrl_Optional = baseDafifUrl_UD_
+            }
+            if let aeroBraking_UD_ = aeroBraking {
+                aeroBraking_Optional = aeroBraking_UD_
+            }
+            if let tempScaleCorF_UD_ = tempScaleCorF {
+                tempScaleCorF_Optional = tempScaleCorF_UD_
+            }
+            if let aircraftGrossWeight_UD_ = aircraftGrossWeight {
+                aircraftGrossWeight_Optional = aircraftGrossWeight_UD_
+            }
+            if let podInstalled_UD_ = podInstalled {
+                podInstalled_Optional = podInstalled_UD_
+            }
+            if let weightOfCargoInPOD_UD_ = weightOfCargoInPOD {
+                weightOfCargoInPOD_Optional = weightOfCargoInPOD_UD_
+            }
+            if let weightUsedForTOLD_UD_ = weightUsedForTOLD {
+                weightUsedForTOLD_Optional = weightUsedForTOLD_UD_
+            }
+            if let givenEngineFailure_UD_ = givenEngineFailure {
+                givenEngineFailure_Optional = givenEngineFailure_UD_
+            }
+            
+            
+            
+            
+//            if let <#OptionalTemp#>_ = <#letDefaultName#> {
+//                <#letDefaultName#>_Optional = <#OptionalTemp#>_
+//            }
+            
             return (runwayLength_UD: runwayLength,
-                    homeFieldICAO_UD: homeAirfieldICAO,
-                    baseWeatherUrl_UD: baseWeatherUrl,
-                    baseDafifUrl_UD: baseDafifUrl,
-                    aeroBraking_UD: aeroBraking,
-                    tempScaleCorF_UD: tempScaleCorF,
-                    aircraftGrossWeight_UD: aircraftGrossWeight,
-                    podInstalled_UD: podInstalled,
-                    weightOfCargoInPOD_UD: weightOfCargoInPOD,
-                    weightUsedForTOLD_UD: weightUsedForTOLD,
-                    givenEngineFailure_UD: givenEngineFailure)
+                    homeFieldICAO_UD: homeAirfieldICAO_Optional,
+                    baseWeatherUrl_UD: baseWeatherUrl_Optional,
+                    baseDafifUrl_UD: baseDafifUrl_Optional,
+                    aeroBraking_UD: aeroBraking_Optional,
+                    tempScaleCorF_UD: tempScaleCorF_Optional,
+                    aircraftGrossWeight_UD: aircraftGrossWeight_Optional,
+                    podInstalled_UD: podInstalled_Optional,
+                    weightOfCargoInPOD_UD: weightOfCargoInPOD_Optional,
+                    weightUsedForTOLD_UD: weightUsedForTOLD_Optional,
+                    givenEngineFailure_UD: givenEngineFailure_Optional)
             //<#xxxxxx#>: <#xxxxxx#>,
     }
+    
+//    func getUserDefaults() -> (runwayLength_UD: Double,
+//        homeFieldICAO_UD: String,
+//        baseWeatherUrl_UD: String,
+//        baseDafifUrl_UD: String,
+//        aeroBraking_UD: String,
+//        tempScaleCorF_UD: String,
+//        aircraftGrossWeight_UD: String,
+//        podInstalled_UD: String,
+//        weightOfCargoInPOD_UD: String,
+//        weightUsedForTOLD_UD: String,
+//        givenEngineFailure_UD: String){
+//
+//            var homeAirfieldICAO_Optional = ""
+//            var  baseWeatherUrl_Optional = weatherUrlJSONBase
+//
+//            //            var  <#letDefaultName#>_Optional = <#placeHolderInitializer#>
+//            //            var  <#letDefaultName#>_Optional = <#placeHolderInitializer#>
+//            //            var  <#letDefaultName#>_Optional = <#placeHolderInitializer#>
+//            //            var  <#letDefaultName#>_Optional = <#placeHolderInitializer#>
+//            //            var  <#letDefaultName#>_Optional = <#placeHolderInitializer#>
+//            //            var  <#letDefaultName#>_Optional = <#placeHolderInitializer#>
+//
+//
+//
+//            let runwayLength = defaults.double(forKey: "runwayLength_UD")
+//            let homeAirfieldICAO = defaults.string(forKey: "homeAirfieldICAO_UD")
+//            let baseWeatherUrl = defaults.string(forKey: "baseWeatherUrl_UD")
+//            let baseDafifUrl = defaults.string(forKey: "baseDafifUrl_UD")!
+//            let aeroBraking = defaults.string(forKey: "aeroBraking_UD")!
+//            let tempScaleCorF = defaults.string(forKey: "tempScaleCorF_UD")!
+//            let aircraftGrossWeight = defaults.string(forKey: "aircraftGrossWeight_UD")!
+//            let podInstalled = defaults.string(forKey: "podInstalled_UD")!
+//            let weightOfCargoInPOD = defaults.string(forKey: "weightOfCargoInPOD_UD")!
+//            let weightUsedForTOLD = defaults.string(forKey: "weightUsedForTOLD_UD")!
+//            let givenEngineFailure = defaults.string(forKey: "givenEngineFailure_UD")!
+//            //let <#xxxxx#> = defaults.string(forKey: "<#xxxxx#>_UD")!
+//
+//            if let homeFieldICAO_UD_ = homeAirfieldICAO {
+//                homeAirfieldICAO_Optional = homeFieldICAO_UD_
+//            }
+//            if let baseWeatherUrl_UD_ = baseWeatherUrl {
+//                baseWeatherUrl_Optional = baseWeatherUrl_UD_
+//            }
+//
+//
+//
+//            //            if let <#OptionalTemp#>_ = <#letDefaultName#> {
+//            //                <#letDefaultName#>_Optional = <#OptionalTemp#>_
+//            //            }
+//
+//            return (runwayLength_UD: runwayLength,
+//                    homeFieldICAO_UD: homeAirfieldICAO_Optional,
+//                    baseWeatherUrl_UD: baseWeatherUrl_Optional,
+//                    baseDafifUrl_UD: baseDafifUrl,
+//                    aeroBraking_UD: aeroBraking,
+//                    tempScaleCorF_UD: tempScaleCorF,
+//                    aircraftGrossWeight_UD: aircraftGrossWeight,
+//                    podInstalled_UD: podInstalled,
+//                    weightOfCargoInPOD_UD: weightOfCargoInPOD,
+//                    weightUsedForTOLD_UD: weightUsedForTOLD,
+//                    givenEngineFailure_UD: givenEngineFailure)
+//            //<#xxxxxx#>: <#xxxxxx#>,
+//    }
+    
     
     func printResults(moc: NSManagedObjectContext) {
         do {
@@ -124,6 +245,46 @@ class CoreDataUtilies {
         let airportCoords = CLLocation(latitude: airportLat, longitude: airportLong)
         let distanceAwayInNM = myCoords.distance(from: airportCoords).metersToNauticalMiles
         return (airport, distanceAwayInNM)
+    }
+    
+//    func distanceAway(deviceLat lat: Double, deviceLong long: Double, airport: AirfieldCD) -> (airport: AirfieldCD, bearing: Double, distanceAway: Double) {
+//        let airportLat = airport.latitude_CD
+//        let airportLong = airport.longitude_CD
+//        let myCoords =  CLLocation(latitude: lat, longitude: long)
+//        let airportCoords = CLLocation(latitude: airportLat, longitude: airportLong)
+//        let distanceAwayInNM = myCoords.distance(from: airportCoords).metersToNauticalMiles
+//
+//        let a3 = sin(airportLong - long) * cos(airportLat)
+//        let b3 = cos(lat) * sin(airportLat) - sin(lat) * cos(airportLat) * cos(airportLong - long)
+//        let bearing = ((atan2(a3, b3).radiansToDegrees) + 360).truncatingRemainder(dividingBy: 360) //Might need mag variation here
+//
+//        return (airport, bearing, distanceAwayInNM)
+//    }
+    
+    func rangeAndBearing(latitude_01: Double, longitude_01: Double, latitude_02: Double, longitude_02: Double) -> (range: Double, bearing: Double) {
+        let majEarthAxis_WGS84: Double = 6_378_137.0                // maj      - meters
+        let minEarthAxis_WGS84: Double = 6_356_752.314_245          // min      - meters
+        let lat_01 = latitude_01.degreesToRadians
+        let lat_02 = latitude_02.degreesToRadians
+        let long_01 = longitude_01.degreesToRadians
+        let long_02 = longitude_02.degreesToRadians
+        let difLong = (longitude_02 - longitude_01).degreesToRadians
+        //1: radiusCorrectionFactor()
+        let a1 = 1.0/(majEarthAxis_WGS84 * majEarthAxis_WGS84)
+        let b1 = (tan(lat_01) * tan(lat_01)) / (minEarthAxis_WGS84 * minEarthAxis_WGS84)
+        let c1 = 1.0/((a1+b1).squareRoot())
+        let d1 = c1/(cos(lat_01))
+        //2: Law of Cosines
+        let range = (acos(sin(lat_01)*sin(lat_02) + cos(lat_01)*cos(lat_02) * cos(difLong)) * d1).metersToNauticalMiles
+        
+        
+        //3: Calculating Bearing from 1st coords to second
+        let a3 = sin(long_02 - long_01) * cos(lat_02)
+        let b3 = cos(lat_01) * sin(lat_02) - sin(lat_01) * cos(lat_02) * cos(long_02 - long_01)
+        let bearing = ((atan2(a3, b3).radiansToDegrees) + 360).truncatingRemainder(dividingBy: 360) //Might need mag variation here
+        let results = [range, bearing]
+        print(range)
+        return (range: results[0], bearing: results[1])
     }
     
     // MARK: CD Queries
