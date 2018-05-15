@@ -15,13 +15,7 @@ class RunwayChoicesTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.rowHeight = 100
         moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
-//        guard let model = moc.persistentStoreCoordinator?.managedObjectModel,
-//            let fetchAllAirports = model.fetchRequestTemplate(forName: "FetchAllAirports") as? NSFetchRequest<AirfieldCD> else {
-//                return
-
         self.title = "Test"
-//        self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,10 +25,12 @@ class RunwayChoicesTableViewController: UITableViewController {
 
  
     
-//    @IBAction func dismissButton(_ sender: UIBarButtonItem) {
-//        presentingViewController?.dismiss(animated: true, completion: nil)
-//    }
-//    
+    @IBAction func dismissButton(_ sender: UIButton!) {
+        presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
     
     
     var rwyID = ""
@@ -53,18 +49,47 @@ class RunwayChoicesTableViewController: UITableViewController {
     var currentWeather: Weather?
     var jsonD = JSONHandler()
     
-//    func getWindInfoForRwyHeading(_ rwyHdg: Heading){
-//        var wind = Wind(windHeading: Heading((Int((currentWeather?.metars.metar.windDirDegrees)!))!), windSpeed: Double(currentWeather?.metars.metar.windSpeedKt)!, runwayHeading: rwyHdg)
-//
-//    }
     
     
     
     // MARK: Runway Variables Here
-
-
+    var currentRunwayDict = [String: [Any]]()
+    var chosenRwy = [Any]()
+    func setSelectedRWY(indexPath: Int) {
+        
+        
+        currentRunwayDict["H"] = [runways[indexPath].highID_CD!,
+                                  runways[indexPath].length_CD,
+                                  runways[indexPath].magHdgHi_CD,
+                                  runways[indexPath].slopeHi_CD,
+        ]
+        currentRunwayDict["L"] = [runways[indexPath].lowID_CD!,
+                                  runways[indexPath].length_CD,
+                                  runways[indexPath].magHdgLow_CD,
+                                  runways[indexPath].slopeLow_CD,
+        ]
+    }
+    
+    @IBAction func hiRwySelectedButton_(_ sender: UIButton) {
+        if let indexPath = self.tableView.indexPathForView(sender) {
+            setSelectedRWY(indexPath: indexPath[1])
+            chosenRwy = currentRunwayDict["H"]!
+            print("Button tapped at indexPath \(String(describing: currentRunwayDict["H"]))")
+        } else {
+            print("Button indexPath not found")
+        }
+    }
+    @IBAction func lowRwySelectedButton_(_ sender: UIButton) {
+        if let indexPath = self.tableView.indexPathForView(sender) {
+            setSelectedRWY(indexPath: indexPath[1])
+            chosenRwy = currentRunwayDict["L"]!
+            print("Button tapped at indexPath \(String(describing: currentRunwayDict["L"]))")
+        } else {
+            print("Button indexPath not found")
+        }
+    }
+    
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -75,23 +100,37 @@ class RunwayChoicesTableViewController: UITableViewController {
         return runways.count
     }
 
+//    func xwindColorifyLimits(label: UILabel, xWind: Double, hWind: Double) -> (label: UILabel, color: UIColor) {
+//        var label = label
+//        var
+//    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "runwayCell", for: indexPath) as! RunwayCell
-
-        cell.hi_RwyButtonOutlet.setTitle(runways[indexPath.row].highID_CD, for: .normal)
-        cell.hi_RwyHwind.text = "X-Wind"
-        cell.hi_RwyXwind.text = "H-Wind"
+        
+        let currentWeather = self.currentWeather!
         
         
+        let windHeading = Heading(Int((currentWeather.metars.metar.windDirDegrees))!)
+        let hiRunwayHeading = Heading(Int(runways[indexPath.row].magHdgHi_CD))
+        let hiRWYwind = Wind(windHeading: windHeading, windSpeed: Double(currentWeather.metars.metar.windSpeedKt)!, runwayHeading: hiRunwayHeading)
+        let hi_xWind = hiRWYwind.crossWind
+        let hi_hWind = hiRWYwind.headWind
+        
+        let lowRunwayHeading = Heading(Int(runways[indexPath.row].magHdgHi_CD))
+        let lowRWYwind = Wind(windHeading: windHeading, windSpeed: Double(currentWeather.metars.metar.windSpeedKt)!, runwayHeading: lowRunwayHeading)
+        let low_xWind = lowRWYwind.crossWind
+        let low_hWind = lowRWYwind.headWind
+       
+        cell.hi_RwyHwind.text = "XW: \(String(format: "%.0f", hi_xWind))"
+        cell.hi_RwyXwind.text = "HW: \(String(format: "%.0f", hi_hWind))"
         cell.lengthLabel.text = String(format: "%.0f", runways[indexPath.row].length_CD) + " Ft"
-        
-        
-        
+        cell.hi_RwyButtonOutlet.setTitle(runways[indexPath.row].highID_CD, for: .normal)
         cell.low_RwyButtonOutlet.setTitle(runways[indexPath.row].lowID_CD, for: .normal)
-        cell.low_RwyXwind.text = "X-Wind"
-        cell.low_RwyHwind.text = "H-Wind"
+        cell.low_RwyXwind.text = "XW: \(String(format: "%.0f", low_xWind))"
+        cell.low_RwyHwind.text = "HW: \(String(format: "%.0f", low_hWind))"
         return cell
     }
+    
 
 }

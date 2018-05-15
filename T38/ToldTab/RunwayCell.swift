@@ -33,6 +33,7 @@ class RunwayCell: UITableViewCell {
     @IBOutlet var lengthLabel: UILabel!
     @IBAction func hiwRwySelectedButton(_ sender: UIButton) {
         
+        
     }
     
     @IBAction func lowwRwySelectedButton(_ sender: UIButton) {

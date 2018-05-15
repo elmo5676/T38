@@ -16,6 +16,7 @@ class NearestTableViewCell: UITableViewCell {
     }
     
     @IBOutlet var icaoLabel: UILabel!
+    @IBOutlet var airfieldNameLabel: UILabel!
     @IBOutlet var rangeLabel: UILabel!
     @IBOutlet var bearingLabel: UILabel!
     @IBOutlet var directToButtonOutlet: UIButton!

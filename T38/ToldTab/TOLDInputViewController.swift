@@ -57,9 +57,6 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         autoFillButtonOutlet.isHidden = true
-//        fetchAndSortByDistance()
-        
-        
         jsonD.downloadWeatherWithIndicator(baseUrl:  cdu.getUserDefaults().baseWeatherUrl_UD, icao: cdu.getUserDefaults().homeFieldICAO_UD, button: autoFillButtonOutlet)
        }
     
@@ -83,6 +80,9 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
     var currentWeather: Weather?
     var useUDHomeField = true
     var homeFieldRunways = [RunwayCD]()
+    
+    
+    
     
     func clearAllFields(){
         temperatureTextField.text = ""
@@ -129,27 +129,6 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
             self.deviceAlt = loc.altitude
         }}
     
-    
-    
-    // MARK: Airfield AutoFill
-//    var temperatureMETAR = 0.0
-//    var pressureAltMETAR = 0.0
-//
-//    var runwayLength = 0.0
-//    var runwayHdg = 0.0
-//    var runwaySlope = 0.0
-//    
-//    var windDirectionMETAR = 0.0
-//    var windVelocityMETAR = 0.0
-//    var rcrMETAR = 0.0
-//
-//    var aircraftGrossWt_UD = 12700
-//    var weightOfCargoInPod_UD = 0.0
-//    var weightUsedForTOLD_UD = 12700
-//    var givenEngFailAt_UD = 0.0
-
-    
-    
     @IBOutlet weak var autoFillButtonOutlet: UIButton!
     @IBAction func autoFillButton(_ sender: UIButton) {
          _ = autoFill()
@@ -164,13 +143,35 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
         let pa = ((29.92 - altSetting) * 1000) + fieldElevation
         return pa
     }
+ 
     
-//    func passRunwayInfo () {
-//        let defaults = cdu.getUserDefaults()
-//
-//
-//    }
-    
+    // MARK: Runway Selection and Autofill
+    var chosenRunway = [Any]()
+    @IBAction func unwindToViewController(segue: UIStoryboardSegue) {
+        let source = segue.source as? RunwayChoicesTableViewController
+        chosenRunway = (source?.chosenRwy)!
+        
+        let icao = airfieldICAO.text!.prefix(4)
+        let length_si = String(describing: chosenRunway[1])
+        let heading_si = String(describing: chosenRunway[2])
+        let slope_si = String(describing: chosenRunway[3])
+        
+        let length = Double(length_si)
+        let heading = Double(heading_si)
+        let slope = Double(slope_si)
+        
+        airfieldICAO.text = "\(String(describing: icao)) \(chosenRunway[0])"
+        runwayLengthTextField.text = String(format: "%.0f", length!)
+        runwayHeadingTextField.text = String(format: "%.0f", heading!)
+        runwaySlopeTextField.text = String(format: "%.0f", slope!)
+        
+        print("*****************************************************************************")
+        print(chosenRunway as Any)
+        print("*****************************************************************************")
+
+    }
+ 
+
     
     func autoFill() -> Bool {
         let result = true
@@ -200,9 +201,9 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
                 }
                 print(runwayIdSet)
                 airfieldICAO.text = key.icao_CD
-                runwayLengthTextField.text = String(format: "%.0f", value[0].length_CD)
-                runwayHeadingTextField.text = String(format: "%.0f", value[0].magHdgHi_CD)
-                runwaySlopeTextField.text = String(format: "%.1f", value[0].slopeHi_CD)
+//                runwayLengthTextField.text = String(format: "%.0f", value[0].length_CD)
+//                runwayHeadingTextField.text = String(format: "%.0f", value[0].magHdgHi_CD)
+//                runwaySlopeTextField.text = String(format: "%.1f", value[0].slopeHi_CD)
                 rcrTextField.text = "23"
                 fieldElev = key.elevation_CD
             }
@@ -346,7 +347,6 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
     var canContinuetoCalculate = true
     
     // MARK: RESULTS Variables
-    // String
     var HeadwindKey = ""
     var CrosswindKey = ""
     var MACSKeyKey = ""
@@ -371,12 +371,6 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
     // Error Array
     var resultsErrorArray = [String]()
     
-//    func alertBlankField(){
-//        let alertController = UIAlertController(title: "Missing Info!", message:
-//            "Please fill in all the required information", preferredStyle: UIAlertControllerStyle.alert)
-//        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
-//        canContinuetoCalculate = false
-//    }
     
     func getInputFromTextfields() {
         if let temperature_ = temperatureTextField.text {
@@ -441,24 +435,7 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-//    // MARK: TEST INPUT Variables
-//    var aeroBreaking = 2
-//    var temperature = 5.0
-//    var celciusOrFerenheight = "C"
-//    var pressureAlt = 0.0
-//    var runwayLength = 12000.0
-//    var runwayHDG = 315.0
-//    var windDirection = 315.0
-//    var windVelocity = 0.0
-//    var runwaySlope = 0.0
-//    var rcr = 23.0
-//    var aircraftGrossWeight = 12700.0
-//    var podCalcTOLD = false //used for calcTOLD function for weight (1 = YES/True | 0 = NO/False) tied to podCalculate below
-//    var podCalculate = 0 //used for caclulate function
-//    var weightOfCargoInPOD = 0.0
-//    var weightUsedForTOLD = 12700.0
-//    var givenEngFailure = 0.0
-    
+  
     func calculateTOLD() {
         getInputFromTextfields()
         spinner.isHidden = false
@@ -571,6 +548,8 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
     
   
     
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "calculateTOLD"?:
@@ -602,7 +581,7 @@ class TOLDInputViewController: UIViewController, UITextFieldDelegate {
         case "runwayChoicesSeque"?:
             let destinationViewController = segue.destination as! RunwayChoicesTableViewController
             destinationViewController.runways = homeFieldRunways
-            print(homeFieldRunways)
+            //print(homeFieldRunways)
             
         default:
             preconditionFailure("Unexpected segue identifier")

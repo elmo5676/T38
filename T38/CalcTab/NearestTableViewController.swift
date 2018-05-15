@@ -122,6 +122,7 @@ class NearestTableViewController: UITableViewController, CLLocationManagerDelega
         range = cdu.rangeAndBearing(latitude_01: deviceLat, longitude_01: deviceLong, latitude_02: airfields[indexPath.row].latitude_CD, longitude_02: airfields[indexPath.row].longitude_CD).range
         bearing = cdu.rangeAndBearing(latitude_01: deviceLat, longitude_01: deviceLong, latitude_02: airfields[indexPath.row].latitude_CD, longitude_02: airfields[indexPath.row].longitude_CD).bearing
         cell.icaoLabel.text = airfields[indexPath.row].icao_CD
+        cell.airfieldNameLabel.text = airfields[indexPath.row].name_CD
         cell.bearingLabel.text = String(format: "%.0f",bearing) + "°"
         cell.rangeLabel.text = String(format: "%.0f",range) + " NM"
         cell.directToButtonOutlet.layer.cornerRadius = 0

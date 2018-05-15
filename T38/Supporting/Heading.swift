@@ -8,7 +8,11 @@
 
 import Foundation
 
-struct Heading: Equatable {
+struct Heading: Equatable, CustomStringConvertible {
+    var description: String {
+        return "\(direction)"
+    }
+    
     static func ==(lhs: Heading, rhs: Heading) -> Bool {
         return lhs.direction == rhs.direction
     }
@@ -16,12 +20,20 @@ struct Heading: Equatable {
     static func +(lhs: Heading, rhs: Heading) -> Heading {
         var total = lhs.direction + rhs.direction
         total = total % 360
+        if total < 0 {
+            total = 360 - abs(total)
+            total %= 360
+        }
         return Heading(total)
     }
     
     static func -(lhs: Heading, rhs: Heading) -> Heading {
         var total = lhs.direction - rhs.direction
-        total = abs(total) % 360
+        total = total % 360
+        if total < 0 {
+            total = 360 - abs(total)
+            total %= 360
+        }
         return Heading(total)
     }
     

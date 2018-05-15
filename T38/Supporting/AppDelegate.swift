@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         cdu.printResults(moc: moc)
         
-        if cdu.getUserDefaults().homeFieldICAO_UD == nil {
+        if cdu.getUserDefaults().homeFieldICAO_UD == "" {
             cdu.setUserDefaults(runwayLength: 8000.0,
                                 homeAirfieldICAO: "KBAB",
                                 baseWeatherUrl: baseWeatherUrl_METAR,
